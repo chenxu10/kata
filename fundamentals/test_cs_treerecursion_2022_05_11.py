@@ -16,6 +16,8 @@ Try solve it using both preorder recursion and dfs traversal
 # Challenge2:
 Try maintain a mental graph of trees in your working memory when coding
 (Ideas from Simon's minds eye)
+# Challenge3:
+No backspace while typing solution from beginning to end
 """
 
 def sum_roof(root):
@@ -25,14 +27,14 @@ def sum_roof(root):
         nonlocal ans
         if root:
             cur_val = cur_val * 10 + root.val
-            if (not root.left) and (not root.right):
+            if not (root.left or root.right):
                 ans += cur_val
-            preorder(root.left,cur_val)
-            preorder(root.right,cur_val)
-
+            else:
+                preorder(root.left, cur_val)
+                preorder(root.right, cur_val)
+    
     preorder(root, 0)
     return ans
-    
 
 def test_sum_roof():
     class TreeNode:
