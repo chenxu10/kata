@@ -1,4 +1,4 @@
-# kata
+# Kata
 Kata for practicing coding, stats, ml, system and architecture design.
 
 ## Ideas for challenging yourself
@@ -17,3 +17,23 @@ Kata for practicing coding, stats, ml, system and architecture design.
 - [ ] Recursion-elimination-a creative approach
     - [ ] Can you solve this problem in a recursion way?
 - [ ] Different programming languages
+
+## 学习如何学习算法
+### 如何训练？
+战略：80/20法则、构成算法的砖头与主线
+基本功：
+一路：速度放慢（体会数学归纳法的思路)-How to create an algorithm(chapter5五道题)
+二路：定住一个套路练习它的变式(Variation)与交叉训练(Interleaving)
+推手：一个公司最近一个月的习题集
+散手：规定时间的周赛、实战比赛
+注意力体能训练：45minutes * 4
+
+训练原则:reduce the retrival strength and maximizing gaining in storage strength
+训练技术:
++ Output more and input less(Can you generate the content by yourself)
++ Feynman Technique
+    + scope of concept
+    + use your own words and explain to a college level student)
++ Consume information in chunks
++ Think about testing(generating data)
++ Think abour debugging(how it can adapt to more change)

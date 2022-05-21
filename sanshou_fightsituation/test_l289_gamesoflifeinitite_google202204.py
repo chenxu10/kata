@@ -1,0 +1,61 @@
+"""
+Minimum number of steps
+"""
+from collections import deque
+
+# Induction we know how to solve shortest steps in a subgraph
+# with horse can be reached 
+def gameofLife(board):
+    # for each point in matrix do bfs and update state according to situation
+    neighbors = [(1,0), (1,-1), (0,-1), (-1,-1), (-1,0), (-1,1), (0,1), (1,1)]
+
+    rows = len(board)
+    cols = len(board[0])
+
+    # Iterate through board cell by cell.
+    for row in range(rows):
+        for col in range(cols):
+
+            # For each cell count the number of live neighbors.
+            live_neighbors = 0
+            for neighbor in neighbors:
+
+                # row and column of the neighboring cell
+                r = (row + neighbor[0])
+                c = (col + neighbor[1])
+
+                # Check the validity of the neighboring cell and if it was originally a live cell.
+                if (r < rows and r >= 0) and (c < cols and c >= 0) and abs(board[r][c]) == 1:
+                    live_neighbors += 1
+
+            # Rule 1 or Rule 3
+            if board[row][col] == 1 and (live_neighbors < 2 or live_neighbors > 3):
+                # -1 signifies the cell is now dead but originally was live.
+                board[row][col] = -1
+            # Rule 4
+            if board[row][col] == 0 and live_neighbors == 3:
+                # 2 signifies the cell is now live but was originally dead.
+                board[row][col] = 2
+
+    # Get the final representation for the newly updated board.
+    for row in range(rows):
+        for col in range(cols):
+            if board[row][col] > 0:
+                board[row][col] = 1
+            else:
+                board[row][col] = 0
+
+# T:O(max(|x|,|y|)^2)       
+# S:O(max(|x|,|y|)^2)       
+
+def test_gameofLife():
+    """
+    1 1   1  1
+    1 0   1  1
+    
+    1 0 1  0 1 1
+    1 1 1  1 1 1 
+    0 0 1  1 1 1
+    """
+    assert gameofLife([[1,1],[1,0]]) == [[1,1],[1,1]]
+    assert gameofLife([[1,0,1],[1,1,1],[0,0,1]]) == [[0,1,1],[1,1,1],[1,1,1]]
