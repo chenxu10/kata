@@ -34,6 +34,9 @@ Kata for practicing coding, stats, ml, system and architecture design.
 + Feynman Technique
     + scope of concept
     + use your own words and explain to a college level student)
-+ Consume information in chunks
++ Consume information in chunks, the context of chunks so you know when to use it
 + Think about testing(generating data)
 + Think abour debugging(how it can adapt to more change)
+
+## Algorithm Properties and Tricks
++ [Binary Search](weapon_tricks/binary_search_trick.md)

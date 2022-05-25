@@ -7,3 +7,6 @@ def closedIslands():
 def test_closedIslands():
     matrix = [[0,1,0],[1,0,1],[0,1,0]]
     assert closedIslands(matrix) == 2
+
+
+# Related problems number of islands
