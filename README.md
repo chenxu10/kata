@@ -19,6 +19,9 @@ Kata for practicing coding, stats, ml, system and architecture design.
 - [ ] Different programming languages
 
 ## 学习如何学习算法
+### 启发式（对个人最具启发从高到底）
++ 把要求的结论当成条件(三年级时的设X解题)
+
 ### 如何训练？
 战略：80/20法则、构成算法的砖头与主线
 基本功：
