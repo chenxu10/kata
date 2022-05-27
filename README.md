@@ -1,30 +1,17 @@
 # Kata
 Kata for practicing coding, stats, ml, system and architecture design.
 
-## Ideas for challenging yourself
-- [ ] Working memory hold and compute
-- [ ] No backspace while typing
-- [ ] Attention direction to parse problems into unknown, data, condition
-    - [ ] Given, return, definition, examples
-    - [ ] Can you rephrase this problme in a unknown, known, condition format
-- [ ] High-level description of solutions
-    - [ ] Can you describe your solution in a high level in English in three sentences?
-- [ ] Implement high-level solutions
-- [ ] Test driven development
-- [ ] Touch typing minimize the delete rate
-- [ ] Two high level thoughts to solve trees
-- [ ] Time Space Complexity
-- [ ] Recursion-elimination-a creative approach
-    - [ ] Can you solve this problem in a recursion way?
-- [ ] Different programming languages
 
 ## 学习如何学习算法
 ### 启发式（对个人最具启发从高到底）
 + 把要求的结论当成条件(三年级时的设X解题)
+    + It works because it puts your working memory and long-term memory, left and 
+    right brain in a cooperative manner
+    + 找到负荷大脑工作原理的方法，让做题从burn your mental energy变成cultivate your energy
 
 ### 如何训练？
 战略：80/20法则、构成算法的砖头与主线
-基本功：
+基本功：从树入手了解（迭代-递归-遍历-分解）
 一路：速度放慢（体会数学归纳法的思路)-How to create an algorithm(chapter5五道题)
 二路：定住一个套路练习它的变式(Variation)与交叉训练(Interleaving)
 推手：一个公司最近一个月的习题集
@@ -42,4 +29,23 @@ Kata for practicing coding, stats, ml, system and architecture design.
 + Think abour debugging(how it can adapt to more change)
 
 ## Algorithm Properties and Tricks
++ [跟polya学解题](weapon_tricks/how_to_solve_it_diaglogue.md)
 + [Binary Search](weapon_tricks/binary_search_trick.md)
+
+
+## Ideas for challenging yourself
+- [ ] Working memory hold and compute
+- [ ] No backspace while typing
+- [ ] Attention direction to parse problems into unknown, data, condition
+    - [ ] Given, return, definition, examples
+    - [ ] Can you rephrase this problme in a unknown, known, condition format
+- [ ] High-level description of solutions
+    - [ ] Can you describe your solution in a high level in English in three sentences?
+- [ ] Implement high-level solutions
+- [ ] Test driven development
+- [ ] Touch typing minimize the delete rate
+- [ ] Two high level thoughts to solve trees
+- [ ] Time Space Complexity
+- [ ] Recursion-elimination-a creative approach
+    - [ ] Can you solve this problem in a recursion way?
+- [ ] Different programming languages

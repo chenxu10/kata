@@ -1,6 +1,13 @@
+"""
+Given a string s and a dictionary of strings wordDict, 
+return true if s can be segmented into a space-separated 
+sequence of one or more dictionary words.
+
+Input: s = "leetcode", wordDict = ["leet","code"]
+Output: true
+Explanation: Return true because "leetcode" can be segmented as "leet code".
+"""
 from collections import deque
-
-
 
 # Failure point
 def wordbreak(s,worddict):
