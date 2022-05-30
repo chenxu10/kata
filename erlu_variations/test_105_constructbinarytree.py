@@ -16,7 +16,7 @@ def createBTree(data, index):
     return pNode
 
 def construct_tree(preorder,inorder):
-    raise NotImplementedError
+    raise 2
 
 def test_construct_build_tree():
     data = [1,4,9,None,None,15,17]

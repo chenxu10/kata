@@ -9,6 +9,13 @@ Kata for practicing coding, stats, ml, system and architecture design.
     right brain in a cooperative manner
     + 找到负荷大脑工作原理的方法，让做题从burn your mental energy变成cultivate your energy
 
+### 如何实战？
+1. You cannot start coing with out rephrasing problems in your own words
+2. You cannot jump into building solution unless you generate specialized test cases
+3. You cannot jump into building solution unless you describe a brute force solution
+    + Search, enumerate 1 element and compare to definition
+    + Assume f(n-1) works, and extend to f(n)
+
 ### 如何训练？
 战略：80/20法则、构成算法的砖头与主线
 基本功：从树入手了解（迭代-递归-遍历-分解）
@@ -31,21 +38,3 @@ Kata for practicing coding, stats, ml, system and architecture design.
 ## Algorithm Properties and Tricks
 + [跟polya学解题](weapon_tricks/how_to_solve_it_diaglogue.md)
 + [Binary Search](weapon_tricks/binary_search_trick.md)
-
-
-## Ideas for challenging yourself
-- [ ] Working memory hold and compute
-- [ ] No backspace while typing
-- [ ] Attention direction to parse problems into unknown, data, condition
-    - [ ] Given, return, definition, examples
-    - [ ] Can you rephrase this problme in a unknown, known, condition format
-- [ ] High-level description of solutions
-    - [ ] Can you describe your solution in a high level in English in three sentences?
-- [ ] Implement high-level solutions
-- [ ] Test driven development
-- [ ] Touch typing minimize the delete rate
-- [ ] Two high level thoughts to solve trees
-- [ ] Time Space Complexity
-- [ ] Recursion-elimination-a creative approach
-    - [ ] Can you solve this problem in a recursion way?
-- [ ] Different programming languages

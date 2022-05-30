@@ -15,14 +15,43 @@ Return the step-by-step directions of the shortest path from node s to node t.
 Input: root = [5,1,2,3,null,6,4], startValue = 3, destValue = 6
 Output: "UURL"
 Explanation: The shortest path is: 3 → 1 → 5 → 2 → 6.
-
 """
-def closedIslands():
-    # fill island with water using dfs
-    # fill island with right, left, up and bottom
-    # go through all points in matrix, update solution when it's land and update the soluion
-    raise notImplementedError
+from typing import Optional
 
-def test_closedIslands():
-    matrix = [[0,1,0],[1,0,1],[0,1,0]]
-    assert closedIslands(matrix) == 2
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
+class Solution:
+  def getDirections(self, root: Optional[TreeNode], startValue: int, destValue: int) -> str:
+    def lca(root: Optional[TreeNode]) -> Optional[TreeNode]:
+      if not root or root.val in (startValue, destValue):
+        return root
+      l = lca(root.left)
+      r = lca(root.right)
+      if l and r:
+        return root
+      return l or r
+
+    def dfs(root: Optional[TreeNode], path: List[chr]) -> None:
+      if not root:
+        return
+      if root.val == startValue:
+        self.pathToStart = ''.join(path)
+      if root.val == destValue:
+        self.pathToDest = ''.join(path)
+      path.append('L')
+      dfs(root.left, path)
+      path.pop()
+      path.append('R')
+      dfs(root.right, path)
+      path.pop()
+
+    dfs(lca(root), [])  # only this subtree matters
+    return 'U' * len(self.pathToStart) + ''.join(self.pathToDest)
+
+# Prerequisites:
+# L236. (Lowest Common Ancestor of a Binary Tree)
+
