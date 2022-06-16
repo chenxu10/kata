@@ -50,12 +50,10 @@ def findCelebrity(n):
             return -1
  
     return C
-     
     
 def test_find_celebrity():
     # assert findCelebrity(3) == 1
     assert findCelebrity(2) == 0
-
 
 
 if __name__ == '__main__':

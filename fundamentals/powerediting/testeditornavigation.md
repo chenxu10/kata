@@ -1,3 +1,4 @@
+- [] Can reach wpm every 50/hands don't leave home row
 - [] Can you select by character, word, line, paragraph?
     - select by words(ctrl+shift+left/right)
     - select by paragraph(shift+alt+right)

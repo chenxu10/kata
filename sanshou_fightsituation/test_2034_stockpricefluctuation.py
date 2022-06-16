@@ -1,7 +1,8 @@
 """
 You are given a stream of records about a particular stock. Each record contains a timestamp and the corresponding price of the stock at that timestamp.
 
-Unfortunately due to the volatile nature of the stock market, the records do not come in order. Even worse, some records may be incorrect. Another record with the same timestamp may appear later in the stream correcting the price of the previous wrong record.
+Unfortunately due to the volatile nature of the stock market, the records do not come in order. Even worse, some records may be incorrect. 
+Another record with the same timestamp may appear later in the stream correcting the price of the previous wrong record.
 
 Design an algorithm that:
 
@@ -23,38 +24,38 @@ Input
 Output
 [null, null, null, 5, 10, null, 5, null, 2]
 """
-
-
 from sortedcontainers import SortedDict
 
 class StockPrice:
 
     def __init__(self):
         self.time_to_prices = SortedDict()
-        self.rec = SortedDict()
-
+        self.prices_to_time = SortedDict()
+   
     def update(self, timestamp: int, price: int) -> None:
         # update previous price with time stamp
           # non previouse price in reocrd
         # price not in record need to add a new dict
-        # rec add timestamp
-        # timestamp add rec pair
+        # prices_to_time add timestamp
+        # timestamp add prices_to_time pair
 
         if timestamp in self.time_to_prices:
             prev_price = self.time_to_prices[timestamp]
-            self.rec[prev_price].remove(timestamp)
-            if len(self.rec[prev_price]) == 0:
-                self.rec.pop(prev_price)
-        if not price in self.rec:
-            self.rec[price] = set()
-        self.rec[price].add(timestamp)
+            self.prices_to_time[prev_price].remove(timestamp)
+            if len(self.prices_to_time[prev_price]) == 0:
+                self.prices_to_time.pop(prev_price)
+        
+        if not price in self.prices_to_time:
+            self.prices_to_time[price] = set()
+        
+        self.prices_to_time[price].add(timestamp)
         self.time_to_prices[timestamp] = price
 
     def current(self) -> int:
         return self.time_to_prices.peekitem(-1)[1]
 
     def maximum(self) -> int:
-        return self.rec.peekitem(-1)[0]
+        return self.prices_to_time.peekitem(-1)[0]
 
     def minimum(self) -> int:
-        return self.rec.peekitem(0)[0]
+        return self.prices_to_time.peekitem(0)[0]

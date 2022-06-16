@@ -1,3 +1,4 @@
+import logging
 from typing import List
 from collections import deque
 """
@@ -7,35 +8,40 @@ Return the minimum number of steps to walk from the upper left corner (0, 0) to 
 given that you can eliminate at most k obstacles. 
 If it is not possible to find such walk return -1.
 """
+logger = logging.getLogger()
 
 def shortestPath(grid: List[List[int]], k: int) -> int:
-    if len(grid) == 1 and len(grid[0]) == 1:
-        return 0
-    
-    q = deque([(0,0,k,0)])
-    visited = set([(0,0,k)])
+    """
+    # minimum steps <=k
+    [0 1]
+    [1 1] k = 2 1
+    """ 
 
-    if k > (len(grid)-1 + len(grid[0])-1):
-        return len(grid)-1 + len(grid[0])-1
+    state = (0,0,k)
+    n = len(grid)
+    m = len(grid[0])
+    q = deque([(0,state)])
+    visited = set(state)
 
     while q:
-        row, col, eliminate, steps = q.popleft()
-        for new_row, new_col in [(row-1,col), (row,col+1), (row+1, col), (row, col-1)]:
-            if (new_row >= 0 and
-                new_row < len(grid) and
-                new_col >= 0 and
-                new_col < len(grid[0])):
-                if grid[new_row][new_col] == 1 and eliminate > 0 and \
-                    (new_row, new_col, eliminate-1) not in visited:
-                    visited.add((new_row, new_col, eliminate-1))
-                    q.append((new_row, new_col, eliminate-1, steps+1))
-                if grid[new_row][new_col] == 0 and (new_row, new_col, eliminate) not in visited:
-                    if new_row == len(grid)-1 and new_col == len(grid[0])-1:
-                        return steps+1
-                    visited.add((new_row, new_col, eliminate))
-                    q.append((new_row, new_col, eliminate, steps+1))
+        steps, state = q.popleft()
+        row, col, k  = state
+        if (row, col) == (n -1, m -1):
+            return steps
+        for x, y in [(-1,0),(1,0),(0,-1),(0,1)]:
+            newrow = row + x
+            newcol = col + y
+            if (0 <= newrow < n) and (0 <= newcol < m):
+                neweliminations = k - grid[newrow][newcol]
+                newstate = (newrow, newcol, neweliminations)
+                if neweliminations >= 0 and newstate not in visited:
+                    visited.add(newstate)
+                    q.append((steps + 1, newstate))
 
     return -1
 
 def test_shortestPath():
-    assert shortestPath([[0,0,0],[1,1,0],[0,0,0],[0,1,1],[0,0,0]], k = 1) == 6
+    assert shortestPath([[0,1,1],[0,1,0],[0,1,0]],k = 1) == 4
+
+if __name__ == '__main__':
+    test_shortestPath()

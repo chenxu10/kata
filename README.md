@@ -5,6 +5,12 @@ Kata for practicing coding, stats, ml, system and architecture design.
 ## 学习如何学习算法
 ### 启发式（对个人最具启发从高到底）
 + 把要求的结论当成条件(三年级时的设X解题)
+    + 几何证明If AB=AC, CD//DE, Conclusion: Try prove ABCD是平行四边形
+    + If ABCD是平行四边形, THEN AB, CD
+    + It works before having a assumption conclusion from unknown to known, now 
+    you can more live in the present, you attention work on current self to change
+    based on the assumption, you also work on long-term memory to change yourself
+    how to connect past long term to potential furture(无我，当下) 
     + It works because it puts your working memory and long-term memory, left and 
     right brain in a cooperative manner
     + 找到负荷大脑工作原理的方法，让做题从burn your mental energy变成cultivate your energy
