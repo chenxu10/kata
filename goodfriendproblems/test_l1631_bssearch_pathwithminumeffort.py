@@ -13,4 +13,5 @@ Output: 2
 Explanation: The route of [1,3,5,3,5] has a maximum absolute difference of 2 in consecutive cells.
 This is better than the route of [1,2,2,2,5], where the maximum absolute difference is 3.
 """
-# 讲清楚左右边界的二分搜索情况
+
+
