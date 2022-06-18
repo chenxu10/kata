@@ -26,7 +26,6 @@ def test_UnionFindQuickFinder():
     UF = UnionFindQuickFinder(5)
     UF.union(0,1)    
     UF.union(1,2)
-
     UF.union(3,4)
 
 class UnionFindQuickUnion():
@@ -41,6 +40,8 @@ class UnionFindQuickUnion():
 
     def find_parent(self,x):
         while x != self.parents[x]: #{2:[2,0]}
+        #This line of code adds path compression
+            self.parents[x] = self.parents[self.parents[x]]
             x = self.parents[x]
         return self.parents[x]
 
@@ -68,7 +69,6 @@ def test_UnionFindQuickUnion():
     UF.set_parent(3)
     UF.set_parent(4)
     UF.union(0,1)    
-    UF.union(1,2)
     UF.union(3,4)
     print(UF.is_connected(0,2))
     print(UF.is_connected(3,1))
@@ -76,6 +76,10 @@ def test_UnionFindQuickUnion():
 
 #[2,2,2,3,4]
 # 0 1 2 3 4
+# classic leetcode 200, leetcode 305 
+# Choose underlying algorithm array or list
+# What information you want to add weights
+# Path caching or hashmap to store memory
 
 if __name__ == '__main__':
     # test_UnionFindQuickFinder()
