@@ -52,6 +52,7 @@ class DirectedCycle(object):
         self._onStack[v] = False
 
 # Related problems: leetcode 207
+# Follow up questions: Think of two methods to detect if there's a circle
 
 if __name__ == '__main__':
     numCourses = 6

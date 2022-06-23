@@ -19,7 +19,7 @@ class Graph:
                 self._init(arg)
             self.keys = range(self.num_nodes)
         elif 'adjtxt' in kwargs:
-            self._adj = adjtxtblk2OrderedDict(kwargs['adjtxt'])
+            self._adj = adjtxtblk2OrderedDict(kwargs['adjtxt']) # Orderdict
             self.num_nodes = len(self._adj)
             self.num_edges = self._init_num_edges()
             self.keys = self._adj.keys()

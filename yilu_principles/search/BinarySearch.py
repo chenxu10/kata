@@ -76,5 +76,24 @@ def testBinarySearch():
     ceilindex = BS.ceil(k)
     print(ceilindex)
 
+def isOK():
+    pass
+
+def binary_search_target_template():
+    """
+    搜索空间[lo, hi)
+    模板的关键在于左右都是闭区间
+    [mid + 1, ],
+    [lo, mid]
+    """
+    while lo < hi:
+        mid = lo + (hi - lo) // 2
+        if isOK(mid):
+            hi = mid
+        else:
+            lo = mid + 1
+    return lo
+
+
 if __name__ == '__main__':
     testBinarySearch()

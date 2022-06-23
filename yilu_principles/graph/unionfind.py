@@ -29,37 +29,29 @@ def test_UnionFindQuickFinder():
     UF.union(3,4)
 
 class UnionFindQuickUnion():
-    def __init__(self, N):
-        self.parents = list(range(N))
+    # construct
+    def __init__(self, numElements):
+        self.parent = {} #{3:2}
         self.count = 0
-        self.size = [1] * N
+        self.weight = list(range(numElements))
 
     def set_parent(self,x):
-        self.parents[x] = x
-        self.count += 1
+        if x not in self.parent:
+            self.parent[x] = x
 
-    def find_parent(self,x):
-        while x != self.parents[x]: #{2:[2,0]}
-        #This line of code adds path compression
-            self.parents[x] = self.parents[self.parents[x]]
-            x = self.parents[x]
-        return self.parents[x]
+    # find_parent
+    def find_parent(self, x):
+        while x != self.parent[x]:
+            self.parent[x] = self.parent[self.parent[x]] # cache
+            x = self.parent(x)                           # weight
+        return self.parent[x]
 
-    def union(self,p,q):
-        par_x = self.find_parent(p)
-        par_y = self.find_parent(q)
-        if par_x != par_y:
-            if self.size[p] > self.size[q]:
-                self.count -= 1
-                self.parents[par_y] = par_x
-                self.size[q] += self.size[p]
-            else:
-                self.count -= 1
-                self.parents[par_x] = par_y
-                self.size[p] += self.size[q]
+    def union(self, p, q):
+        return self.find_parent[p] == self.find_parent[q]
 
-    def is_connected(self, p, q):
-        return self.find_parent(p) == self.find_parent(q)
+    # count
+    def count(self):
+        return self.count()
 
 def test_UnionFindQuickUnion():
     UF = UnionFindQuickUnion(5)
