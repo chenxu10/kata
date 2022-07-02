@@ -14,65 +14,75 @@ Input: m = 3, n = 3, positions = [[0,0],[0,1],[1,2],[2,1]]
 Output: [1,1,2,3]
 """
 
+# [1,1,1,2,2,3]
+#  1 2 3 4 5 6
+
+#     3     5
+#   2     4
+# 1
+#4
+#10
+
+# find_parent(1) == find_parent(2)
+
+
 # juzhen laping
 # class UnionCount():
-from collections import defaultdict
+class UnionFound:
+    def __init__(self,N):
+        self.parent = [i for i in range(N)]
 
-class UnionFind():
-    # construct
-    def __init__(self, numElements):
-        self.parent = [i for i in range(numElements)]
-
-    def find(self,x):
-        if (self.parent[x] == x):
+    def find_parent(self, x):
+        if x == self.parent[x]:
             return x
         else:
-            self.parent[x] = self.find(self.parent[x])
+            self.parent[x] = self.find_parent(self.parent[x]) # path compression
             return self.parent[x]
 
     def union(self, p, q):
-        rootx = self.find(p)
-        rooty = self.find(q)
-        if rootx == rooty:
+        rootp = self.find_parent(p)
+        rootq = self.find_parent(q)
+        if rootp == rootq:
             return False
-        self.parent[rootx] = rooty
+        self.parent[rootp] = rootq
         return True
-
-    # count
-    def count(self):
-        return self.count()
 
 def numberofIslands(grid):
     """
     Returns a count
     """
-    m = len(grid)
-    n = len(grid[0])
-    UF = UnionFind(m * n)
+    n = len(grid)
+    m = len(grid[0])
     count = 0
-    offset = [(-1,0),(1,0),(0,1),(0,-1)]
+    offset = [(-1,0), (1,0), (0,-1), (0,1)]
+    UF = UnionFound(n * m)
+    # iteratre through grid, add 1 
 
-    def unionround(grid, x, y):
+    def unionisland(grid, x, y):
         nonlocal count
-        mark = x * n + y
+        index = x * n + y
         for dirx, diry in offset:
             newx = x + dirx
             newy = y + diry
-            inbound = (newx >= 0 and newx < m and newy >= 0 and newy < n and grid[newx][newy] == '1')
-            if inbound:
-                if UF.union(newx * n + newy, mark):
-                    count -= 1
+            inboundary = (
+            newx >= 0 and newx < n 
+            and newy >= 0 and newy < m 
+            and grid[newx][newy]=="1")
+            if inboundary:
+                newindex = newx * n + newy
+                if UF.union(index, newindex):
+                    count -= 1 
 
-    for x in range(m):
-        for y in range(n):
+    for x in range(n):
+        for y in range(m):
             if grid[x][y] == "1":
                 count += 1
-                unionround(grid, x, y)
-    
+                unionisland(grid, x, y)
+
     return count
 
-# Follow up questions leetcode 305
-
+# Challenges: Try to solve it in DFS manner
+# Challenges: Try to solve problems 305
 
 def test_numberofIslands():
     grid = [
@@ -81,8 +91,16 @@ def test_numberofIslands():
     ["0","0","1","0","0"],
     ["0","0","0","1","1"]
     ]
+    grid2 = [
+    ["1","1","0","1","0"],
+    ["1","1","0","0","1"],
+    ["0","0","1","0","0"],
+    ["0","0","0","1","1"]
+    ]
     print(numberofIslands(grid))
     assert numberofIslands(grid) == 3
+    print(numberofIslands(grid2))
+    assert numberofIslands(grid2) == 5
 
 if __name__ == '__main__':
     test_numberofIslands()
