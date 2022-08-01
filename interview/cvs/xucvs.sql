@@ -31,3 +31,5 @@ insert into song (song_id, artist_id, number_of_plays, play_date)
 values ('2', '4', 30, to_date('2022-07-15', 'YYYY-MM-DD'));
 insert into song (song_id, artist_id, number_of_plays, play_date)
 values ('3', '4', 30, to_date('2022-07-15', 'YYYY-MM-DD'));
+insert into song (song_id, artist_id, number_of_plays, play_date)
+values ('3', '6', 200, to_date('2022-05-15', 'YYYY-MM-DD'));

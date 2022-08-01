@@ -22,3 +22,7 @@ WHERE
     play_date >= current_date at time zone 'UTC' - interval '7 days'
 GROUP BY
     song_id
+ORDER BY 
+    totalplays DESC
+LIMIT
+    1

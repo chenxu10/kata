@@ -6,8 +6,6 @@
 #
 #{lilei, hanmeimei, laowang,xiaohong,xiaohong}
 # Disjoin Set
-
-
 # john alice tim
 
 # mary
@@ -70,30 +68,31 @@ if __name__ == '__main__':
 #     UF.union(1,2)
 #     UF.union(3,4)
 
-# class UnionFindQuickUnion():
-#     # construct
-#     def __init__(self, numElements):
-#         self.parent = {} #{3:2}
-#         self.count = 0
-#         self.weight = list(range(numElements))
+class UnionFindQuickUnion():
+    # construct
+    def __init__(self, numElements):
+        self.parent = {} #{3:2}
+        self.count = 0
+        self.weight = list(range(numElements))
 
-#     def set_parent(self,x):
-#         if x not in self.parent:
-#             self.parent[x] = x
+    def set_parent(self,x):
+        if x not in self.parent:
+            self.parent[x] = x
 
-#     # find_parent
-#     def find_parent(self, x):
-#         while x != self.parent[x]:
-#             self.parent[x] = self.parent[self.parent[x]] # cache
-#             x = self.parent(x)                           # weight
-#         return self.parent[x]
+    # find_parent
+    def find_parent(self, x):
+        while x != self.parent[x]:
+            self.parent[x] = self.parent[self.parent[x]] # cache
+            x = self.parent(x)                           # weight
+        return self.parent[x]
 
-#     def union(self, p, q):
-#         return self.find_parent[p] == self.find_parent[q]
+    def union(self, p, q):
+        return self.find_parent[p] == self.find_parent[q]
 
-#     # count
-#     def count(self):
-#         return self.count()
+    # count
+    def count(self):
+        return self.count()
+
 
 # def test_UnionFindQuickUnion():
 #     UF = UnionFindQuickUnion(5)
