@@ -12,6 +12,3 @@ def backtrack(candidates, target, s, path, ans):
             path.append(candidates[:i + 1])
             backtrack() # adjust candidates, target as problem requires
             path.pop()
-
-
- 

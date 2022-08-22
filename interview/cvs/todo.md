@@ -1,1 +1,0 @@
-- [] Insert record into postgresql 
