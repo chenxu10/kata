@@ -23,16 +23,18 @@ Kata for practicing coding, stats, ml, system and architecture design.
     + Assume f(n-1) works, and extend to f(n)
 
 ### 如何训练？
-战略：80/20法则、构成算法的砖头与主线
-基本功：从树入手了解（迭代-递归-遍历-分解）
-一路：速度放慢（体会数学归纳法的思路)-How to create an algorithm(chapter5五道题)
-二路：定住一个套路练习它的变式(Variation)与交叉训练(Interleaving)
-推手：一个公司最近一个月的习题集
-散手：规定时间的周赛、实战比赛
-注意力体能训练：45minutes * 4
++ 战略：80/20法则、构成算法的砖头与主线
++ 基本功：从树入手了解（迭代-递归-遍历-分解）
++ 一路：速度放慢（体会数学归纳法的思路)-How to create an algorithm(chapter5五道题)
++ 二路：定住一个套路练习它的变式(Variation)与交叉训练(Interleaving)
++ 推手：最近一个月的习题集
++ 散手：规定时间的周赛、实战比赛
++ 注意力体能训练：45minutes * 4
 
-训练原则:reduce the retrival strength and maximizing gaining in storage strength
-训练技术:
+### 训练原则:
++ Reduce the retrival strength and maximizing gaining in storage strength
+
+### 训练技术:
 + Output more and input less(Can you generate the content by yourself)
 + Feynman Technique
     + scope of concept
