@@ -20,5 +20,3 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 2. 学会使用bisect现成库，三维数组存储信息，不记录所有只记录变化。
 3. 与DFS或者BFS结合(DIJKSTRA算法)
     - leetcode1631
-
-## 相关文献
