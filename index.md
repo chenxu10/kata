@@ -8,11 +8,10 @@
 ## B
 ### Best time to Buy and Sell Stock
 - Best time to Buy and Sell Stock, dynamic programming
-- Best time to Buy and Sell Stock II, dynamic programmingII
+- Best time to Buy and Sell Stock II, dynamic programming
 - Best time to Buy and Sell
-Stock III,
-- Best time to Buy and Sell Stock IV
-
+Stock III,dynamic programming
+- Best time to Buy and Sell Stock IV,dynamic programming
 
 ## L
 ### longest substring
