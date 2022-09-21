@@ -12,7 +12,14 @@ Kata for practicing coding, stats, ml, system and architecture design.
     how to connect past long term to potential furture
     + It works because it puts your working memory and long-term memory, left and 
     right brain in a cooperative manner
-
++ Algo of algo:
+    + Eyes fixing on the unknown, but you cannot lose your peripheral vision on input data
+    and constraints
+    + Describe the problem in "given, when, then" a sentence with an example
+    + Think in specialized examples
+    + Describe you algo in a sentence(Manipulate input, repeately or recursively until, parse the intermediate
+    data structure)
+    + Try retrieve the close template
 ### You cannot jump into problem without ...？
 1. You cannot start coing with out rephrasing problems in your own words
 2. You cannot jump into building solution unless you generate specialized test cases
