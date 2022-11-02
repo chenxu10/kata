@@ -1,45 +1,45 @@
-from utils import Graph
-from collections import defaultdict
+# from utils import Graph
+# from collections import defaultdict
 
-class Graph():
-    def __init__(self,vetices):
-        self.graph = defaultdict(list)
-        self.V = vetices
+# class Graph():
+#     def __init__(self,vetices):
+#         self.graph = defaultdict(list)
+#         self.V = vetices
     
-    def add_edge(self, nodeA, nodeB):
-        self.graph[nodeA].append(nodeB)
+#     def add_edge(self, nodeA, nodeB):
+#         self.graph[nodeA].append(nodeB)
  
-    def helper(self, v, visited, stack):
+#     def helper(self, v, visited, stack):
 
-        visited[v] = True
-        for i in self.graph[v]:
-            if visited[i] == False:
-                self.helper(i, visited, stack)
+#         visited[v] = True
+#         for i in self.graph[v]:
+#             if visited[i] == False:
+#                 self.helper(i, visited, stack)
             
-        stack.append(v)
+#         stack.append(v)
 
-    def topologial_sort(self):
-        visited = [False] * self.V
-        stack = []
+#     def topologial_sort(self):
+#         visited = [False] * self.V
+#         stack = []
 
-        for i in range(self.V):
-            if visited[i] == False:
-                self.helper(i, visited, stack)
+#         for i in range(self.V):
+#             if visited[i] == False:
+#                 self.helper(i, visited, stack)
     
-        return stack[::-1]
+#         return stack[::-1]
 
-def test_topologial_sort():
-    G = Graph(6)
-    G.add_edge(5,2)
-    G.add_edge(2,3)
-    G.add_edge(3,1)
-    G.add_edge(4,1)
-    G.add_edge(5,0)
-    G.add_edge(4,0)
-    res = G.topologial_sort()
-    print(res)
-    expected = [5,4,2,3,1,0]
-    assert res == expected
+# def test_topologial_sort():
+#     G = Graph(6)
+#     G.add_edge(5,2)
+#     G.add_edge(2,3)
+#     G.add_edge(3,1)
+#     G.add_edge(4,1)
+#     G.add_edge(5,0)
+#     G.add_edge(4,0)
+#     res = G.topologial_sort()
+#     print(res)
+#     expected = [5,4,2,3,1,0]
+#     assert res == expected
 
 # Example Problems
 """

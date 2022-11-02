@@ -2,6 +2,12 @@
 Kata for practicing coding, stats, ml, system and architecture design.
 
 ## Learning how to learn and how to solve problems
+### Fail elegantly
+1. Making mistakes is the only way to innovate
+2. If you cannot solve the problem don't sit there and wait, instead
+    - Guess! Guess a small proportion of the problem.
+    - Solve a simpler version of the problem
+
 ### Heuristics
 + Use unknown as known and start mixing
     + If AB=AC, CD//DE, Conclusion: Try prove ABCD Parallelogram

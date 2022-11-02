@@ -26,3 +26,16 @@ class Solution:
                 l += 1
         
         return 0 if ans == len(nums) + 1 else ans
+
+
+def non_decreasing(x):
+    if len(x) == 1 or len(x) == 0:
+        return True
+    for i in range(len(x)):
+        if x[i] < x[i - 1]:
+            return False
+    return True
+
+if __name__ == '__main__':
+    print(non_decreasing([1,3]))
+
