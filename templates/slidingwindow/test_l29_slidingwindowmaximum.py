@@ -19,11 +19,14 @@ def maxSlidingWindow(nums, k):
     
     def build_output(nums, k):
         for i in range(k, len(nums)):
-            heapq.heappush(heap, (-nums[i], i))
-            while heap[0][1] <= i - k:
-                heapq.heappop(heap)
-            result.append(-heap[0][0])
+            popheap_when_larger(nums, k, i)
         return result
+
+    def popheap_when_larger(nums, k, i):
+        heapq.heappush(heap, (-nums[i], i))
+        while heap[0][1] <= i - k:
+            heapq.heappop(heap)
+        result.append(-heap[0][0])
        
     heap, result = init_output_heap(nums, k)
     return build_output(nums, k)
