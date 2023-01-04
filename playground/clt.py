@@ -1,32 +1,44 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as sts
+from scipy.stats import pareto
 from math import sqrt
 
-# generates 'number_of_samples' samples of size 'samples_size' and returns an array of their means
-def samples(random_value, sample_size, number_of_samples):
-    result = np.asarray([])
-    for i in range(number_of_samples):
-        result = np.append(result, np.mean(random_value.rvs(sample_size)))
-    return result
+def clt_simulation_from_uniform(draw_times=300):
+    n = 1000
+    alpha = 2
+    x = [pareto.pdf(np.linspace(-5, 5, n), scale=1, b=alpha) for _ in range(draw_times)]
+    # print(x)
+    # x = [np.random.uniform(0,5,size=n) for _ in range (draw_times)]
+    s = np.sum(x,axis=0)
+    print(s)
+    plt.hist(s, bins=50, density=True)
+    plt.show()
 
-n = 10
-b = 3.0
-random_value = sts.pareto(b)
-mean = random_value.mean()
-variance = random_value.var()
-print(mean)
-print(variance)
+def simple_heuristics_to_create_fat_tail():
+    b = 2
+    n = 1000
+    c = 1
+    x = np.random.rand(n)
+    Y = 2 * x ** b
+    plt.hist(Y, bins=50)
+    plt.show()
 
-plt.hist(samples(random_value, n, 1000), bins=20, normed=True)
+def log_normal_plot():
+    # Set the mean and standard deviation of the distribution
+    mu, sigma = -0.69, 0.1
 
-x = np.linspace(0, 6, 100)
-pdf = sts.norm(mean, sqrt(variance / n)).pdf(x)
-plt.plot(x, pdf, color='r', label='theoretical PDF')
+    # Generate a log-normal distribution using NumPy's lognormal function
+    ln_dist = np.random.lognormal(mean=mu, sigma=sigma, size=1000)
 
-# **Example 1 ***
-#Suppose we have a fair coin and we flip it 400 times. What is the probability you will see 210 heads or more?
-#***Example 2:***
-#Suppose you use Monte Carlo simulation to estimate the numerical value of .
-#How would you implement it?
-#If we require an error of 0.001, how many trials do you need?
+    # Plot the distribution using Matplotlib
+    plt.hist(ln_dist, bins=50)
+    plt.title("Log-Normal Distribution")
+    plt.xlabel("Value")
+    plt.ylabel("Frequency")
+    plt.show()
+
+if __name__ == '__main__':
+    #clt_simulation_from_uniform()
+    #simple_heuristics_to_create_fat_tail()
+    log_normal_plot()

@@ -44,36 +44,36 @@ from abc import ABC, abstractmethod
 
 class Strategy(ABC):
     @abstractmethod
-    def change_amount_sign(self):
+    def create_model(self):
         pass
 
-class ChaseStrategy(Strategy):
-    def change_amount_sign(self, df):
+class LSTMStrategy(Strategy):
+    def create_model(self, df):
         df['Amount'] = df['Amount'] * -1
         return df
 
-class BofaStrategy(Strategy):
-    def change_amount_sign(self, df):
+class TreeStrategy(Strategy):
+    def create_model(self, df):
         df['Amount'] = df['Amount'] * -1
         return df
 
-class Cleaner:
-    def __init__(self, bank, file_path):
-        self.bank = bank
+class ModelChooser:
+    def __init__(self, model, file_path):
+        self.model = model
         self.file_path = file_path
         self.strategy = self._get_strategy()
 
     def _get_strategy(self):
-        if self.bank == 'chase':
-            return ChaseStrategy()
-        elif self.bank == 'bofa':
-            return BofaStrategy()
+        if self.model == 'LSTM':
+            return LSTMStrategy()
+        elif self.model == 'Terary':
+            return TreeStrategy()
         else:
-            raise ValueError("Invalid bank name")
+            raise ValueError("Invalid model name name")
 
-    def change_amount_sign(self):
+    def create_model(self):
         df = pd.read_csv(self.file_path, index_col=False)
-        return self.strategy.change_amount_sign(df)
+        return self.strategy.create_model(df)
 
 
 # Path: tests/test_csvcleaner.py
@@ -89,3 +89,51 @@ def test_cleaner():
     actual = chasecleaner.change_amount_sign()
     expected = pd.read_csv("tests/data/chase_expected.csv", index_col=False)
     pd.testing.assert_frame_equal(actual, expected)
+
+
+
+# Decorator Pattern
+
+class Decorator(ABC):
+    @abstractmethod
+    def change_amount_sign(self):
+        pass
+
+class ChaseDecorator(Decorator):
+    def __init__(self, cleaner):
+        self.cleaner = cleaner
+
+    def change_amount_sign(self):
+        df = self.cleaner.change_amount_sign()
+        df['Amount'] = df['Amount'] * -1
+        return df
+
+class BofaDecorator(Decorator):
+    def __init__(self, cleaner):
+        self.cleaner = cleaner
+
+    def change_amount_sign(self):
+        df = self.cleaner.change_amount_sign()
+        df['Amount'] = df['Amount'] * -1
+        return df
+
+class Cleaner:
+    def __init__(self, bank, file_path):
+        self.bank = bank
+        self.file_path = file_path
+        self.decorator = self._get_decorator()
+
+    def _get_decorator(self):
+        if self.bank == 'chase':
+            return ChaseDecorator(self)
+        elif self.bank == 'bofa':
+            return BofaDecorator(self)
+        else:
+            raise ValueError("Invalid bank name")
+
+    def change_amount_sign(self):
+        df = pd.read_csv(self.file_path, index_col=False)
+        return self.decorator.change_amount_sign(df)
+
+
+
