@@ -22,7 +22,6 @@ plt.legend()
 plt.title("Coin Flip Counts")
 plt.xlabel("Heads")
 plt.ylabel("Count")
-plt.show()
 
 # Calculate empircal probability
 same_count = sum(i==j for i,j in zip(A_heads, B_heads))  
