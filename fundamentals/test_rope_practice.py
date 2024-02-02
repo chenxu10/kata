@@ -25,7 +25,7 @@ def to_string(s):
 
 
 if __name__ == '__main__':
-   print(str(Rope("abc")))
+    assert str(to_string("abc")) == "abc"
 
 
 
