@@ -28,7 +28,7 @@ if __name__ == '__main__':
     assert str(to_string("abc")) == "abc"
 
 
-###
+### "abc", "def", 2, 5 --> "cde"
 
 
 
