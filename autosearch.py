@@ -7,7 +7,7 @@ def search_terms():
     else:
         query = input("Enter search query: ")
 
-    #webbrowser.get('chrome').open_new_tab('https://www.google.com/search?q=' + query)
+    webbrowser.open_new_tab('https://www.google.com/search?q=' + query)
 
 if __name__ == '__main__':
     ###
