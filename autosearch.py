@@ -10,5 +10,4 @@ def search_terms():
     webbrowser.open_new_tab('https://www.google.com/search?q=' + query)
 
 if __name__ == '__main__':
-    ###
     search_terms()
