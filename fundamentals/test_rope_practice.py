@@ -1,8 +1,8 @@
 
 # insert
 # delete
-# concatentae
 # substring
+# concatentae
 
 # last rountine call
 # trivial helper function
