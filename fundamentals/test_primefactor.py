@@ -26,6 +26,7 @@ def primefactor(n:int):
         return ans
     if n == 2:
         ans.append(2)
+        return ans
     else:
         ans.append(n // 2)
         primefactor(n // 2)  
