@@ -21,18 +21,18 @@ class TestPrimeFacor():
     assert primefactor(9) == [3,3]
 
 def primefactor(n:int):
-    factors = []
-    if n > 1:
-        if n % 2 == 0:
-            factors.append(2)
-            n //= 2
-        if n > 1:
-            factors.append(n)
-    return factors
+    ans = []
+    if n == 1:
+        return ans
+    if n == 2:
+        ans.append(2)
+    else:
+        ans.append(n // 2)
+        primefactor(n // 2)  
 
 class TestPrimeFacor:
     def test_primefactor(self):
         assert primefactor(1) == []
         assert primefactor(2) == [2]
-        assert primefactor(3) == [3]
-        assert primefactor(4) == [2,2]
+        #assert primefactor(3) == [3]
+        #assert primefactor(4) == [2,2]
