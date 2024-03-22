@@ -7,4 +7,5 @@ let test_primefactor =
 
 (* can you define a sqaure function *)
 let square x = x * x;;
-square 2;;
+let sol = square 2;;
+print_int sol;;
