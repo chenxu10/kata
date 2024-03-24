@@ -36,4 +36,4 @@ class TestPrimeFacor:
         assert primefactor(1) == []
         assert primefactor(2) == [2]
         #assert primefactor(3) == [3]
-        #assert primefactor(4) == [2,2]
+        assert primefactor(4) == [2,2]
