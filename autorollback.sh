@@ -2,7 +2,7 @@
 
 while true; do
     current_commit=$(git rev-parse HEAD)
-    sleep 10
+    sleep 3
     new_commit=$(git rev-parse HEAD)
 
     if ["$current_commit" = "$new_commit"]; then
