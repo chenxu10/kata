@@ -11,7 +11,9 @@ def test_sum_naturals():
 def summation(term, a, b):
     if b < a:
         return 0
-    return 1/3 + 1/35
+    else:
+        return term(a) + summation(term, a+4, b)
+    #return 1/3 + 1/35
 
 def term(a):
     return 1/(a * (a + 2))
