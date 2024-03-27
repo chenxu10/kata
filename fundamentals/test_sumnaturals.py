@@ -11,8 +11,8 @@ def test_sum_naturals():
 def summation(term, a, b):
     return 1/3 + 1/35
 
-def term():
-    pass
+def term(a):
+    return 1/(a+2)
 
 def sum_pi(a, b):
     return summation(term, a, b) 
