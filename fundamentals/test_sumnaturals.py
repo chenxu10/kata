@@ -28,3 +28,4 @@ if __name__ == '__main__':
     ########
     test_pisum()
     print(sum_pi(1,5))
+    print(1/3 + 1/35)
