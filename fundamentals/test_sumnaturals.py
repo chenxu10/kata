@@ -13,4 +13,4 @@ def sum_pi():
     return 1/3 + 1/35 
 
 def test_pisum():
-    assert sum_pi(1,5) == 1/3 + 1/35
+    assert sum_pi(1,5) == 1/3 + 1/36
