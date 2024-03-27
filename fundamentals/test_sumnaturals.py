@@ -9,6 +9,8 @@ def test_sum_naturals():
     assert sum_naturals(1,9) == 45
 
 def summation(term, a, b):
+    if b < a:
+        return 0
     return 1/3 + 1/35
 
 def term(a):
