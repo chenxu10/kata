@@ -1,11 +1,12 @@
 #!/bin/bash
 
+time_limit=30
 while true; do
-    current_commit=$(git rev-parse HEAD)
+    current_commit="$(git rev-parse HEAD)"
     sleep 3
-    new_commit=$(git rev-parse HEAD)
+    new_commit="$(git rev-parse HEAD)"
 
-    if ["$current_commit" = "$new_commit"]; then
+    if [$current_commit = $new_commit]; then
         echo "now reverted to previous commit"
     else
         echo "new commit detected, no action taken"
