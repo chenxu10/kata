@@ -11,11 +11,14 @@ def test_sum_naturals():
 def summation(term, a, b):
     return 1/3 + 1/35
 
-def sum_pi(term, a, b):
+def term():
+    pass
+
+def sum_pi(a, b):
     return summation(term, a, b) 
 
 def test_pisum():
-    assert sum_pi(2,1,5) == 1/3 + 1/35
+    assert sum_pi(1,5) == 1/3 + 1/35
 
 if __name__ == '__main__':
     test_pisum()
