@@ -3,7 +3,7 @@
 while true; do
     current_commit=$(git rev-parse HEAD)
     echo $current_commit
-    sleep 30
+    sleep 120
     new_commit=$(git rev-parse HEAD)
     echo $new_commit
     if [[($current_commit == $new_commit)]]; then
