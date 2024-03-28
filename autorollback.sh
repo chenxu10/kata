@@ -7,7 +7,7 @@ while true; do
     new_commit=$(git rev-parse HEAD)
     echo $new_commit
     if [[($current_commit == $new_commit)]]; then
-        echo "now reverted to previous commit"
+        echo "No change in past 2 minutes,Therefore reverted to previous commit"
     else
         echo "new commit detected, no action taken"
     fi
