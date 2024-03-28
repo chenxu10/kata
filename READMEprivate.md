@@ -3,6 +3,7 @@
 ## Why
 1. Don't want to stuck in one place and want to be exposed to global market.
 2. Separate Ying and Yang, focus only on product and strategy so you can make the fun part taichi, writing, dancing, marketing, and psychology in your own personal life.
+3. Value: courage, humourous, simple, respond to change.
 ## What
 1. Decision Making
 2. Problem Solving
@@ -15,6 +16,8 @@
         3. Effectively leverage previous experience
 2. George Polya
 3. Nassim Taleb
+4. Kent Beck
+    1. Respond to change(TDD, Refactoring, Small Release, Acceptance Testing, Planning Game)
 ## When
 ## Where
 1. Jane Street
