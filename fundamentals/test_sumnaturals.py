@@ -1,6 +1,7 @@
 # TODO:
 # Write test pi_sum(Functional as argument)
 # Reexpree it in Ocaml
+# Reexprees it in iterative forms
 
 
 def sum_naturals(a, b):
