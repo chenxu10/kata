@@ -1,3 +1,8 @@
+# TODO:
+# Write test pi_sum(Functional as argument)
+# Reexpree it in Ocaml
+
+
 def sum_naturals(a, b):
     if b < a:
         return 0
