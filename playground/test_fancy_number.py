@@ -24,3 +24,4 @@ def count_fancy_numbers(n):
 if __name__ == '__main__':
     assert count_fancy_numbers(0) == 1
     assert count_fancy_numbers(1) == 2
+    assert count_fancy_numbers(4) == 3
