@@ -1,19 +1,9 @@
-def count_fancy_number(x):
-    div, mod = divmod(x, 4)
-    count = 0
-    if div == 0:
-        if mod == 0:
-            count += 1
-        else: 
-            count += 2
-    return count  
+def count_fancy_numbers(n):
+    q, r = divmod(n, 3)
+    cnt_r = 1 if r % 3 == 0 else 0 if r % 3 == 1 else 1
+    cnt_q = q // 3
+    return cnt_r + cnt_q * 3
 
-def test_count_fancy_number():
-    assert count_fancy_number(0) == 1
-    assert count_fancy_number(1) == 2
-    assert count_fancy_number(2) == 2
-    assert count_fancy_number(3) == 2    
-    
-
+   
 if __name__ == "__main__":
-    test_count_fancy_number()
+    print(count_fancy_numbers(1))
