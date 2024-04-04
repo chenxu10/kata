@@ -8,3 +8,4 @@ def count_fancy_numbers(n):
 if __name__ == "__main__":
     print(count_fancy_numbers(1))
     print(count_fancy_numbers(2))
+    print(count_fancy_numbers(12))
