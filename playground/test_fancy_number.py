@@ -4,9 +4,7 @@ def count_fancy_number(x):
     if div == 0:
         if mod == 0:
             count += 1
-        if mod == 1:
-            count += 2
-        if mod == 2:
+        else: 
             count += 2
     return count  
 
