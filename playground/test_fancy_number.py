@@ -7,4 +7,4 @@ def count_fancy_numbers(n):
    
 if __name__ == "__main__":
     print(count_fancy_numbers(1))
-    print(count_fancy_numbers(13))
+    print(count_fancy_numbers(36))
