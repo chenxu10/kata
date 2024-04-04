@@ -1,17 +1,14 @@
-
 def count_fancy_number(x):
     div, mod = divmod(x, 4)
+    count = 0
     if div == 0:
         if mod == 0:
-            return 1
+            count += 1
         if mod == 1:
-            return 2
+            count += 2
         if mod == 2:
-            return 2
-             
-         
-
-    
+            count += 2
+    return count  
 
 def test_count_fancy_number():
     assert count_fancy_number(0) == 1
