@@ -16,11 +16,12 @@ class Rope:
         return self.s
 
     def substring(self, start, length):
-        self.s = self.s[start: start + length]
+        ans = self.s[start: start + length]
+        return ans
 
 def to_rope(x):
     return Rope(x)
 
 if __name__ == '__main__':
     assert str(to_rope("abc")) == "abc"
-    print(str(to_rope("abcde").substring(1,3)))
+    assert str(to_rope("abcde").substring(1,3)) == "bcd"
