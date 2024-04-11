@@ -17,8 +17,7 @@ class Substring(Rope):
     
     def __str__(self):
         return str(self.rope)[self.start:self.start + self.length]
-
-   
+ 
 def to_rope(x):
     return String(x)
 
