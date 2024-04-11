@@ -16,7 +16,7 @@ class Rope:
         return self.string
 
 def to_rope(x):
-    return Rope("abc")
+    return Rope(x)
 
 if __name__ == '__main__':
     assert str(to_rope("abc")) == "abc"
