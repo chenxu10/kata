@@ -6,11 +6,16 @@ class Rope:
         return self.s
 
     def substring(self, start, length):
-        return Substring()
+        return Substring(self, start, length)
         
 class Substring:
+    def __init__(self,rope, start, length):
+        self.rope = rope
+        self.start = start
+        self.length = length
+    
     def __str__(self):
-        return "bcd"
+        return str(self.rope)[self.start:self.start + self.length]
 
 def to_rope(x):
     return Rope(x)
