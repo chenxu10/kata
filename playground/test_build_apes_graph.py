@@ -1,9 +1,11 @@
 """
 Implementation of p154 of chimpanzee politics
 """
+from collections import defaultdict
 
 def build_graph():
-    graph = {'Luit':set(['Nikkie','Yeron'])}
+    graph = defaultdict(set)
+    graph['Luit'] = set(['Nikkie','Yeron'])
     return graph
  
 if __name__ == '__main__':
