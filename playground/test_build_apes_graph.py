@@ -1,3 +1,7 @@
+"""
+Implementation of p154 of chimpanzee politics
+"""
+
 def build_graph():
     graph = {'Luit':set(['Nikkie','Yeron'])}
     return graph
