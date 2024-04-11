@@ -24,4 +24,4 @@ def to_rope(x):
 if __name__ == '__main__':
     assert str(to_rope("abc")) == "abc"
     assert str(to_rope("abcde").substring(1,3).substring(1,1)) == "c"
-    print(str(to_rope("abcdefg").substring(1,3).substring(1,2).substring(1,1)))
+    print(str(to_rope("abcdefg").substring(1,3).substring(1,2)))
