@@ -1,9 +1,10 @@
 """
 Implementation of p154 of chimpanzee politics
 """
-from collections import defaultdict
+from collections import defaultdict, namedtuple
 
 def build_graph():
+    namedtuple('connectchimp',('Luit','Tepel'))
     graph = defaultdict(set)
     graph['Luit'] = set(['Nikkie','Yeron'])
     return graph
