@@ -8,5 +8,6 @@ https://docs.anthropic.com/claude/reference/messages_post
 """
 
 # plan use claude API key with curl
-# expect ask 3x tmf delta exposure
+# expect ask 3x tmf delta exposure/partial derivatives
+
 
