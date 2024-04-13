@@ -20,6 +20,7 @@ def dfs_matrix(island_map):
         for i, j in direction_vector:
             x += i
             y += j
+            # boundary judgement and count edge cases
             if (0 <= x < m and 0 <= y < n) and island_map[x][y] == 0:
                 island_map[x][y] = 1    
     m = len(island_map)
