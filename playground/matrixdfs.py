@@ -12,10 +12,16 @@ def equals(actual, expected):
 
 
 def dfs_matrix(island_map):
+    # 1 1
+    # 1 0
     def dfs_matrix_help(island_map, x, y, m, n):
         # update island map
-        island_map[1][1] = 1
-    
+        direction_vector = [(1,0),(0,1),(1,1)]
+        for i, j in direction_vector:
+            x += i
+            y += j
+            if (0 <= x < m and 0 <= y < n) and island_map[x][y] == 0:
+                island_map[x][y] = 1    
     m = len(island_map)
     n = len(island_map[0])
     x = 0
