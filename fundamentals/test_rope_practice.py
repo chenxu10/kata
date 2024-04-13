@@ -21,7 +21,16 @@ class Substring(Rope):
 def to_rope(x):
     return String(x)
 
+
+def equals(rope, expected):
+    actual = str(rope)
+    if actual == expected:
+        return
+    else:
+        print(actual,"not equal to", expected)
+        raise Exception(actual,"looks like")
+
 if __name__ == '__main__':
-    assert str(to_rope("abc")) == "abc"
+    equals(str(to_rope("abc")),"abc")
     assert str(to_rope("abcde").substring(1,3).substring(1,1)) == "c"
     assert str(to_rope("abcdefg").substring(1,3).substring(1,2).substring(1,1)) == "d"
