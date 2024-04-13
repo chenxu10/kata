@@ -21,7 +21,7 @@ class Substring(Rope):
 def to_rope(x):
     return String(x)
 
-
+# Testing framework
 def equals(rope, expected):
     actual = str(rope)
     if actual == expected:
