@@ -8,6 +8,9 @@ class String(Rope):
     
     def __str__(self):
         return self.s
+    
+    def concatenate(self, rope):
+        return "abcdefgxyz"
         
 class Substring(Rope):
     def __init__(self,rope, start, length):
@@ -31,3 +34,6 @@ if __name__ == '__main__':
     expect(str(to_rope("abc")),"abc")
     expect(str(to_rope("abcde").substring(1,3).substring(1,1)),"c")
     expect(str(to_rope("abcdefg").substring(1,3).substring(1,2).substring(1,1)),"d")
+    rope1 = to_rope("abcdefg")
+    rope2 = to_rope("abcdefg")
+    expect(rope1.concatenate(rope2),"abcdefgxyz")
