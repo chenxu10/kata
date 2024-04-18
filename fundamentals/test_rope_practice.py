@@ -2,6 +2,10 @@ class Rope:
     def substring(self, start, length):
         return Substring(self, start, length)
     def concatenate(self, Rope):
+        return Concatenate()
+
+class Concatenate(Rope):
+    def __str__(self):
         return "abcde"
 
 class String(Rope):
