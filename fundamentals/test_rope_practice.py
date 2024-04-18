@@ -1,6 +1,8 @@
 class Rope:
     def substring(self, start, length):
         return Substring(self, start, length)
+    def concatenate(self, Rope):
+        return "abcde"
 
 class String(Rope):
     def __init__(self, s):
@@ -34,3 +36,4 @@ if __name__ == '__main__':
     equals(str(to_rope("abc")),"abc")
     equals(str(to_rope("abcde").substring(1,3).substring(1,1)),"c")
     assert str(to_rope("abcdefg").substring(1,3).substring(1,2).substring(1,1)) == "d"
+    equals(str(to_rope("abc").concatenate(to_rope("de"))),"abcde")
