@@ -2,11 +2,15 @@ class Rope:
     def substring(self, start, length):
         return Substring(self, start, length)
     def concatenate(self, Rope):
-        return Concatenate()
+        return Concatenate(self, Rope)
 
 class Concatenate(Rope):
+    def __init__(self, left, right) -> None:
+        self.left = left
+        self.right = right
+        
     def __str__(self):
-        return "abcde"
+        return str(self.left) + str(self.right)
 
 class String(Rope):
     def __init__(self, s):
