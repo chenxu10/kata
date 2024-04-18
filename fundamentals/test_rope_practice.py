@@ -19,11 +19,14 @@ class String(Rope):
     def __str__(self):
         return self.s
     
-    def delete(self, left, right):
-        left = "a"
-        right = "e"
-        return left + right
-        
+    def delete(self, start, length):
+        left = self.substring(0, start)
+        right = self.substring(start + length, self.length() - start - length)
+        return left.concatenate(right)
+    
+    def length(self):
+        return 5
+
 class Substring(Rope):
     def __init__(self,rope, start, length):
         self.rope = rope
