@@ -20,7 +20,7 @@ class String(Rope):
         return self.s
     
     def delete(self, start, length):
-        left = "a"
+        left = str(self.substring(0, start))
         right = "e"
         return left + right
 
