@@ -21,10 +21,12 @@ class String(Rope):
     
     def delete(self, start, length):
         left = str(self.substring(0, start))
-        right = str(self.substring(start + length, 5 - start))
+        right = str(self.substring(start + length, self.length() - start))
         return left + right
     
-
+    def length(self):
+        return 5
+    
 class Substring(Rope):
     def __init__(self,rope, start, length):
         self.rope = rope
