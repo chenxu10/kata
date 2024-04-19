@@ -21,8 +21,9 @@ class String(Rope):
     
     def delete(self, start, length):
         left = str(self.substring(0, start))
-        right = "e"
+        right = str(self.substring(4,1))
         return left + right
+    
 
 class Substring(Rope):
     def __init__(self,rope, start, length):
