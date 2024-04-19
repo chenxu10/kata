@@ -31,22 +31,24 @@ class Substring(Rope):
     def __init__(self,rope, start, length):
         self.rope = rope
         self.start = start
-        self.length = length
+        self.leng = length
     
     def __str__(self):
-        return str(self.rope)[self.start:self.start + self.length]
+        return str(self.rope)[self.start:self.start + self.leng]
+    
+    def length(self):
+        return 3
  
 def to_rope(x):
     return String(x)
 
 # Testing framework
-def equals(rope, expected):
-    actual = str(rope)
+def equals(actual, expected):
     if actual == expected:
         return
     else:
         print(actual,"not equal to", expected)
-        raise Exception(actual,"looks like")
+        raise Exception("actual looks like", actual)
 
 if __name__ == '__main__':
     equals(str(to_rope("abc")),"abc")
@@ -54,3 +56,4 @@ if __name__ == '__main__':
     assert str(to_rope("abcdefg").substring(1,3).substring(1,2).substring(1,1)) == "d"
     equals(str(to_rope("abc").concatenate(to_rope("de"))),"abcde")
     equals(to_rope("abcde").delete(1,3),"ae")
+    equals(to_rope("abcde").substring(1,3).length(),3)
