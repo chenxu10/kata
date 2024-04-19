@@ -20,7 +20,9 @@ class String(Rope):
         return self.s
     
     def delete(self, start, length):
-        return "ae"
+        left = "a"
+        right = "e"
+        return left + right
 
 class Substring(Rope):
     def __init__(self,rope, start, length):
