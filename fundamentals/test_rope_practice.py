@@ -21,7 +21,7 @@ class String(Rope):
     
     def delete(self, start, length):
         left = str(self.substring(0, start))
-        right = str(self.substring(4,1))
+        right = str(self.substring(start + length, 5 - start))
         return left + right
     
 
