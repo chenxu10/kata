@@ -9,3 +9,4 @@ let test_primefactor =
 let square x = x * x;;
 let sol = square 2;;
 print_int sol;;
+ 
