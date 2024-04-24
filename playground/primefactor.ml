@@ -1,5 +1,5 @@
 #use "topfind";;
-
+#thread;;
 
 
 let primefactor x = 
