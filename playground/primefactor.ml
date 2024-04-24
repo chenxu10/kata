@@ -1,6 +1,7 @@
 #use "topfind";;
 #thread;;
 #require "batteries";;
+open Batteries;;
 
 let primefactor x = 
     []
