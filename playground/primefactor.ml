@@ -12,7 +12,8 @@ let test_primefactor =
 
 
 let reverse_string (s: string): string =
-  "cba"
+    BatString.rev s
+  
 
 let test_reverse_string = 
     assert (reverse_string "abc" = "cba");;
