@@ -1,3 +1,7 @@
+#use "topfind";;
+
+
+
 let primefactor x = 
     []
 
