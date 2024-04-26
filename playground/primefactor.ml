@@ -11,10 +11,9 @@ let test_primefactor =
     assert (primefactor 2 = []);;
 
 
-let reverse_string (s: string): string =
-    BatString.rev s
+let reverse_string (s: string): 
+    string = BatString.rev s
   
-
 let test_reverse_string = 
     assert (reverse_string "abc" = "cba");;
 (* can you define a sqaure functions sd *)
