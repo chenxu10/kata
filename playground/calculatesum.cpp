@@ -19,7 +19,7 @@ void testCalculateSum() {
 //     }
 // }
 }
-int main() {
+int main(){
     testCalculateSum();
     return 0;
 }
