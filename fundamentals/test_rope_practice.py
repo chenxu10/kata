@@ -51,7 +51,7 @@ def equals(actual, expected):
         raise Exception("actual looks like", actual)
 
 if __name__ == '__main__':
-    #
+    ##
     equals(str(to_rope("abc")),"abc")
     equals(str(to_rope("abcde").substring(1,3).substring(1,1)),"c")
     assert str(to_rope("abcdefg").substring(1,3).substring(1,2).substring(1,1)) == "d"
