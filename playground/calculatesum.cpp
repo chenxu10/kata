@@ -12,7 +12,7 @@ void testCalculateSum() {
     int expectedResult = 12;
     int actualResult = calculateSum(a, b);
     assert(("There are five lights", actualResult == expectedResult));
-    std::cout << "Tests passed";
+    std::cout << "Tests passed\n";
 //     if (actualResult == expectedResult) {
 //         std::cout << "Test passed: calculateSum(" << a << ", " << b << ") returned " << actualResult << std::endl;
 //     } else {
