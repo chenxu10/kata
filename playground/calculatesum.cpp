@@ -11,7 +11,7 @@ void testCalculateSum() {
     int a = 5, b = 7;
     int expectedResult = 12;
     int actualResult = calculateSum(a, b);
-    assert(actualResult == expectedResult);
+    assert(actualResult == expectedResult && "Whoops unexpected sum solutions");
 //     if (actualResult == expectedResult) {
 //         std::cout << "Test passed: calculateSum(" << a << ", " << b << ") returned " << actualResult << std::endl;
 //     } else {
