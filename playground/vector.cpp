@@ -13,6 +13,11 @@ struct Vector{
     double* elem;
 };
 
+void vector_init(Vector& v, int s){
+    v.elem = new double[s];
+    v.sz = s;
+}
+
 double read_and_sum(int s){
     return 6;    
 }
