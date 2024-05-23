@@ -32,6 +32,8 @@ double read_and_sum(int s){
     for (int i=0; i<s; ++i){
         sum += v.elem[i];
     };
+
+    cout << "Sum :" << sum << endl;
     return sum;
 }
 
