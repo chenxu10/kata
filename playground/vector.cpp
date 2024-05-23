@@ -24,12 +24,15 @@ double read_and_sum(int s){
     Vector v;
     vector_init(v,s);
     
+    for (int i = 0; i!=s; ++i) {
+        std::cin >> v.elem[i];
+    }  
+
     double sum = 0.0;
-    for (int i=0; i<s; ++i){
+    for (int i=0; i!=s; ++i){
         sum += v.elem[i];
     };
 
-    cout << "Sum :" << sum << endl;
     return sum;
 }
 
@@ -38,6 +41,6 @@ void test_read_and_sum(){
 };
 
 int main(){
-    read_and_sum(4);
+    std:cout << "Hello world\b";
     // test_read_and_sum();
 };
