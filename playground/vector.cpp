@@ -41,6 +41,6 @@ void test_read_and_sum(){
 };
 
 int main(){
-    std:cout << "Hello world\b";
+    std:cout << "Hello World. Xu first program\n";
     // test_read_and_sum();
 };
