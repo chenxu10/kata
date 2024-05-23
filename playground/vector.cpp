@@ -24,10 +24,6 @@ double read_and_sum(int s){
     Vector v;
     vector_init(v,s);
     
-    // for (int i = 0; i < s; ++i) {
-    //     cin >> v.elem[i];
-    // }  
-
     double sum = 0.0;
     for (int i=0; i<s; ++i){
         sum += v.elem[i];
