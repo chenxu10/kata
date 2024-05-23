@@ -26,7 +26,6 @@ void test_read_and_sum(){
     assert((read_and_sum(5) == 6));
 };
 
-
 int main(){
     test_read_and_sum();
 };
