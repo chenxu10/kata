@@ -7,6 +7,8 @@
 
 /*Enum*/
 #include <cassert>
+#include <iostream>
+using namespace std;
 
 struct Vector{
     int sz;
@@ -19,7 +21,18 @@ void vector_init(Vector& v, int s){
 }
 
 double read_and_sum(int s){
-    return 6;    
+    Vector v;
+    vector_init(v,s);
+    
+    // for (int i = 0; i < s; ++i) {
+    //     cin >> v.elem[i];
+    // }  
+
+    double sum = 0.0;
+    for (int i=0; i<s; ++i){
+        sum += v.elem[i];
+    };
+    return sum;
 }
 
 void test_read_and_sum(){
@@ -27,5 +40,6 @@ void test_read_and_sum(){
 };
 
 int main(){
-    test_read_and_sum();
+    read_and_sum(3);
+    // test_read_and_sum();
 };
