@@ -8,6 +8,11 @@
 /*Enum*/
 #include <cassert>
 
+struct Vector{
+    int sz;
+    double* elem;
+};
+
 double read_and_sum(int s){
     return 6;    
 }
