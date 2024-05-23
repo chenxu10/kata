@@ -42,6 +42,6 @@ void test_read_and_sum(){
 };
 
 int main(){
-    read_and_sum(3);
+    read_and_sum(4);
     // test_read_and_sum();
 };
