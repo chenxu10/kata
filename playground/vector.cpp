@@ -20,5 +20,3 @@ void test_read_and_sum(){
 int main(){
     test_read_and_sum();
 };
-
-sd
