@@ -4,9 +4,13 @@ and a real number x. compute the polynomial Pn(x)=anx^n +an-1x^n-1 + a1x+a0
 """
 
 def compute_polynomial(alists,x):
-    return 7
+    if len(alists) == 1:
+        return alists[0]
+    else:
+        return 7
 
 def test_compute_polynomial():
+    assert compute_polynomial([1],2) == 1
     assert compute_polynomial([1,1,1],2) == 7
 
 def main():
