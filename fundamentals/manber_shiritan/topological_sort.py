@@ -16,7 +16,7 @@ def topologial_sort(G):
         stack.appendleft(node)
 
     for vertex in G:
-        if not visted[vertex]:
+        if not   visted[vertex]:
             dfs(vertex)
 
     return list(stack)
