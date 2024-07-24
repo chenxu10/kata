@@ -1,5 +1,5 @@
 # Seeing use darken and coloring technique
-
+#https://www.youtube.com/watch?v=eL-KzMXSXXI
 from collections import deque
 
 def topologial_sort(G):
