@@ -4,19 +4,19 @@ from collections import deque
 
 def topologial_sort(G):
     stack = deque()
-    visted = {node:False for node in G}
+    visited = {node:False for node in G}
 
     def dfs(node):
-        visted[node] = True
+        visited[node] = True
 
         for nei in G[node]:
-            if not visted[nei]:
+            if not visited[nei]:
                 dfs(nei)
 
         stack.appendleft(node)
 
     for vertex in G:
-        if not   visted[vertex]:
+        if not   visited[vertex]:
             dfs(vertex)
 
     return list(stack)
