@@ -7,16 +7,20 @@ def topologial_sort(G):
     visited = {node:False for node in G}
 
     def dfs(node):
+        visited[node] = True
 
         for nei in G[node]:
-            if visited[nei] == False:
+            if not visited[nei]:
                 dfs(nei)
 
-    for node in G:
-        if visited[node] == False:
-            dfs(node)
+        stack.appendleft(node)
 
-    return stack
+    for vertex in G:
+        print(vertex)
+        if not visited[vertex]:
+            dfs(vertex)
+
+    return list(stack)
    
 def test_topologial_sort():
     G = {
