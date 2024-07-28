@@ -3,24 +3,24 @@
 from collections import deque
 
 def topologial_sort(G):
-    stack = deque()
     visited = {node:False for node in G}
+    stack = deque()
 
     def dfs(node):
         visited[node] = True
 
-        for nei in G[node]:
-            if not visited[nei]:
-                dfs(nei)
+        for node in visited:
+            if not visited[node]:
+                dfs(node)
 
-        stack.appendleft(node)
+            
 
-    for vertex in G:
-        print(vertex)
-        if not visited[vertex]:
-            dfs(vertex)
 
-    return list(stack)
+    for node in G:
+        if not visited[node]:
+            dfs(node)
+
+    return stack
    
 def test_topologial_sort():
     G = {
