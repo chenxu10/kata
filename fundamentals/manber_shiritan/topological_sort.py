@@ -35,7 +35,7 @@ def test_topologial_sort():
     }
     sorted_stack = topologial_sort(G)
     print(sorted_stack)
-    #assert sorted_stack == ['B','A','D','C','E','H','F','G']
+    assert sorted_stack == ['B', 'D', 'A', 'C', 'E', 'F', 'G', 'H']
 
 
 def main():
