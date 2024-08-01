@@ -4,8 +4,25 @@
 def bipartite(G):
     visited = {node:False for node in G}
     color = {node:-1 for node in G}
-    
-    
+
+    def dfs(node, c):
+        "color two different colors in an edge"
+        visited[node] = True
+        color[node] = c
+
+        for nei in G[node]:
+            if not visited[nei]:
+                if not dfs(nei, 1 - c):
+                    return False
+            elif color[nei] == color[node]:
+                return False           
+        return True
+
+    for node in G:
+        if not visited[node]:
+            if not dfs(node, 0):
+                return False
+
     return True
 
 def test_bipartite():
