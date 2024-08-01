@@ -12,7 +12,7 @@ def bipartite(G):
 
         for nei in G[node]:
             if (not visited[nei]) and (not dfs(nei, 1 - c)):
-                    return False
+                return False
             elif color[nei] == color[node]:
                 return False           
         return True
