@@ -1,6 +1,11 @@
 # Kata
 Kata for practicing coding, stats, ml, system and architecture design.
 
+## TCR Training
+./your_script.sh &
+kill 1234 the number you see on the screen
+kill %1
+
 ## Learning how to learn and how to solve problems
 ### Fail elegantly
 1. Making mistakes is the only way to innovate
@@ -9,7 +14,7 @@ Kata for practicing coding, stats, ml, system and architecture design.
     - Solve a simpler version of the problem
 
 ### Heuristics
-+ Use unknown as known and start mixing
++ Wise people begin fron the end, and a fool end at the beginning.Use unknown as known and start mixing
     + If AB=AC, CD//DE, Conclusion: Try prove ABCD Parallelogram
     + If ABCD is Parallelogram, THEN AB, CD
     + It works before having a assumption conclusion from unknown to known, now 
