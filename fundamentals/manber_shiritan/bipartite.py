@@ -8,9 +8,12 @@ def bipartite(G):
     def bfs(node):
         
         for nei in G[node]:
-            if nei not in visited:
-                #color[nei]
-                bfs(nei)       
+            if not visited[nei]:
+                return
+            visited[nei] = True
+            
+                
+                
 
     for node in G:
         if not visited[node]:
