@@ -16,10 +16,9 @@ def topologial_sort(G):
         stack.appendleft(node)
     
     for vertex in G:
-        print(vertex)
         if not visited[vertex]:
             dfs(vertex)
-
+            
     return list(stack)
    
 def test_topologial_sort():
