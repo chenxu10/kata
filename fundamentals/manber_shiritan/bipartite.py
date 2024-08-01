@@ -5,6 +5,12 @@ def bipartite(G):
     visited = {node:False for node in G}
     color = {'not_color':-1,'blue':0,'orange':1}
 
+    def bfs(node):
+        pass
+
+    for node in G:
+        if not visited[node]:
+            bfs(node)
 
     return True
 
