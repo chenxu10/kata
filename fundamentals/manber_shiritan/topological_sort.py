@@ -5,7 +5,7 @@ from collections import deque
 def topologial_sort(G):
     stack = deque()
     visited = {node:False for node in G}
-
+    
     def dfs(node):
         visited[node] = True
 
