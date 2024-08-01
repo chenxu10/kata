@@ -5,22 +5,23 @@ from collections import deque
 def topologial_sort(G):
     stack = deque()
     visited = {node:False for node in G}
-    
-    
+
+
     def dfs(node):
         visited[node] = True
         for nei in G[node]:
             if not visited[nei]:
                 dfs(nei)
-
         stack.appendleft(node)
-    
+
     for vertex in G:
         if not visited[vertex]:
             dfs(vertex)
-            
+
+
     return list(stack)
-   
+    
+    
 def test_topologial_sort():
     G = {
         'A':['C'],
