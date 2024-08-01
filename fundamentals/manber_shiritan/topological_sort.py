@@ -18,7 +18,6 @@ def topologial_sort(G):
         if not visited[vertex]:
             dfs(vertex)
 
-
     return list(stack)
     
     
