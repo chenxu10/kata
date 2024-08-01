@@ -6,11 +6,15 @@ def bipartite(G):
     color = {'not_color':-1,'blue':0,'orange':1}
 
     def bfs(node):
-        pass
+        
+        for nei in G[node]:
+            if nei not in visited:
+                #color[nei]
+                bfs(nei)       
 
     for node in G:
         if not visited[node]:
-            bfs(node)
+            bfs(node) 
 
     return True
 
