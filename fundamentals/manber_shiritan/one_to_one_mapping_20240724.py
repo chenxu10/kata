@@ -11,7 +11,7 @@ def max_subset(A, f):
     def dfs(element):
         visited.add(element)
         next_element = f[element]
-
+        
         # No two elements are mapped in the same element
         if next_element in visited:
             result = set()
