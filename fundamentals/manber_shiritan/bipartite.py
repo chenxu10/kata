@@ -1,0 +1,17 @@
+
+
+
+def bipartite(G):
+    return True
+
+def test_bipartite():
+    G = {'A':['B','C'],
+         'B':['A','C'],
+         'C':['A','D'],
+         'D':['B','C']}
+    assert bipartite(G) == True
+
+def main():
+    test_bipartite()
+if __name__ == '__main__':
+    main()
