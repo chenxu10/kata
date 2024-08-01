@@ -6,15 +6,15 @@ def topologial_sort(G):
     stack = deque()
     visited = {node:False for node in G}
     
+    
     def dfs(node):
         visited[node] = True
-
         for nei in G[node]:
             if not visited[nei]:
                 dfs(nei)
 
         stack.appendleft(node)
-
+    
     for vertex in G:
         print(vertex)
         if not visited[vertex]:
