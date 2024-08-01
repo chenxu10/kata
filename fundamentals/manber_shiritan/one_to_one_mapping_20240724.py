@@ -7,12 +7,9 @@
 
 def max_subset(A, f):
     visited = set()
-    memo = {}
 
     def dfs(element):
-        if element in memo:
-            return memo[element]
-
+        
         visited.add(element)
         next_element = f[element]
 
@@ -23,7 +20,6 @@ def max_subset(A, f):
 
         result.add(element)
         visited.remove(element)
-        memo[element] = result
         return result
 
     max_set = set()
