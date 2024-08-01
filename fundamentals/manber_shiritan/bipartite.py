@@ -18,9 +18,8 @@ def bipartite(G):
         return True
 
     for node in G:
-        if not visited[node]:
-            if not dfs(node, 0):
-                return False
+        if (not visited[node]) and (not dfs(node, 0)):
+            return False
 
     return True
 
