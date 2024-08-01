@@ -2,6 +2,10 @@
 
 
 def bipartite(G):
+    visited = {node:False for node in G}
+    color = {node:-1 for node in G}
+    
+    
     return True
 
 def test_bipartite():
