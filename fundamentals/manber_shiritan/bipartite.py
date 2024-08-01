@@ -3,27 +3,31 @@
 
 def bipartite(G):
     visited = {node:False for node in G}
-    color = {'not_color':-1,'blue':0,'orange':1}
+    color = {node:-1 for node in G}
 
-    def bfs(node):
-        
+    def dfs(node, c):
+        "color two different colors in an edge"
+        visited[node] = True
+        color[node] = c
+
         for nei in G[node]:
             if not visited[nei]:
-                return
-            visited[nei] = True
-            
-                
-                
+                if not dfs(nei, 1 - c):
+                    return False
+            elif color[nei] == color[node]:
+                return False           
+        return True
 
     for node in G:
         if not visited[node]:
-            bfs(node) 
+            if not dfs(node, 0):
+                return False
 
     return True
 
 def test_bipartite():
     G = {'A':['B','C'],
-         'B':['A','C'],
+         'B':['A','D'],
          'C':['A','D'],
          'D':['B','C']}
     assert bipartite(G) == True
