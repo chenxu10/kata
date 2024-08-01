@@ -27,8 +27,8 @@ def max_subset(A, f):
         return result
 
     max_set = set()
-    for start in A:
-        current_set = dfs(start)
+    for element in A:
+        current_set = dfs(element)
         if len(current_set) > len(max_set):
             max_set = current_set
 
