@@ -39,5 +39,12 @@ def main():
     result = max_subset(A, f)
     print(result)    
 
+def main2():
+    A = {1, 2}
+    f = {1: 2, 2: 2}
+    result = max_subset(A, f)
+    print(result)    
+
+
 if __name__ == '__main__':
     main()
