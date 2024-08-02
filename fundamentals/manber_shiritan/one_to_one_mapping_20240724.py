@@ -10,6 +10,9 @@ def max_subset(A, f):
     max_set = set()
 
     def dfs(element):
+        """
+        This set returns the maximum element so far
+        """
         visited.add(element)
         next_element = f[element]
         
