@@ -9,9 +9,11 @@ def topologial_sort(G):
         return visited
 
     def dfs(node):
-        visited[node] = True
+        visited[node] = 1
         for nei in G[node]:
-            if not visited[nei]:
+            if visited[nei] == 1:
+                print("has cycle")
+            if visited[nei] == 0:
                 dfs(nei)
         stack.appendleft(node)
 
