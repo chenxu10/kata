@@ -6,7 +6,7 @@ def topologial_sort(G):
     stack = deque()
     visited = {node:False for node in G}
 
-    def traverse_graph(G, visited, dfs):
+    def traverse_graph():
         for vertex in G:
             if not visited[vertex]:
                 dfs(vertex)
@@ -18,7 +18,7 @@ def topologial_sort(G):
                 dfs(nei)
         stack.appendleft(node)
 
-    traverse_graph(G, visited, dfs)
+    traverse_graph()
 
     return list(stack)
 
