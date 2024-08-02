@@ -15,6 +15,7 @@ def topologial_sort(G):
                 print("has cycle")
             if visited[nei] == 0:
                 dfs(nei)
+        visited[node] = 2
         stack.appendleft(node)
 
     def traverse_graph():
