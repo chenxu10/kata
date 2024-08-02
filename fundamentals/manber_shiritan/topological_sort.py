@@ -3,9 +3,10 @@
 from collections import deque
 
 def topologial_sort(G):
-    stack = deque()
-    visited = {node:False for node in G}
-
+    def init_visit_status():
+        # 0 for unvisited, 1 for visiting and 2 for visited
+        visited = {node:0 for node in G}
+        return visited
 
     def dfs(node):
         visited[node] = True
@@ -19,6 +20,8 @@ def topologial_sort(G):
             if not visited[vertex]:
                 dfs(vertex)
 
+    stack = deque()
+    visited = init_visit_status()    
     traverse_graph()
 
     return list(stack)
