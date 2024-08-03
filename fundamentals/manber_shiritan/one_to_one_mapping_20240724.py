@@ -19,18 +19,22 @@ Mapping:
 import queue
 def Algorithm_Mapping(f,n):
     S = [i for i in range(n)]
+    
     c = [0 for i in range(n)]
     for i in range(n):
         c[f[i]] += 1
+    
     Queue = queue.Queue()
     for j in range(n):
         if c[j] == 0:
             Queue.put(j)
+    
     while not Queue.empty():
         i = Queue.get()
         S.remove(i)
         c[f[i]] -= 1
-        if c[f[i]] == 0: Queue.put(f[i])      
+        if c[f[i]] == 0: 
+            Queue.put(f[i])      
     return S
 
 f = [2, 0, 0, 4, 4, 3, 5]
