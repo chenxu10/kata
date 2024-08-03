@@ -16,25 +16,26 @@ Mapping:
 7 -> 6
 '''
 
-import queue
+from collections import deque
 def Algorithm_Mapping(f,n):
     S = [i for i in range(n)]
-    
-    c = [0 for i in range(n)]
+    c = [0 for _ in range(n)]
+    q = deque()
+
     for i in range(n):
         c[f[i]] += 1
-    
-    Queue = queue.Queue()
-    for j in range(n):
-        if c[j] == 0:
-            Queue.put(j)
-    
-    while not Queue.empty():
-        i = Queue.get()
-        S.remove(i)
-        c[f[i]] -= 1
-        if c[f[i]] == 0: 
-            Queue.put(f[i])      
+
+    for i in range(n):
+        if c[i] == 0:
+            q.append(i)
+
+    while q:
+        element = q.pop()
+        S.remove(element)
+        c[f[element]] -= 1
+        if c[f[element]] == 0:
+            q.append(f[element])
+
     return S
 
 f = [2, 0, 0, 4, 4, 3, 5]
