@@ -1,7 +1,37 @@
+"""
+Extend the induction hypothesis to stronger status, so that reasoning forward
+can be easier
+"""
+
+
 def compute_balance_factors(root):
-    pass
+    """
+    balance factors dictioanry
+
+    create a height calculate function
+    """
+    def calculate_height(root):
+        if not root:
+            return -1
+        else:
+            return 1 + max(calculate_height(root.left), calculate_height(root.right))
 
 
+    def dfs(root):
+        if not root:
+            return
+        
+        balancing_factors[root] = calculate_height(root.left) - calculate_height(root.right)
+        dfs(root.left)
+        dfs(root.right)
+
+
+    balancing_factors = {}
+    if not root:
+        return balancing_factors   
+
+    dfs(root)
+    return balancing_factors
 
 
 class TreeNode:
