@@ -89,11 +89,16 @@ def sortedArrayToBST(nums: List[int]) -> Optional[TreeNode]:
 
     return buildBST(0, len(nums) - 1)
 
+
+def test_build_height_balanced_tree():
+    Node = sortedArrayToBST([-3,0,5,9])
+    assert Node.left.val == -3
+    assert Node.right.val == 5
+    assert Node.right.right.val == 9
+
+
 def main():
     test_balance_factors()
-    Node = sortedArrayToBST([-3,0,5,9])
-    print(Node.left.val)
-    print(Node.right.val)
-    print(Node.right.right.val)
+
 if __name__ == '__main__':
     main()
