@@ -46,8 +46,7 @@ def test_balance_factors():
     root1 = TreeNode(1)
     root1.left = TreeNode(2)
     root1.right = TreeNode(3)
-    print(compute_balance_factors(root1))
-    # assert compute_balance_factors(root1) == {1: 0, 2: 0, 3: 0}
+    assert compute_balance_factors(root1) == {1: 0, 2: 0, 3: 0}
 
     # # 2. Left-skewed tree
     # root2 = TreeNode(1)
