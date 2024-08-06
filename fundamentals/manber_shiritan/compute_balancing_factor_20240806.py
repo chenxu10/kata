@@ -94,5 +94,6 @@ def main():
     Node = sortedArrayToBST([-3,0,5,9])
     print(Node.left.val)
     print(Node.right.val)
+    print(Node.right.right.val)
 if __name__ == '__main__':
     main()
