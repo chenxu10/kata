@@ -96,7 +96,6 @@ def test_build_height_balanced_tree():
     assert Node.right.val == 5
     assert Node.right.right.val == 9
 
-
 def main():
     test_balance_factors()
 
