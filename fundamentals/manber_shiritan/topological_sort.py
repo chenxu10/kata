@@ -6,25 +6,28 @@ def topologial_sort(G):
     def init_visit_status():
         # 0 for unvisited, 1 for visiting and 2 for visited
         visited = {node:0 for node in G}
-        return visited
+        has_cycle = [False]
+        return visited, has_cycle
 
     def dfs(node):
+        if has_cycle[0]:
+            return 
         visited[node] = 1
         for nei in G[node]:
             if visited[nei] == 1:
-                print("has cycle")
-            if visited[nei] == 0:
+                has_cycle[0] = True
+            if visited[nei] == 0 and not has_cycle[0]:
                 dfs(nei)
         visited[node] = 2
         stack.appendleft(node)
 
     def traverse_graph():
         for vertex in G:
-            if not visited[vertex]:
+            if not visited[vertex] and not has_cycle[0]:
                 dfs(vertex)
 
     stack = deque()
-    visited = init_visit_status()    
+    visited, has_cycle = init_visit_status()    
     traverse_graph()
 
     return list(stack)
