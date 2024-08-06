@@ -23,32 +23,38 @@ def topologial_sort(G):
 
     def traverse_graph():
         for vertex in G:
-            if not visited[vertex] and not has_cycle[0]:
+            if not visited[vertex]:
                 dfs(vertex)
+                if not has_cycle[0]:
+                    return list(stack)
 
     stack = deque()
     visited, has_cycle = init_visit_status()    
     traverse_graph()
 
-    return list(stack)
+    return []
 
     
     
 def test_topologial_sort():
-    G = {
-        'A':['C'],
-        'B':['C','D'],
-        'C':['E'],
-        'D':['F'],
-        'E':['H','F'],
-        'F':['G'],
-        'G':[],
-        'H':[]
-    }
-    sorted_stack = topologial_sort(G)
-    print(sorted_stack)
-    assert sorted_stack == ['B', 'D', 'A', 'C', 'E', 'F', 'G', 'H']
+    # G = {
+    #     'A':['C'],
+    #     'B':['C','D'],
+    #     'C':['E'],
+    #     'D':['F'],
+    #     'E':['H','F'],
+    #     'F':['G'],
+    #     'G':[],
+    #     'H':[]
+    # }
+    # sorted_stack = topologial_sort(G)
+    # print(sorted_stack)
+    # assert sorted_stack == ['B', 'D', 'A', 'C', 'E', 'F', 'G', 'H']
 
+    G1 = {'A':'B','B':'C','C':'A'}
+    sorted_stack = topologial_sort(G1)
+    print(sorted_stack)
+    assert sorted_stack == []
 
 def main():
     test_topologial_sort()
