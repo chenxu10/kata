@@ -93,5 +93,6 @@ def main():
     test_balance_factors()
     Node = sortedArrayToBST([-3,0,5,9])
     print(Node.left.val)
+    print(Node.right.val)
 if __name__ == '__main__':
     main()
