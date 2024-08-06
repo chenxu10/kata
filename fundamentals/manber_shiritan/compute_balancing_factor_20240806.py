@@ -21,7 +21,7 @@ def compute_balance_factors(root):
         if not root:
             return
         
-        balancing_factors[root] = calculate_height(root.left) - calculate_height(root.right)
+        balancing_factors[root.val] = calculate_height(root.left) - calculate_height(root.right)
         dfs(root.left)
         dfs(root.right)
 
