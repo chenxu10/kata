@@ -1,4 +1,7 @@
+"""
+Graph theory string passing to dfs graph
 
+"""
 
 
 class CurrencyConverter:
