@@ -34,8 +34,6 @@ def topologial_sort(G):
 
     return []
 
-    
-    
 def test_topologial_sort():
     # G = {
     #     'A':['C'],
