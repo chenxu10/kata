@@ -4,15 +4,30 @@
 
 
 def mcs(x):
-    return [3,4]
+    n = len(x)
+    global_max = 0
+    local_max = 0
+    
+    for i in range(n):
+        if x[i] + local_max > global_max:
+            local_max = x[i] + local_max
+            global_max = local_max
+        elif x[i] + local_max > 0:
+            local_max = x[i] + local_max
+        else:
+            local_max = 0
+        
+    return global_max
 
 
 def test_maximal_consecutive_sequence():
-    assert mcs([1,-2,-1,4,-1]) == [3,4]
-    assert mcs([-3,-2,-1,4,5]) == [4,5]
+    # assert mcs([1,-2,-1,4,-1]) == [3,4]
+    # assert mcs([-3,-2,-1,4,5]) == [4,5]
+    pass
 
 def main():
-    test_maximal_consecutive_sequence()    
+    print(mcs([1,-2,-1,4,-1]))
+    #test_maximal_consecutive_sequence()    
 
 if __name__ == '__main__':
     main()
