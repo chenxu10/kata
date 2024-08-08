@@ -20,7 +20,7 @@ def compute_polynomial(alists,x):
 def test_compute_polynomial():
     assert compute_polynomial([1],1) == 1
     assert compute_polynomial([1,1],2) == 3
-    assert compute_polynomial([1,2,1],2) == 9
+    assert compute_polynomial([1,2,1],2) == 1 * (2*2) + 2 * (2*1) + 1
     assert compute_polynomial([1,2,2,1],1) == 6    
 
 def main():
