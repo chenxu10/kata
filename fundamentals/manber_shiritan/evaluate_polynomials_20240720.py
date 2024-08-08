@@ -19,8 +19,6 @@ def compute_polynomial(alists,x):
     return pn
 
 def test_compute_polynomial():
-    #assert compute_polynomial([1],1) == 1
-    #assert compute_polynomial([1,1],2) == 3
     assert compute_polynomial([3,2,1],2) == 3 + 2 * 2 + 1 * 4
     assert compute_polynomial([1,2,2,1],1) == 1 + 2 * 1 + 2 * 1 + 1* 1
 
