@@ -27,6 +27,7 @@ def test_maximal_consecutive_sequence():
 
 def main():
     print(mcs([1,-2,-1,4,5]))
+    print(mcs([2,-3,1.5,-1,-3,-2,-3,3]))
     #test_maximal_consecutive_sequence()    
 
 if __name__ == '__main__':
