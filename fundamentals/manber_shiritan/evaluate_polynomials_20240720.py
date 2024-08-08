@@ -13,8 +13,8 @@ def compute_polynomial(alists,x):
     pn = alists[-1]
 
     for i in range(1, len(alists)):
-        print(alists[-1-i])        
-        pn = x* pn + alists[-1 - i]
+        a0 = alists[-1 - i]        
+        pn = x* pn + a0
 
     return pn
 
