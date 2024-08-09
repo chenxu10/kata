@@ -3,6 +3,7 @@ from typing import List
 class Solution:
     def getSkyline(self, buildings: List[List[int]]) -> List[List[int]]:
         def merge_skylines(left, right):
+            "O(n)"
             merged = []
             h1, h2 = 0, 0
             i, j = 0, 0
