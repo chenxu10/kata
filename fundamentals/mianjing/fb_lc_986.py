@@ -28,6 +28,6 @@ class Solution:
 
 """
 Tricks:
-If interval problem, compare previous max and before minimum and think of two pointers
-
+(1)If interval problem, compare previous max and before minimum and think of two pointers
+(2)Trading with other programmers is a lot of fun
 """
