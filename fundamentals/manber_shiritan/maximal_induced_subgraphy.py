@@ -23,10 +23,10 @@ def find_k_core(graph, k):
         # Update degrees and queue
         for u in neighbors:
             degree[u] -= 1
-            if degree[u] == k - 1:
+            if degree[u] < k:
                 queue.append(u)
-        
-        del degree[v]
+
+        del queue[v]
     
     return H if H else None
 
