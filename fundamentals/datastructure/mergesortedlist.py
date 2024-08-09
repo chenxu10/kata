@@ -32,7 +32,6 @@ class Solution:
         return dummy.next
 
 
-
 def test_merge_two_sorted_list():
     S = Solution()
     l1 = ListNode(1,ListNode(2))
