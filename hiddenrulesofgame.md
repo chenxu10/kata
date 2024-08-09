@@ -58,3 +58,12 @@ Should only put ten rules into it, every time you add after 10, then you should 
 2. Good trade and bad trade is different from winning trade and losing trade. Good trade can lose money on any individual trade as long as it will be profitable(at an risk acceptance level) when repeated mutiple times.
 3. You are not get paid for being right(not the trade when you are wrong, but the money you make is not big enough when you are right).
 4. You are taking time probability risk(1000 days) not ensemble probability risk(a collection of 1000 people).
+
+
+## Trading Lists
+1. Manber A Creative Approach(Reduce problem size and connect the dots between inductive reasoning, proof and algorithm design)
+2. Kent Beck(Coupling and cohension, power law, net present value vs optionality)
+3. Dijkstra(Six arguments in humble programmer)
+4. Uncle Bob(Bill of rights)
+5. Huahua
+6. Huifeng Guang
