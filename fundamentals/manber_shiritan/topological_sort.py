@@ -5,16 +5,20 @@ from collections import deque
 def topologial_sort(G):
     def dfs(node):
         if has_cycle[0]:
-            return 
+            return
+    
         visited[node] = 0
+
         for nei in G[node]:
             if visited[nei] == 0:
                 has_cycle[0] = True
-            if visited[nei] == -1 and not has_cycle[0]:
+            if visited[nei] == -1 and has_cycle[0] == False:
                 dfs(nei)
+
         visited[node] = 1
         stack.appendleft(node)
-   
+  
+    
     visited = {node:-1 for node in G}
     stack = deque() 
     has_cycle = [False]
