@@ -8,19 +8,7 @@ class Solution:
             i, j = 0, 0
             
             while i < len(left) and j < len(right):
-                x = 0
-                # update heights based on compared results of left small and right small
-                if left[i][0] < right[j][0]:
-                    x, h1 = left[i]
-                    i += 1
-                elif left[i][0] > right[j][0]:
-                    x, h2 = right[j]
-                    j += 1
-                else:
-                    x, h1 = left[i]
-                    _, h2 = right[j]
-                    i += 1
-                    j += 1
+                h1, h2, x = left.determine_next_x_coordinates(right, i, j)
                 
                 max_h = max(h1, h2)
                 if not merged or max_h != merged[-1][1]:
@@ -30,6 +18,22 @@ class Solution:
             merged.extend(right[j:])
             
             return merged
+
+        def new_method(left, right, i, j):
+            x = 0
+                # update heights based on compared results of left small and right small
+            if left[i][0] < right[j][0]:
+                x, h1 = left[i]
+                i += 1
+            elif left[i][0] > right[j][0]:
+                x, h2 = right[j]
+                j += 1
+            else:
+                x, h1 = left[i]
+                _, h2 = right[j]
+                i += 1
+                j += 1
+            return h1,h2,x
         
         def helper(buildings):
             if not buildings:
