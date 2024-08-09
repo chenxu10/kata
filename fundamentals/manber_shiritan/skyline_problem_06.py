@@ -47,3 +47,5 @@ class Solution:
             return merge_skylines(left_skyline, right_skyline)
 
         return helper(buildings)
+    
+# Problem can also be solved using scanning tree
