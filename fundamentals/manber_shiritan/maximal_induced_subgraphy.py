@@ -30,12 +30,11 @@ def find_k_core(graph, k):
     
     return H if H else None
 
-# Example usage
-graph = [(0, 1), (0, 2), (1, 2), (2, 3), (3, 4), (4, 5), (5, 3)]
-k = 2
+def main():
+    graph = [(0, 1), (0, 2), (1, 2), (2, 3), (3, 4), (4, 5), (5, 3)]
+    k = 2
+    result = find_k_core(graph, k)
+    assert result == [(0, 1), (0, 2), (1, 2), (2, 3), (3, 4), (4, 5), (5, 3)]
 
-result = find_k_core(graph, k)
-if result:
-    print(f"K-core subgraph: {result}")
-else:
-    print("No such subgraph exists")
+if __name__ == '__main__':
+    main()
