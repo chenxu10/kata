@@ -7,7 +7,7 @@ class ListNode:
 
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        dummy = ListNode(0) # if both inputs are empty
+        dummy = ListNode(0) # if both inputs are empty(otherwise redundant logic to determine head of the node)
         current = dummy
         
         def iterate_while_both_lists_have_nodes(list1, list2, current):
