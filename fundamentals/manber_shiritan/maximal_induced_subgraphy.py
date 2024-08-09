@@ -17,7 +17,7 @@ def find_k_core(graph, k):
         v = queue.pop(0)
         
         # Remove v and its incident edges
-        neighbors = [u for u, w in H if w == v]
+        neighbors = [u for u, w in H if w != v]
         H = [(u, w) for u, w in H if u != v and w != v]
         
         # Update degrees and queue
