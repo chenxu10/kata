@@ -9,18 +9,16 @@ def find_k_core(graph, k):
     for u, v in H:
         degree[u] += 1
         degree[v] += 1
-    
     # Create a queue of vertices with degree < k
     queue = [v for v in degree if degree[v] < k]
     
     while queue:
-        v = queue.pop(0)
-        
         # Remove v and its incident edges
-        neighbors = [u for u, w in H if w != v]
+        v = queue.pop(0)
         H = [(u,w) for u, w in H if u!=v and w!=v]
         
-        # Update degrees and queue
+        # Update degrees based on neighbors
+        neighbors = [u for u, w in H if w != v]
         for u in neighbors:
             degree[u] -= 1
             if degree[u] < k:
