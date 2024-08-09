@@ -23,6 +23,7 @@ class Solution:
                     j += 1
                 # add a point to a merged skyline
                 max_h = max(h1, h2)
+                # 进入事件还是离开事件，第二高的大楼
                 if not merged or max_h != merged[-1][1]:
                     merged.append([x, max_h])
             
