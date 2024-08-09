@@ -10,24 +10,27 @@ class Solution:
         dummy = ListNode(0)
         current = dummy
         
-        # Iterate while both lists have nodes
-        while list1 and list2:
-            if list1.val <= list2.val:
+        def iterate_while_both_lists_have_nodes(list1, list2, current):
+            while list1 and list2:
+                if list1.val <= list2.val:
+                    current.next = list1
+                    list1 = list1.next
+                else:
+                    current.next = list2
+                    list2 = list2.next
+                current = current.next
+            return list1,list2,current
+            
+        def append_if_list_not_emprty_after_iteration(list1, list2, current):
+            if list1:
                 current.next = list1
-                list1 = list1.next
-            else:
+            if list2:
                 current.next = list2
-                list2 = list2.next
-            current = current.next
-        
-        # If any list is not empty, append it to the result
-        if list1:
-            current.next = list1
-        if list2:
-            current.next = list2
-        
-        # Return the head of the merged list (skip the dummy node)
+    
+        list1, list2, current = iterate_while_both_lists_have_nodes(list1, list2, current)   
+        append_if_list_not_emprty_after_iteration(list1, list2, current)
         return dummy.next
+
 
 
 def test_merge_two_sorted_list():
