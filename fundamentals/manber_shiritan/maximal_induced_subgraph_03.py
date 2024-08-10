@@ -91,12 +91,6 @@ def test_topologial_sort():
     print(['A','B','C','D'])
     assert sorted_stack == ['A','B','C','D']     
 
-    #assert sorted_stack == ['B', 'D', 'A', 'C', 'E', 'F', 'G', 'H']
-
-    # G1 = {'A':'B','B':'C','C':'A'}
-    # sorted_stack = topologial_sort(G1)
-    # assert sorted_stack == []
-
 test_topologial_sort()
 
 
