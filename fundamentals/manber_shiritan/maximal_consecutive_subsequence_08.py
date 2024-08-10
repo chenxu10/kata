@@ -18,8 +18,8 @@ def mcs(x):
     return global_max
 
 def mcs_recursive(x):
+    local_max = 0
     global_max = 0
-    local_max = 0    
     
     def dfs(x, i=0):
         nonlocal local_max
