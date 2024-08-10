@@ -57,7 +57,7 @@ def topologial_sort(G):
                 has_cycle[0] = True
 
         visited[node] = 1
-        stack.appendleft(node)
+        #stack.appendleft(node)
   
     
     visited = {node:-1 for node in G}
