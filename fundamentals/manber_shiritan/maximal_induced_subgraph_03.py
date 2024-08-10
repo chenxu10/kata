@@ -65,8 +65,10 @@ def topologial_sort(G):
     has_cycle = [False]
     
     for node in G:
-        if (visited[node]==-1) and has_cycle[0] == False:
+        if (visited[node]==-1):
             dfs(node)
+            if has_cycle[0] == True:
+                return None
             
     return list(stack)
     
