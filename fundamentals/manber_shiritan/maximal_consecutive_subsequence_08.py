@@ -3,6 +3,9 @@
 
 
 def mcs(x):
+    """
+    decoupling finding new maximum and new maximum suffix
+    """
     n = len(x)
     global_max = 0
     local_max = 0
