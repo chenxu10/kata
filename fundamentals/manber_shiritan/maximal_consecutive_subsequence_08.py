@@ -1,7 +1,3 @@
-
-
-
-
 def mcs(x):
     """
     decoupling finding new maximum and new maximum suffix
