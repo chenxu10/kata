@@ -44,34 +44,34 @@ def main():
 from collections import deque
 
 def topologial_sort(G):
-    def dfs(node):
-        if has_cycle[0]:
-            return
-    
-        visited[node] = 0
 
+    visited = {node:-1 for node in G} #-1 not visited 0 visiting 1 visited
+    stack = deque()
+    has_cycle = [False]
+
+    def dfs(node):
+        """
+        cycle detection add node into stack
+        """
+        if has_cycle[0] == True:
+            return
+        
+        visited[node] = 0
         for nei in G[node]:
-            if visited[nei] == -1 and has_cycle[0] == False:
-                dfs(nei)
             if visited[nei] == 0:
                 has_cycle[0] = True
-
+            if visited[nei] == -1 and has_cycle[0] == False:
+                dfs(nei)
         visited[node] = 1
-        #stack.appendleft(node)
-  
-    
-    visited = {node:-1 for node in G}
-    stack = deque() 
-    has_cycle = [False]
-    
+
     for node in G:
-        if (visited[node]==-1):
+        if visited[node] == -1:
             dfs(node)
             if has_cycle[0] == True:
-                return None
-            
-    return list(stack)
+                return
     
+    return list(stack)
+
 def test_topologial_sort():
     G = {
         'A':['B'],
