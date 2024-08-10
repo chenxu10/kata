@@ -21,7 +21,7 @@ def mcs(x):
 def test_maximal_consecutive_sequence():
     assert mcs([1,-2,-1,4,5]) == 4 + 5
     # context: running across negative number suffix decreasing
-    assert mcs([2,-3,1.5,-1,3,-2,-3,3]) == 1.5 - 1 + 3 
+    assert mcs([1.5,-1,3,-2,-3,3]) == 1.5 - 1 + 3 
 
 def main():
     test_maximal_consecutive_sequence()    
