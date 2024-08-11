@@ -60,15 +60,15 @@ def longest_consecutive_sequence(x):
     """
     hashset = set(x)
     ans = 0
-
-    # make sure it's lower bound
     for i in x:
-        if (i - 1) not in hashset: # lower bound
+        if (i - 1) not in hashset:
             l = 0
-            while i in hashset:
+            while (i + 1) in hashset:
                 l += 1
                 i += 1
                 ans = max(ans, l)
+    return ans
+
 def test_longest_consecutive_sequence():
     print(longest_consecutive_sequence([100,4,1,2,3]))
     #assert longest_consecutive_sequence([100,4,200,1,2,3]) == len([1,2,3,4])    
