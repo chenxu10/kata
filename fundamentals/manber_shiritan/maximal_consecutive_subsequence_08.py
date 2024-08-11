@@ -58,15 +58,15 @@ def longest_consecutive_sequence(x):
     and the longest subsequence is a prefix lower bound
     """
     hashset = set(x)
-    print(hashset)
-    ans = 1
+    ans = 0
 
     # make sure it's lower bound
     for i in x:
-        if i not in hashset: # lower bound
+        if (i - 1) not in hashset: # lower bound
             l = 0
-            while (i + 1) in hashset:
+            while i in hashset:
                 l += 1
+                i += 1
                 ans = max(ans, l)
     return ans
 
