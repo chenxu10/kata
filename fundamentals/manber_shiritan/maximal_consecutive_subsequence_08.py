@@ -69,9 +69,6 @@ def longest_consecutive_sequence(x):
                 l += 1
                 i += 1
                 ans = max(ans, l)
-    return ans
-
-
 def test_longest_consecutive_sequence():
     print(longest_consecutive_sequence([100,4,1,2,3]))
     #assert longest_consecutive_sequence([100,4,200,1,2,3]) == len([1,2,3,4])    
