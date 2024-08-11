@@ -68,6 +68,7 @@ def longest_consecutive_sequence(x):
             while i + 1 in hashset:
                 l += 1
                 ans = max(ans, l)
+                print(ans)
     return ans
 
 
