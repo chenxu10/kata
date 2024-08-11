@@ -62,7 +62,7 @@ def longest_consecutive_sequence(x):
     ans = 0
     for i in x:
         if (i - 1) not in hashset:
-            l = 0
+            l = 1
             while (i + 1) in hashset:
                 l += 1
                 i += 1
