@@ -71,7 +71,7 @@ def longest_consecutive_sequence(x):
 
 def test_longest_consecutive_sequence():
     print(longest_consecutive_sequence([100,4,1,2,3]))
-    #assert longest_consecutive_sequence([100,4,200,1,2,3]) == len([1,2,3,4])    
-    #assert longest_consecutive_sequence([0,6,7,2,3,4,5,6,8,1]) == len([0,1,2,3,4,5,6,7,8])
+    assert longest_consecutive_sequence([100,4,200,1,2,3]) == len([1,2,3,4])    
+    assert longest_consecutive_sequence([0,6,7,2,3,4,5,6,8,1]) == len([0,1,2,3,4,5,6,7,8])
 
 test_longest_consecutive_sequence()
