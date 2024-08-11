@@ -1,3 +1,9 @@
+"""
+Application:
+How much money you lose most?
+How long the worst season will last?
+"""
+
 def mcs(x):
     """
     decoupling finding new maximum and new maximum suffix
@@ -43,8 +49,30 @@ def test_maximal_consecutive_sequence():
     assert mcs([1.5,-1,3,-2,-3,3]) == 1.5 - 1 + 3
     assert mcs_recursive([1.5,-1,3,-2,-3,3]) == 1.5 - 1 + 3
 
-def main():
-    test_maximal_consecutive_sequence()    
 
-if __name__ == '__main__':
-    main()
+test_maximal_consecutive_sequence()
+
+def longest_consecutive_sequence(x):
+    """
+    We know how to find in sequences of size < n, the longest subsequence
+    and the longest subsequence is a prefix lower bound
+    """
+    hashset = set(x)
+    ans = 1
+
+    # make sure it's lower bound
+    for i in x:
+        if i not in hashset: # lower bound
+            l = 0
+            while i + 1 in hashset:
+                l += 1
+                ans = max(ans, l)
+    return ans
+
+
+def test_longest_consecutive_sequence():
+    print(longest_consecutive_sequence([100,4,1,2,3]))
+    #assert longest_consecutive_sequence([100,4,200,1,2,3]) == len([1,2,3,4])    
+    #assert longest_consecutive_sequence([0,6,7,2,3,4,5,6,8,1]) == len([0,1,2,3,4,5,6,7,8])
+
+test_longest_consecutive_sequence()
