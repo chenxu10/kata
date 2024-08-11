@@ -55,7 +55,8 @@ test_maximal_consecutive_sequence()
 def longest_consecutive_sequence(x):
     """
     We know how to find in sequences of size < n, the longest subsequence
-    and the longest subsequence is a prefix lower bound
+    and the longest subsequence must begin with that number is the lower bound
+    and prefix of that string
     """
     hashset = set(x)
     ans = 0
