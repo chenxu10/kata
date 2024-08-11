@@ -58,7 +58,8 @@ def longest_consecutive_sequence(x):
     and the longest subsequence must begin with that number is the lower bound
     and prefix of that string
     """
-    def extend_from_prefix(hashset, ans, i, l):
+    def extend_from_prefix(hashset, ans, i):
+        l = 1
         while (i + 1) in hashset:
             l += 1
             i += 1
@@ -69,8 +70,7 @@ def longest_consecutive_sequence(x):
     ans = 0
     for i in x:
         if (i - 1) not in hashset:
-            l = 1
-            ans = extend_from_prefix(hashset, ans, i, l)
+            ans = extend_from_prefix(hashset, ans, i)
     return ans
 
 
