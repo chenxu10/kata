@@ -82,4 +82,5 @@ def test_longest_consecutive_sequence():
 test_longest_consecutive_sequence()
 
 
-# maximum sum of non adjacent subsequence l3156
+# maximum sum of non adjacent subsequence l3156 
+# assume is in the second largest
