@@ -80,3 +80,6 @@ def test_longest_consecutive_sequence():
     assert longest_consecutive_sequence([0,6,7,2,3,4,5,6,8,1]) == len([0,1,2,3,4,5,6,7,8])
 
 test_longest_consecutive_sequence()
+
+
+# maximum sum of non adjacent subsequence 
