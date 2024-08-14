@@ -102,7 +102,7 @@ def mss(nums):
     for i in nums:
         if i > 0:
             sum += i
-    return sum
+    return sum 
 
 def test_maximum_sum_of_subsequence():
     assert mss([2,3,5]) == 10
