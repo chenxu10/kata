@@ -77,7 +77,9 @@ def generate_subsequence(nums):
         if start == len(nums):
             sol.append(path)
         else:
+            # include current node
             dfs(start + 1, path + [nums[start]])
+            # not include current node
             dfs(start + 1, path)
             
 
