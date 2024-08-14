@@ -96,8 +96,21 @@ def test_build_height_balanced_tree():
     assert Node.right.val == 5
     assert Node.right.right.val == 9
 
-def generate_subsequence():
-    return [[],[1],[2],[1,2]]
+def generate_subsequence(nums):
+    
+    def dfs(nums, depth, path):
+        if depth == len(nums):
+            return
+        else:
+            path.append(nums[depth + 1])
+            sol.append(dfs(nums,depth+1,path))
+            sol.append(dfs(nums,depth, nums[depth]+path))
+            
+
+    sol = []
+    path = []
+    dfs(nums,0,path)
+    return sol
 
 def test_generate_subsequence():
     assert generate_subsequence([1,2]) == [[],[1],[2],[1,2]]
