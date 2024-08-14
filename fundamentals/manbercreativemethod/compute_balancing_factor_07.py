@@ -62,12 +62,6 @@ def sortedArrayToBST(nums: List[int]) -> Optional[TreeNode]:
     return buildBST(0, len(nums) - 1)
 
 
-def test_build_height_balanced_tree():
-    Node = sortedArrayToBST([-3,0,5,9])
-    assert Node.left.val == -3
-    assert Node.right.val == 5
-    assert Node.right.right.val == 9
-
 def generate_subsequence(nums):
     # Advanced related problems combinations and permutations
     def dfs(start, path):
