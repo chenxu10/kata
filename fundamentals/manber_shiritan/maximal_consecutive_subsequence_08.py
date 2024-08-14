@@ -11,6 +11,8 @@ How much money you lose most?
 How long the worst season will last?
 """
 
+
+# Problem1: Maximum consecutive subsequence
 def mcs(x):
     """
     decoupling finding new maximum and new maximum suffix
@@ -55,10 +57,11 @@ def test_maximal_consecutive_sequence():
     # context: running across negative number suffix decreasing
     assert mcs([1.5,-1,3,-2,-3,3]) == 1.5 - 1 + 3
     assert mcs_recursive([1.5,-1,3,-2,-3,3]) == 1.5 - 1 + 3
-
-
 test_maximal_consecutive_sequence()
 
+
+
+# Problem2: Longest Consecutive Sequence
 def longest_consecutive_sequence(x):
     """
     We know how to find in sequences of size < n, the longest subsequence
@@ -87,11 +90,8 @@ def test_longest_consecutive_sequence():
 
 test_longest_consecutive_sequence()
 
-
-# maximum sum of non adjacent subsequence l3165
+# Problem3:Maximum Subsequence
 # assume is in the second largest
-
-
 def mss(nums):
     if max(nums) <= 0:
         return max(nums)
@@ -107,3 +107,8 @@ def test_maximum_sum_of_subsequence():
     assert mss([-2,11,-2,2]) == 13
 
 test_maximum_sum_of_subsequence()
+
+
+# Problem4:Non AdjacentMaximum Subsequence
+# Assume we know how to deal with non-adjacent
+# maximum sum of non adjacent subsequence l3165
