@@ -110,11 +110,18 @@ def test_maximum_sum_of_subsequence():
 
 test_maximum_sum_of_subsequence()
 
+
+# Problem4-prerequisite: House Robber(Leetcode 198)
+
+
+
+
 # Problem4:Non AdjacentMaximum Subsequence
 # Assume we know how to deal with non-adjacent
 # maximum sum of non adjacent subsequence l3165
-# Problem5: Find the mode of multiset
 
+
+# Problem6: Find the mode of multiset
 def modemultiset(x):
     return 2
 
