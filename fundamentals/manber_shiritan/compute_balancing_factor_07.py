@@ -103,8 +103,7 @@ def generate_subsequence(nums):
         Reach to the leaf of the recursion tree
         """
         if start == len(nums):
-            if len(path) != 0:
-                sol.append(path[:])
+            sol.append(path[:])
 
         for i in range(start, len(nums)):
             dfs(start + 1, path + [nums[i]])
