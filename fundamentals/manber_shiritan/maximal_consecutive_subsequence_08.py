@@ -118,5 +118,6 @@ test_maximum_sum_of_subsequence()
 
 def modemultiset(x):
     return 2
+
 assert modemultiset({1,2,3,2}) == 2
 assert modemultiset({1,1,2,2,2,3}) == 2
