@@ -115,7 +115,6 @@ test_maximum_sum_of_subsequence()
 
 
 
-
 # Problem4:Non AdjacentMaximum Subsequence
 # Assume we know how to deal with non-adjacent
 # maximum sum of non adjacent subsequence l3165
