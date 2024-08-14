@@ -99,10 +99,16 @@ def test_build_height_balanced_tree():
 def generate_subsequence(nums):
     
     def dfs(start, path):
-        sol.append(path[:])
+        """
+        Reach to the leaf of the recursion tree
+        """
+        if start == len(nums):
+            return
 
         for i in range(start, len(nums)):
+            sol.append(path[:])
             dfs(start + 1, path + [nums[i]])
+            dfs(start+1,path)
             
 
     sol = []
