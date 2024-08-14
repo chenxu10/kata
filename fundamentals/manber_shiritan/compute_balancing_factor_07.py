@@ -98,22 +98,24 @@ def test_build_height_balanced_tree():
 
 def generate_subsequence(nums):
     
-    def dfs(nums, depth, path):
-        if depth == len(nums):
-            return
-        else:
-            path.append(nums[depth + 1])
-            sol.append(dfs(nums,depth+1,path))
-            sol.append(dfs(nums,depth, nums[depth]+path))
+    def dfs(start, path):
+        sol.append(path[:])
+
+        for i in range(start, len(nums)):
+            path.append(nums[i])
+            dfs(start + 1, path)
+            path.pop()
             
 
     sol = []
     path = []
-    dfs(nums,0,path)
+    dfs(0,path)
     return sol
 
 def test_generate_subsequence():
-    assert generate_subsequence([1,2]) == [[],[1],[2],[1,2]]
+    print(generate_subsequence([1,2]))
+    #assert generate_subsequence([1,2]) == [[],[1],[2],[1,2]]
 
-test_balance_factors()
+#test_balance_factors()
+test_generate_subsequence()
 
