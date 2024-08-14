@@ -37,7 +37,3 @@ def Algorithm_Mapping(f,n):
             q.append(f[element])
 
     return S
-
-f = [2, 0, 0, 4, 4, 3, 5]
-n = 7
-print(Algorithm_Mapping(f,n))
