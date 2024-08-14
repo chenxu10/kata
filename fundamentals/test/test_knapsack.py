@@ -14,9 +14,6 @@ def knapsack(weights, capacity):
     
     return dp[n][capacity]
 
-
-
-
 def test_knapsack():
     assert knapsack([3,4,10],9) == 7
     assert knapsack([3,4,2],9) == 9
