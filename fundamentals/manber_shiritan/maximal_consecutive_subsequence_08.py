@@ -84,3 +84,18 @@ test_longest_consecutive_sequence()
 
 # maximum sum of non adjacent subsequence l3165
 # assume is in the second largest
+
+
+def mss(nums):
+    if max(nums) <= 0:
+        return max(nums)
+    
+    sum = 0
+    for i in nums:
+        if i > 0:
+            sum += i
+    return sum
+
+def test_maximum_sum_of_subsequence():
+    assert mss([2,3,5]) == 10
+    assert mss([-2,11,-2,2]) == 13
