@@ -102,9 +102,7 @@ def generate_subsequence(nums):
         sol.append(path[:])
 
         for i in range(start, len(nums)):
-            path.append(nums[i])
-            dfs(start + 1, path)
-            path.pop()
+            dfs(start + 1, path + [nums[i]])
             
 
     sol = []
