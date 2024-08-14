@@ -61,7 +61,6 @@ def sortedArrayToBST(nums: List[int]) -> Optional[TreeNode]:
 
     return buildBST(0, len(nums) - 1)
 
-
 def generate_subsequence(nums):
     # Advanced related problems combinations and permutations
     def dfs(start, path):
