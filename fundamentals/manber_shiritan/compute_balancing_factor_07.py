@@ -116,7 +116,7 @@ def generate_subsequence(nums):
 
 def test_generate_subsequence():
     print(generate_subsequence([1,2]))
-    #assert generate_subsequence([1,2]) == [[],[1],[2],[1,2]]
+    #assert generate_subsequence([1,2]) == [[1,2],[1],[2],[]]
 
 #test_balance_factors()
 test_generate_subsequence()
