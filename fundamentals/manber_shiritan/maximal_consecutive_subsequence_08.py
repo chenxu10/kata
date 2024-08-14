@@ -99,3 +99,5 @@ def mss(nums):
 def test_maximum_sum_of_subsequence():
     assert mss([2,3,5]) == 10
     assert mss([-2,11,-2,2]) == 13
+
+test_maximum_sum_of_subsequence()
