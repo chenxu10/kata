@@ -96,6 +96,11 @@ def test_build_height_balanced_tree():
     assert Node.right.val == 5
     assert Node.right.right.val == 9
 
+def generate_subsequence():
+    return [[],[1],[2],[1,2]]
+
+def test_generate_subsequence():
+    assert generate_subsequence([1,2]) == [[],[1],[2],[1,2]]
 
 test_balance_factors()
 
