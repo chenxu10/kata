@@ -1,4 +1,8 @@
 """
+
+It's easier to prove Given P(n-1),Q are True Then P(n) True comparing with P(n-1) Then P(n)
+Common error is the extra assumption Q should be separately proved
+
 Application:
 How much money you lose most?
 How long the worst season will last?
