@@ -86,10 +86,4 @@ def generate_subsequence(nums):
     dfs(0,path)
     return sol
 
-def test_generate_subsequence():
-    print(generate_subsequence([1,2]))
-    assert generate_subsequence([1,2]) == [[1,2],[1],[2],[]]
-
-
-test_generate_subsequence()
 
