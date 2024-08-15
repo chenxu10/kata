@@ -109,8 +109,6 @@ def test_maximum_sum_of_subsequence():
     assert mss([-2,11,-2,2]) == 13
 
 test_maximum_sum_of_subsequence()
-
-
 # Problem4-prerequisite: House Robber(Leetcode 198)
 
 
@@ -119,6 +117,18 @@ test_maximum_sum_of_subsequence()
 # Assume we know how to deal with non-adjacent
 # maximum sum of non adjacent subsequence l3165
 
+def maximum_sum_subseqeunce():
+    """
+    divide and conquer
+    [i x x x k][k + 1 x x x j]
+    1        0 0        1
+
+    dp00[i][j] = dp00[i][k] + dp00[k+1][j]
+    dp01[i][j] = dp00[i][k] + dp01[k+1][j]
+    dp10[i][j] = dp10[i][k] + dp00[k+1][j]
+    dp11[i][j] = dp10[i][k] + dp01[k+1][j]
+    """
+    return
 
 # Problem6: Find the mode of multiset
 def modemultiset(x):

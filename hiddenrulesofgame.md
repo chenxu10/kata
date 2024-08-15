@@ -19,7 +19,7 @@
 - [Mark Spitznagel]
 
 ## 隐规则
-Think of trading as a gane and that a mistake is not following the rules(dao) of the game. You should review your rules at the beginning of the day and review your trading at the end of the day. If you followed your rules, even if you lost
+Think of trading as a game and that a mistake is not following the rules(dao) of the game. You should review your rules at the beginning of the day and review your trading at the end of the day. If you followed your rules, even if you lost
 money, pat yourself on the back. If you didn’t follow your rules, then
 mentally rehearse what you did and give yourself more appropriate choices
 in the future.
@@ -33,11 +33,11 @@ Should only put ten rules into it, every time you add after 10, then you should 
 
 ### 财富
 - 财富 = 现金流 + 资产 * 资产回报(ROI)
-- 现金流 = 问责 + 专有知识 + 杠杆
+- 现金流 = 问责 + 专有知识 + 杠杆(人 + 资本 + 知识产权 + 媒体 + 算力)
 - 问责 = 躬身入局风险 + 个人品牌
 - 躬身入局风险 = 截断左尾(爆炸) + 赔付函数不单调递增和递减 + 超过二阶效应(峰度与偏度)
-- 专有知识 = 无法量化复制的技能 + 第一手历史公共知识
-- 杠杆 = 人 + 资本 + 知识产权 + 媒体 + 算力
+    - optionality = assymetry(earn more when you are right than loss when you are wrong) + nonlinearity + rantionality(not rejecting things are better than your current best) 
+- 专有知识 = 无法量化复制的技能 + 第一手历史公共知识(where other people lose money)
 - 第一手公共知识 = 犯错误的地方 + 为什么问题会形成 + 必须先自己观察行动和思考后阅读
 
 ### 社会部落关系
@@ -67,3 +67,4 @@ Should only put ten rules into it, every time you add after 10, then you should 
 4. Uncle Bob(Bill of rights)
 5. Huahua
 6. Huifeng Guang
+7. Kuth
