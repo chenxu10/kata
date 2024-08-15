@@ -117,7 +117,7 @@ test_maximum_sum_of_subsequence()
 # Assume we know how to deal with non-adjacent
 # maximum sum of non adjacent subsequence l3165
 
-def maximum_sum_subseqeunce():
+def maximum_sum_subsequence():
     """
     divide and conquer
     [i x x x k][k + 1 x x x j]
