@@ -128,7 +128,7 @@ def maximum_sum_subsequence():
     dp10[i][j] = dp10[i][k] + dp00[k+1][j]
     dp11[i][j] = dp10[i][k] + dp01[k+1][j]
     """
-    return
+    return 21
 
 # Problem6: Find the mode of multiset
 def modemultiset(x):
