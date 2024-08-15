@@ -112,7 +112,6 @@ test_maximum_sum_of_subsequence()
 # Problem4-prerequisite: House Robber(Leetcode 198)
 
 
-
 # Problem4:Non AdjacentMaximum Subsequence
 # Assume we know how to deal with non-adjacent
 # maximum sum of non adjacent subsequence l3165
@@ -124,9 +123,8 @@ def maximum_sum_subsequence(nums,query):
     1        0 0        1
 
     dp00[i][j] = dp00[i][k] + dp00[k+1][j]
-    dp01[i][j] = dp00[i][k] + dp01[k+1][j]
-    dp10[i][j] = dp10[i][k] + dp00[k+1][j]
-    dp11[i][j] = dp10[i][k] + dp01[k+1][j]
+    dp00[i][j] = dp00[i][k] + dp10[k+1][j]
+    dp00[i][j] = dp01[i][k] + dp00[k+1][j]
     """
     return 21
 
