@@ -114,7 +114,8 @@ def backtrack_substring(s):
             return
         
         for i in range(index, len(s)):
-            isPowerofFive(int(s[index:i + 1],2))
+            decimalnumber = int(s[index:i + 1],2)  
+            isPowerofFive(decimalnumber)
             cur.append(s[index:i + 1])
             dfs(cur, i + 1)
             cur.pop()
