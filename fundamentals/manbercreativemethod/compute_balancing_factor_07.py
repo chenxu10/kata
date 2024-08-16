@@ -97,28 +97,30 @@ def backtrack(candidates, target, s, path, ans):
             path.pop()
 
 def backtrack_substring(s):
-    count = float('-inf')
 
-    def isPowerofFive(x):
-        while x % 5 == 0:
-            x //= 5
-        return x == 1                            
+    def isPowerOfFive(num: int) -> bool:
+        while num % 5 == 0:
+            num //= 5
+        return num == 1
 
-    def dfs(cur, index):
+    count = float('inf')
+    def backtrack(cur, index):
         nonlocal count
-        if index == len(s):
-            count = min(len(cur[:]),count)
-            return 
-        if s[index] == '0':
+        if index >= len(s):
+            count = min(len(cur[:]), count)
             return
-        
+        if s[index] == '0':
+            return 
+            
         for i in range(index, len(s)):
-            decimalnumber = int(s[index:i + 1],2)  
-            isPowerofFive(decimalnumber)
-            cur.append(s[index:i + 1])
-            dfs(cur, i + 1)
-            cur.pop()
+            num = int(s[index:i + 1], 2)
+            if isPowerOfFive(num):
+                cur.append(s[index:i + 1])
+                backtrack(cur, i  + 1)
+                cur.pop()
+
         return count
 
-    dfs([],0)
-    return count if count != float('-inf') else -1
+    backtrack([], 0)
+
+    return count if count != float('inf') else -1
