@@ -127,7 +127,6 @@ def maximum_sum_subsequence(nums,query):
     dp00[i][j] = dp01[i][k] + dp00[k+1][j]
     """
     class SegTreeNode:
-
         def update_four_divide_status(self):
             self.info11 = max(self.left.info10 + self.right.info01,
                             self.left.info11 + self.right.info01,
@@ -174,7 +173,7 @@ def maximum_sum_subsequence(nums,query):
             self.left.update_range(a, val)
             self.right.update_range(a, val)
             self.update_four_divide_status()
-            
+
     root = SegTreeNode(0, len(nums) - 1, nums)
     res = 0
     M = 10 ** 9 + 7
