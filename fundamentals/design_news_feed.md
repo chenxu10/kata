@@ -1,0 +1,1 @@
+1. What are 4 steps framework for system design and for each step what's the specific examples?
