@@ -96,3 +96,5 @@ def backtrack(candidates, target, s, path, ans):
             backtrack() # adjust candidates, target as problem requires
             path.pop()
 
+def backtrack_substring(s):
+    return 2
