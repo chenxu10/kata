@@ -134,7 +134,7 @@ def maximum_sum_subsequence(nums,query):
             self.end = b
             self.info00 = 0            
             self.info11 = 0
-            self.info10 = float('inf')
+            self.info10 = float('-inf')
             self.info01 = float('-inf')
 
             if a == b:
