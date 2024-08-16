@@ -33,7 +33,6 @@ def compute_balance_factors(root):
     dfs(root)
     return balancing_factors
 
-
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -80,4 +79,20 @@ def generate_subsequence(nums):
     dfs(0,path)
     return sol
 
+
+# Backtrack Model
+def reachleaf():
+    return True
+
+def isvalid(candidates, target):
+    return True
+
+def backtrack(candidates, target, s, path, ans):
+    if reachleaf():         # reach the leaf node
+        ans.append(path[:])
+    for i in range(s, len(candidates)):
+        if isvalid(candidates, target):
+            path.append(candidates[:i + 1])
+            backtrack() # adjust candidates, target as problem requires
+            path.pop()
 
