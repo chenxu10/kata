@@ -128,8 +128,15 @@ def maximum_sum_subsequence(nums,query):
     """
     class SegTreeNode:
         def __init__(self, a, b, vals):
+            self.left = None
+            self.right = None
+            self.start = a
+            self.end = b
+            self.info00 = 0            
+            self.info11 = 0
+            self.info10 = float('inf')
+            self.info01 = float('-inf')
 
-            
             if a == b:
                 self.info11 = vals[self.start]
                 return
@@ -182,7 +189,7 @@ def maximum_sum_subsequence(nums,query):
     M = 10 ** 9 + 7
 
     for q in query:
-        root.update_range(q[0], q[1])
+        root.update(q[0], q[1])
         res += max(root.info00, root.info01, root.info11, root.info10)
         res % M
 
