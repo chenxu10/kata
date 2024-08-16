@@ -189,7 +189,7 @@ def maximum_sum_subsequence(nums,query):
     M = 10 ** 9 + 7
 
     for q in query:
-        root.update(q[0], q[1])
+        root.update_range(q[0], q[1])
         res += max(root.info00, root.info01, root.info11, root.info10)
         res % M
 
