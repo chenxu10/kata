@@ -4,5 +4,10 @@ from fundamentals.manbercreativemethod import compute_balancing_factor_07 as cb
 def test_backtrack_substring():
     s = "1011"
     output = 2
-    print(cb.backtrack_substring(s))
     assert cb.backtrack_substring(s) == output
+
+    s = "111"
+    output = 3
+    assert cb.backtrack_substring(s) == output
+
+
