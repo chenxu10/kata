@@ -104,7 +104,6 @@ def backtrack_substring(s):
             x //= 5
         return x == 1                            
 
-
     def dfs(cur, index):
         nonlocal count
         if index == len(s):
