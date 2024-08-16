@@ -101,8 +101,8 @@ def backtrack_substring(s):
 
     def isPowerofFive(x):
         while x % 5 == 0:
-            num //= 5
-        return num == 1                            
+            x //= 5
+        return x == 1                            
 
 
     def dfs(cur, index):
