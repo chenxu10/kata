@@ -52,7 +52,6 @@ def sortedArrayToBST(nums: List[int]) -> Optional[TreeNode]:
         
         # Create a new node with the middle element
         root = TreeNode(nums[mid])
-        
         # Recursively build left and right subtrees
         root.left = buildBST(left, mid - 1)
         root.right = buildBST(mid + 1, right)
