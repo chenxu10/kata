@@ -161,6 +161,7 @@ def maximum_sum_subsequence(nums,query):
             self.right = SegTreeNode(mid + 1, b, vals)
             
             self.update_four_divide_status()
+        
         def update_range(self, a, val):
             if a < self.start or a > self.end:
                 return
