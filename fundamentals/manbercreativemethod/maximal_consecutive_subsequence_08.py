@@ -141,6 +141,11 @@ def maximum_sum_subsequence(nums,query):
                             self.left.info01 + self.right.info01,
                             self.left.info00 + self.right.info11)
         
+        def build_mid_left_and_right_subtree(self, a, b, vals):
+            mid = (a + b) // 2
+            self.left = SegTreeNode(a, mid, vals)
+            self.right = SegTreeNode(mid + 1, b, vals)
+        
         def __init__(self, a, b, vals):
             self.left = None
             self.right = None
@@ -155,13 +160,9 @@ def maximum_sum_subsequence(nums,query):
                 self.info11 = vals[self.start]
                 return
             
-            mid = (a + b) // 2
-            
-            self.left = SegTreeNode(a, mid, vals)
-            self.right = SegTreeNode(mid + 1, b, vals)
-            
+            self.build_mid_left_and_right_subtree(a, b, vals)           
             self.update_four_divide_status()
-        
+
         def update_range(self, a, val):
             if a < self.start or a > self.end:
                 return
