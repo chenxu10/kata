@@ -12,6 +12,7 @@ def three_sum(nums):
         k = n - 1
         while j < k:
             sol = nums[i] + nums[j] + nums[k]
+            print(sol)
             if sol == 0:
                 ans.append([nums[i],nums[j],nums[k]])
                 j += 1
