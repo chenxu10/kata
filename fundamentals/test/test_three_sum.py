@@ -17,9 +17,9 @@ def three_sum(nums):
                 ans.append([nums[i],nums[j],nums[k]])
                 j += 1
             if sol > 0:
-                j += 1
-            if sol < 0:
                 k -= 1
+            if sol < 0:
+                j += 1
     return ans
 
 
