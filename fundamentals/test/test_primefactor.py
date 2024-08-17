@@ -15,6 +15,7 @@ def test_prime_factor():
     assert prime_factor(3) == [3]
     assert prime_factor(4) == [2,2]
     assert prime_factor(5) == [5]
+    assert prime_factor(6) == [2,3]
 
 def main():
     test_prime_factor()
