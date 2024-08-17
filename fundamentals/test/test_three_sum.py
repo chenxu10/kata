@@ -1,10 +1,4 @@
 
-
-
-
-
-
-
 def three_sum(nums):
     ans = []
 
