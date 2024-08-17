@@ -5,32 +5,29 @@ def traverse_matrix(matrix, word):
     visited = [[False for _ in range(cols)] for _ in range(rows)]
     
 
-    def dfs(i,j,visited,cur_index):
+    def dfs(i,j,cur_index):
         # lead node
         if cur_index == len(word):
             return True
         # terminate backtrack logic
         if i < 0 or i >= rows or j < 0 or j >= cols:
             return False
-        if visited[i][j]:
-            return False
-        print(matrix[i][j])
-        if matrix[i][j] != word[cur_index]:
+        if visited[i][j] or matrix[i][j] != word[cur_index]:
             return False
         
-        vectors = [(-1,0),(1,0),(0,1),(0,-1)]
         visited[i][j] = 1
+        vectors = [(-1,0),(1,0),(0,1),(0,-1)]
         for v in vectors:
             i += v[0]
             j += v[1]
-            if dfs(i,j,visited,cur_index + 1):
+            if dfs(i,j,cur_index + 1):
                 return True
         visited[i][j] = 0
         return False
 
     for i in range(rows):
         for j in range(cols):
-            if dfs(i,j,visited,0):
+            if dfs(i,j,0):
                 return True
     return False
 
