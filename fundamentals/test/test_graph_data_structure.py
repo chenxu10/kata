@@ -2,7 +2,7 @@ class G:
     def __init__(self, v):
         self.v = v
         self.e = 0
-        self.adj_lists = [[]for i in range(v)]
+        self.adj_lists = [[] for i in range(v)]
 
     def add_edge(self,v, w):
         self.adj_lists[v].append(w)
