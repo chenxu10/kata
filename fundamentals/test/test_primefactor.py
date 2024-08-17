@@ -5,8 +5,8 @@ def prime_factor(x):
         while x % 2 == 0:
             ans.append(2)
             x //= 2
-        if x > 1:
-            ans.append(x)
+    if x > 1:
+        ans.append(x)
     return ans
 
 def test_prime_factor():
