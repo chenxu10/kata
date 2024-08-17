@@ -17,14 +17,9 @@ def traverse_matrix(matrix, word):
         
         temp = matrix[i][j]
         matrix[i][j] = '#'
-        vectors = [(-1,0),(1,0),(0,1),(0,-1)]
-        for v in vectors:
-            i += v[0]
-            j += v[1]
-            if dfs(i,j,cur_index + 1):
-                return True
+        result = dfs(i+1, j, cur_index+1) or dfs(i-1, j, cur_index+1) or dfs(i, j+1, cur_index+1) or dfs(i, j-1, cur_index+1)
         matrix[i][j] = temp
-        return False
+        return result
 
     for i in range(rows):
         for j in range(cols):
