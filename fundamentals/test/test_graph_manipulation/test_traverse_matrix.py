@@ -2,8 +2,7 @@
 def traverse_matrix(matrix, word):
     rows = len(matrix)
     cols = len(matrix[0])
-    visited = [[False for _ in range(cols)] for _ in range(rows)]
-    
+   
 
     def dfs(i,j,cur_index):
         # lead node
@@ -29,7 +28,7 @@ def traverse_matrix(matrix, word):
 
 def test_traverse_matrix():
     #assert traverse_matrix([[]],'abc') == False
-    print(traverse_matrix([['a','b'],['c','d']],'abc'))
+    print(traverse_matrix([['a','b'],['d','c']],'abc'))
     #assert traverse_matrix([['a','b'],['d','c']],'abc') == True
 
 def main():
