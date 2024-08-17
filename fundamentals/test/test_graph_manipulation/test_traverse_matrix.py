@@ -6,6 +6,7 @@ def traverse_matrix(matrix, word):
     
 
     def dfs(i,j,cur_index):
+        nonlocal visited
         # lead node
         if cur_index == len(word):
             return True
