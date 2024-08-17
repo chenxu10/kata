@@ -2,7 +2,7 @@
 def prime_factor(x):
     ans = []
     if x > 1:
-        if x % 2 == 0:
+        while x % 2 == 0:
             ans.append(2)
             x //= 2
         if x > 1:
@@ -16,6 +16,7 @@ def test_prime_factor():
     assert prime_factor(4) == [2,2]
     assert prime_factor(5) == [5]
     assert prime_factor(6) == [2,3]
+    assert prime_factor(8) == [2,2,2]
 
 def main():
     test_prime_factor()
