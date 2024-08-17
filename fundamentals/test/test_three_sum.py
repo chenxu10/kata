@@ -27,7 +27,7 @@ def test_three_sum():
     assert three_sum([1]) == []
     assert three_sum([0,1,1]) == []
     assert three_sum([-1,0,1]) == [[-1,0,1]]
-    print(three_sum([-1,0,3,3,1]))
+    print(three_sum([-1,0,3,1]))
     #assert three_sum([-1,0,3,1]) == [[-1,0,1]]
     #assert three_sum([-1,0,3,3,1]) == [[-1,0,1]]
 
