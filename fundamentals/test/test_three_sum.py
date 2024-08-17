@@ -12,7 +12,6 @@ def three_sum(nums):
         k = n - 1
         while j < k:
             sol = nums[i] + nums[j] + nums[k]
-            print(sol)
             if sol == 0:
                 ans.append([nums[i],nums[j],nums[k]])
                 j += 1
@@ -29,8 +28,8 @@ def test_three_sum():
     assert three_sum([0,1,1]) == []
     assert three_sum([-1,0,1]) == [[-1,0,1]]
     print(three_sum([-1,0,3,1]))
-    #assert three_sum([-1,0,3,1]) == [[-1,0,1]]
-    #assert three_sum([-1,0,3,3,1]) == [[-1,0,1]]
+    assert three_sum([-1,0,3,1]) == [[-1,0,1]]
+    assert three_sum([-1,0,3,3,1]) == [[-1,0,1]]
 
 def main():
     test_three_sum()
