@@ -5,7 +5,6 @@ def prime_factor(x):
         ans.append(2)
     return ans
 
-
 def test_prime_factor():
     assert prime_factor(1) == []
     assert prime_factor(2) == [2]
