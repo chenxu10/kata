@@ -1,5 +1,7 @@
 """
 Adjacent Lists of Graph
+
+Related problems find the town judge and find the celebrity
 """
 
 class G:
