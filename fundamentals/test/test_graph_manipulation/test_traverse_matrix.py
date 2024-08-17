@@ -14,6 +14,7 @@ def traverse_matrix(matrix, word):
             return False
         if visited[i][j]:
             return False
+        print(matrix[i][j])
         if matrix[i][j] != word[cur_index]:
             return False
         
