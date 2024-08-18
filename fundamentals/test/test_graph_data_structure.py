@@ -18,7 +18,7 @@ class G:
         self.e += 1
 
     def _is_valid(self,v):
-        if v < 0 or v >= len(self.adj_list):
+        if v < 0 or v >= len(self.adj_lists):
             raise ValueError("Invaid v")
 
 def test_adjacency_list_graph_structure():
