@@ -8,13 +8,13 @@ class G:
     def __init__(self, v):
         self.v = v
         self.e = 0
-        self.adj_list = [[] for _ in range(v)]
+        self.adj_lists = [[] for _ in range(v)]
 
     def add_edge(self, v, w):
         self._is_valid(v)
         self._is_valid(w)
-        self.adj_list[v].append(w)
-        self.adj_list[w].append(v)
+        self.adj_lists[v].append(w)
+        self.adj_lists[w].append(v)
         self.e += 1
 
     def _is_valid(self,v):
