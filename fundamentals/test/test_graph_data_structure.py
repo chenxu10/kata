@@ -8,18 +8,18 @@ class G:
     def __init__(self, v):
         self.v = v
         self.e = 0
-        self.adj_lists = [[] for i in range(v)]
+        self.adj_list = [[] for _ in range(len(v))]
 
-    def _validate_vertex(self,v):
-        if v < 0 or v >= self.v:
-            raise ValueError(f"vertex {v} is not between 0 and vertices")
-
-    def add_edge(self,v, w):
-        self._validate_vertex(v)
-        self._validate_vertex(w)
-        self.adj_lists[v].append(w)
-        self.adj_lists[w].append(v)
+    def add_edge(self, v, w):
+        self._is_valid(v)
+        self._is_valid(w)
+        self.adj_list[v].append(w)
+        self.adj_list[w].append(v)
         self.e += 1
+
+    def _is_valid(self,v):
+        if v < 0 or v >= len(self.adj_list):
+            raise ValueError("Invaid v")
 
 def test_adjacency_list_graph_structure():
     graph = G(4)
