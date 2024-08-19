@@ -14,7 +14,7 @@ def binary_search(arr,start,end,k):
         return binary_search(arr, mid + 1, end, k)
 
 def test_binary_search():   
-    print(binary_search([2,34,2,1,1],0,4,34))
+    print(binary_search([1,1,2,2,34],0,4,34))
 
 def main():
     test_binary_search()
