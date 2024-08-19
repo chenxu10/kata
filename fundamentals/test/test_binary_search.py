@@ -22,5 +22,6 @@ def main():
     test_binary_search()
 
 # O(logn)
+# AC Leetcode 501, implementation of binary search tree data structure
 if __name__ == '__main__':
     main()

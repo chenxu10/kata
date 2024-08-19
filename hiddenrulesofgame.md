@@ -65,6 +65,7 @@ Should only put ten rules into it, every time you add after 10, then you should 
 9. 注意在如何不伤人伤己，不关注X源源不断的问题，而是F(X)，仅仅F(X)，问题对你自己的数据结构、算法和问题解决方法论的影响
 10. 每天上班开始前以一道问题开始热身，以一道问题冷身结束
 11. 公开场合帮助下一个比你稍微弱一点的人
+12. 高斯sum up(Polya)，几何证明大于算术证明，欧拉定理
 
 
 ## Trading Lists
