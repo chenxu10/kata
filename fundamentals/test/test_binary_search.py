@@ -1,6 +1,8 @@
 
 
 def binary_search(arr,start,end,k):
+    if arr == []:
+        return -1
     arr.sort()
     
     if start > end:
@@ -15,6 +17,7 @@ def binary_search(arr,start,end,k):
 
 def test_binary_search():   
     assert binary_search([1,1,2,2,34],0,4,34) == 4
+    assert binary_search([],0,1,1) == -1
 
 def main():
     test_binary_search()
