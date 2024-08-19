@@ -1,4 +1,5 @@
-
+# Mistakes you made implement this algo
+# mid, empty space return -1
 
 def binary_search(A,x):
     def recursive_search(low,high):
