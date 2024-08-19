@@ -14,7 +14,6 @@ def binary_search(A,x):
             return recursive_search(mid + 1, high)
     return recursive_search(0, len(A) - 1)
 
-
 def test_binary_search():   
     assert binary_search([1,1,2,2,34],34) == 4
 
