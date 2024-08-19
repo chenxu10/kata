@@ -58,6 +58,13 @@ Should only put ten rules into it, every time you add after 10, then you should 
 2. Good trade and bad trade is different from winning trade and losing trade. Good trade can lose money on any individual trade as long as it will be profitable(at an risk acceptance level) when repeated mutiple times.
 3. You are not get paid for being right(not the trade when you are wrong, but the money you make is not big enough when you are right).
 4. You are taking time probability risk(1000 days) not ensemble probability risk(a collection of 1000 people).
+5. 不要边想逻辑，边敲代码，语言表达与逻辑要分离， 否则永远无法提高
+6. 阅读、删除、选择和移动代码的时间要大于敲代码的时间
+7. 证明的构造(欧几里得)要先于代码，帮助自己启发代码的设计和知识的迁移
+8. 要有注意的中心点，但是也要有周围视觉，周围视觉要依赖于中心点
+9. 注意在如何不伤人伤己，不关注X源源不断的问题，而是F(X)，仅仅F(X)，问题对你自己的数据结构、算法和问题解决方法论的影响
+10. 每天上班开始前以一道问题开始热身，以一道问题冷身结束
+11. 公开场合帮助下一个比你稍微弱一点的人
 
 
 ## Trading Lists
