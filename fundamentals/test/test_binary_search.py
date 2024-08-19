@@ -21,5 +21,7 @@ def test_binary_search():
 
 def main():
     test_binary_search()
+
+# O(logn)
 if __name__ == '__main__':
     main()
