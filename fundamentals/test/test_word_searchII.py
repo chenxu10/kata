@@ -64,6 +64,7 @@ def test_word_search_two():
     ]
     words = ["oath","pea","eat","rain"]
     print(findWords(board,words))
+    assert findWords(board,words) == ['oath','eat']
 
 def main():
     test_word_search_two()
