@@ -83,5 +83,6 @@ def main():
 
 # O(logn)
 # AC Leetcode 501, implementation of binary search tree data structure
+# Two passes first pass to find the count, second pass to find the element
 if __name__ == '__main__':
     main()
