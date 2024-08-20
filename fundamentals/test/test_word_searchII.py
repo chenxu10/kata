@@ -3,8 +3,7 @@ from typing import List
 class TrieNode:
     def __init__(self):
         self.nodes = [None] * 26
-        self.word = None
-    
+        self.word = None   
 
 def build_each_word_node(word, cur):
     for c in word:
