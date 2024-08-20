@@ -33,12 +33,12 @@ def findWords(board: List[List[str]], words: List[str]) -> List[str]:
         # terminate at leaf across boundaries or visited
         if x < 0 or x == m or y < 0 or y == n or board[y][x] == '#':
             return
-        
+        # terminate cannot reach the very end
         cur = board[y][x]
         next_node = node.nodes[ord(cur) - ord('a')]
         if not next_node:
             return
-        
+        # find word the same
         if next_node.word:
             ans.append(next_node.word)
             next_node.word = None
