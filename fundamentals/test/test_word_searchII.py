@@ -30,6 +30,7 @@ def findWords(board: List[List[str]], words: List[str]) -> List[str]:
     ans = []
     
     def walk(x, y, node):
+        # terminate at leaf across boundaries or visited
         if x < 0 or x == m or y < 0 or y == n or board[y][x] == '#':
             return
         
