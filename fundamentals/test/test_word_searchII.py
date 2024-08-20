@@ -18,13 +18,18 @@ def walk_all_possible_paths(root, n, m, walk):
         for j in range(m):
             walk(j, i, root)
 
-def findWords(board: List[List[str]], words: List[str]) -> List[str]:
+
+def build_trie_on_words(words):
     root = TrieNode()
     
     for word in words:
         cur = root
         cur = build_each_word_node(word, cur)
         cur.word = word
+    return root
+
+def findWords(board: List[List[str]], words: List[str]) -> List[str]:
+    root = build_trie_on_words(words)
     
     n, m = len(board), len(board[0])
     ans = []
