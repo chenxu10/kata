@@ -11,16 +11,20 @@ class TrieNode:
                 del node
 
 
+def build_each_word_node(word, cur):
+    for c in word:
+        idx = ord(c) - ord('a')
+        if not cur.nodes[idx]:
+            cur.nodes[idx] = TrieNode()
+        cur = cur.nodes[idx]
+    return cur
+
 def findWords(board: List[List[str]], words: List[str]) -> List[str]:
     root = TrieNode()
     
     for word in words:
         cur = root
-        for c in word:
-            idx = ord(c) - ord('a')
-            if not cur.nodes[idx]:
-                cur.nodes[idx] = TrieNode()
-            cur = cur.nodes[idx]
+        cur = build_each_word_node(word, cur)
         cur.word = word
     
     n, m = len(board), len(board[0])
@@ -54,6 +58,7 @@ def findWords(board: List[List[str]], words: List[str]) -> List[str]:
             walk(j, i, root)
     
     return ans
+
 
 def test_word_search_two():
     board = [
