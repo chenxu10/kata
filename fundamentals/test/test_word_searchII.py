@@ -1,0 +1,73 @@
+from typing import List
+
+class TrieNode:
+    def __init__(self):
+        self.nodes = [None] * 26
+        self.word = None
+    
+    def __del__(self):
+        for node in self.nodes:
+            if node:
+                del node
+
+
+def findWords(board: List[List[str]], words: List[str]) -> List[str]:
+    root = TrieNode()
+    
+    # Add all the words into Trie
+    for word in words:
+        cur = root
+        for c in word:
+            idx = ord(c) - ord('a')
+            if not cur.nodes:
+                cur.nodes = TrieNode()
+            cur.nodes = cur.nodes[idx]
+        cur.word = word
+    
+    n, m = len(board), len(board[0])
+    ans = []
+    
+    def walk(x, y, node):
+        if x < 0 or x == m or y < 0 or y == n or board[y][x] == '#':
+            return
+        
+        cur = board[y][x]
+        next_node = node.nodes[ord(cur) - ord('a')]
+        
+        # Pruning, only expend paths that are in the trie
+        if not next_node:
+            return
+        
+        if next_node.word:
+            ans.append(next_node.word)
+            next_node.word = None
+        
+        board[y][x] = '#'
+        walk(x + 1, y, next_node)
+        walk(x - 1, y, next_node)
+        walk(x, y + 1, next_node)
+        walk(x, y - 1, next_node)
+        board[y][x] = cur
+    
+    # Try all possible pathes
+    for i in range(n):
+        for j in range(m):
+            walk(j, i, root)
+    
+    return ans
+
+def test_word_search_two():
+    board = [
+        ['o','a','a','n'],
+        ['e','t','a','e'],
+        ['i','h','k','r'],
+        ['i','f','l','v']
+    ]
+    words = ["oath","pea","eat","rain"]
+    print(findWords(board,words))
+
+def main():
+    test_word_search_two()
+
+if __name__ == '__main__':
+    main()
