@@ -13,6 +13,11 @@ def build_each_word_node(word, cur):
         cur = cur.nodes[idx]
     return cur
 
+def walk_all_possible_paths(root, n, m, walk):
+    for i in range(n):
+        for j in range(m):
+            walk(j, i, root)
+
 def findWords(board: List[List[str]], words: List[str]) -> List[str]:
     root = TrieNode()
     
@@ -43,13 +48,11 @@ def findWords(board: List[List[str]], words: List[str]) -> List[str]:
         walk(x, y + 1, next_node)
         walk(x, y - 1, next_node)
         board[y][x] = cur
-    
-    # Try all possible pathes
-    for i in range(n):
-        for j in range(m):
-            walk(j, i, root)
+
+    walk_all_possible_paths(root, n, m, walk)
     
     return ans
+
 
 
 def test_word_search_two():
