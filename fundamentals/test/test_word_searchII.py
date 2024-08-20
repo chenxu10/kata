@@ -35,8 +35,6 @@ def findWords(board: List[List[str]], words: List[str]) -> List[str]:
         
         cur = board[y][x]
         next_node = node.nodes[ord(cur) - ord('a')]
-        
-        # Pruning, only expend paths that are in the trie
         if not next_node:
             return
         
