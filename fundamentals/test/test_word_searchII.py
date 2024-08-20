@@ -5,10 +5,6 @@ class TrieNode:
         self.nodes = [None] * 26
         self.word = None
     
-    def __del__(self):
-        for node in self.nodes:
-            if node:
-                del node
 
 def build_each_word_node(word, cur):
     for c in word:
