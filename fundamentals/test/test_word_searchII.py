@@ -10,7 +10,6 @@ class TrieNode:
             if node:
                 del node
 
-
 def build_each_word_node(word, cur):
     for c in word:
         idx = ord(c) - ord('a')
