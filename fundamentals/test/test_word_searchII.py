@@ -14,14 +14,13 @@ class TrieNode:
 def findWords(board: List[List[str]], words: List[str]) -> List[str]:
     root = TrieNode()
     
-    # Add all the words into Trie
     for word in words:
         cur = root
         for c in word:
             idx = ord(c) - ord('a')
-            if not cur.nodes:
-                cur.nodes = TrieNode()
-            cur.nodes = cur.nodes[idx]
+            if not cur.nodes[idx]:
+                cur.nodes[idx] = TrieNode()
+            cur = cur.nodes[idx]
         cur.word = word
     
     n, m = len(board), len(board[0])
