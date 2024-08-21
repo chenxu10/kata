@@ -10,7 +10,6 @@ Value = TypeVar('Value')
 # Binary chop for debugging
 # Binary chop for data location
 
-
 def binary_search(A,x):
     def recursive_search(low,high):
         if low > high:
