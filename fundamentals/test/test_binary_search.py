@@ -9,19 +9,23 @@ Value = TypeVar('Value')
 # Binary Search in Real Life
 # Binary chop for debugging
 # Binary chop for data location
+# log(n)
 
 def binary_search(A,x):
-    def recursive_search(low,high):
-        if low > high:
-            return -1
+    low = 0
+    high = len(A) - 1
+
+    def recursive_search(low, high):
         mid = (low + high) // 2
         if A[mid] == x:
             return mid
-        elif A[mid] > x:
-            return recursive_search(low, mid - 1)
-        else:
-            return recursive_search(mid + 1, high)
-    return recursive_search(0, len(A) - 1)
+        if A[mid] > x:
+            return recursive_search(low, high - 1)
+        if A[mid] < x:
+            return recursive_search(low + 1, high)
+
+    return recursive_search(0, high)
+
 
 def test_binary_search():   
     assert binary_search([1,1,2,2,34],34) == 4
