@@ -6,6 +6,11 @@ from collections import deque
 Key = TypeVar('Key')
 Value = TypeVar('Value')
 
+# Binary Search in Real Life
+# Binary chop for debugging
+# Binary chop for data location
+
+
 def binary_search(A,x):
     def recursive_search(low,high):
         if low > high:
