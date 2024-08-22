@@ -34,7 +34,7 @@ class Trie:
 def test_prefix_tree():
     trie = Trie()
     trie.insert("apple")
-    print(trie.root)
+    print(trie.root.children)
     assert trie.starts_with("app") == True
     assert trie.starts_with("apple") == True
     assert trie.search("apples") == False
