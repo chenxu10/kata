@@ -193,6 +193,7 @@ def maximum_subarray(nums):
     global_max = float('-inf')                       # sum from p to q
     local_max = float('-inf')                        # current local interval max              
     n = len(nums)
+    
     for i in range(n):
         local_sum = nums[i]
         for j in range(i + 1, n):
