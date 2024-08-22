@@ -191,9 +191,11 @@ def maximum_sum_subsequence(nums,query):
 
 def maximum_subarray(nums):
     maximum_sum = float('-inf')
+    local_sum = float('-inf')
     n = len(nums)
     for i in range(n):
         for j in range(i, n):
-            maximum_sum  = max(maximum_sum, sum(nums[i:j + 1]))
+            local_sum = max(local_sum,nums[i][j])
+            maximum_sum  = max(maximum_sum, local_sum + nums[i][j])
     return maximum_sum
 
