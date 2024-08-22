@@ -14,6 +14,7 @@ class Trie:
                 node.children[char] = TrieNode()
             node = node.children[char]
         node.is_end_of_word = True
+        return node
     
     def search(self, word):
         node = self.root
@@ -33,7 +34,8 @@ class Trie:
 
 def test_prefix_tree():
     trie = Trie()
-    trie.insert("apple")
+    node = trie.insert("apple")
+    print(node.is_end_of_word)
     #assert trie.search("app") == True
     assert trie.starts_with("apple") == True
     assert trie.search("apples") == False
