@@ -205,6 +205,7 @@ def maximum_subarray(nums):
 
         for j in range(i + 1, n):
             local_sum = local_sum + nums[j]
+            print("local_sum in the second layer ", local_sum)
             local_max  = max(local_max, local_sum)
             global_max = max(global_max, local_max)
     return global_max
