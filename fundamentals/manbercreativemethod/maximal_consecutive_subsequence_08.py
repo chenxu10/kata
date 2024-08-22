@@ -189,5 +189,6 @@ def maximum_sum_subsequence(nums,query):
 
     return res
 
-
+def maximum_subarray():
+    pass
 
