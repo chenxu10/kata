@@ -189,7 +189,7 @@ def maximum_sum_subsequence(nums,query):
 
     return res
 
-def maximum_subarray(nums):
+def maximum_subarray_brute_force(nums):
     if not nums:
         return 0
     
@@ -202,4 +202,39 @@ def maximum_subarray(nums):
             local_sum += nums[j]
             global_max = max(global_max, local_sum)
     return global_max
+
+
+def maximum_subarray(nums):
+    def max_cross_sum(nums, low, mid, high):
+        left_sum = float('-inf')
+        local_sum = 0
+        for i in range(mid, low - 1, -1):
+            local_sum += nums[i]
+            left_sum = max(left_sum, sum)
+
+        right_sum = float('-inf')
+        local_sum = 0
+        for i in range(mid + 1, high + 1):
+            local_sum += nums[i]
+            right_sum = max(right_sum, sum)
+
+        return left_sum + right_sum
+    
+    def max_subarray_recursive(nums, low, high):
+        if low == high:
+            return nums[low]
+        
+        mid = (low + high) // 2
+        left_sum = max_subarray_recursive(nums, low, mid)
+        right_sum = max_subarray_recursive(nums, mid + 1, high)
+        cross_sum = max_cross_sum(nums, low, mid, high)
+    
+    if not nums:
+        return 0
+    
+    return max_subarray_recursive(nums, 0, len(nums) - 1)
+
+
+
+
 
