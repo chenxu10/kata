@@ -194,19 +194,12 @@ def maximum_subarray(nums):
         return 0
     
     global_max = float('-inf')                       # supass a congruence testm from p to q
-    local_max = float('-inf')                        # current local interval max              
     n = len(nums)
-
+                  
     for i in range(n):
-        local_sum = nums[i]
-        print("local_sum = ", local_sum)
-        if i == n - 1:
+        local_sum = 0
+        for j in range(i, n):
+            local_sum += nums[j]
             global_max = max(global_max, local_sum)
-
-        for j in range(i + 1, n):
-            local_sum = local_sum + nums[j]
-            print("local_sum in the second layer ", local_sum)
-            local_max  = max(local_max, local_sum)
-            global_max = max(global_max, local_max)
     return global_max
 
