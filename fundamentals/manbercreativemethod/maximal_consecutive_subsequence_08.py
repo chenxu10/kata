@@ -189,22 +189,20 @@ def maximum_sum_subsequence(nums,query):
 
     return res
 
-def maximum_subarray_brute_force(nums):
+def maximum_subarray(nums):
     if not nums:
         return 0
-    
-    global_max = float('-inf')                       # supass a congruence testm from p to q
     n = len(nums)
-                  
+    global_max = float('-inf')
+
     for i in range(n):
         local_sum = 0
-        for j in range(i, n):
-            local_sum += nums[j]
-            global_max = max(global_max, local_sum)
+        for j in range(i,n):
+            local_max = max(local_max, local_sum + nums[j])
+            global_max = max(global_max, local_max)
     return global_max
 
-
-def maximum_subarray(nums):
+def maximum_subarray_divide_conquer(nums):
     def max_cross_sum(nums, low, mid, high):
         left_sum = float('-inf')
         local_sum = 0
