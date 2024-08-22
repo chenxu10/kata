@@ -35,6 +35,7 @@ class Trie:
 def test_prefix_tree():
     trie = Trie()
     node = trie.insert("apple")
+    print(node.children)
     print(node.is_end_of_word)
     #assert trie.search("app") == True
     assert trie.starts_with("apple") == True
