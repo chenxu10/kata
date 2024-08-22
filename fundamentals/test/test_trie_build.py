@@ -12,7 +12,6 @@ class Trie:
             cur = next_node
         return cur
 
-
 def test_trie():
     t = Trie()
     cur = t.build_word('bc',t)
