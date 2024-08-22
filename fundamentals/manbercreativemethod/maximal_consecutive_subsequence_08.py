@@ -190,6 +190,11 @@ def maximum_sum_subsequence(nums,query):
     return res
 
 def maximum_subarray(nums):
+    if not nums:
+        return 0
+    if len(nums)==1:
+        return nums[0]
+    
     global_max = float('-inf')                       # supass a congruence testm from p to q
     local_max = float('-inf')                        # current local interval max              
     n = len(nums)
