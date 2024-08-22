@@ -194,7 +194,7 @@ def maximum_subarray(nums):
     local_sum = nums[0]                        # sum from p to q
     local_max = float('-inf')                        # current local interval max              
     n = len(nums)
-    for i in range(n):
+    for i in range(n - 1):
         for j in range(i + 1, n):
             print("j",j)
             local_sum = local_sum + nums[j]
