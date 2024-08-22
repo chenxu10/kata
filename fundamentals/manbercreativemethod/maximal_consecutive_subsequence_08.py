@@ -191,7 +191,7 @@ def maximum_sum_subsequence(nums,query):
 
 def maximum_subarray(nums):
     global_max = float('-inf')
-    local_sum = nums[0]                        # sum from p to q
+    #local_sum = nums[0]                        # sum from p to q
     local_max = float('-inf')                        # current local interval max              
     n = len(nums)
     for i in range(n):
