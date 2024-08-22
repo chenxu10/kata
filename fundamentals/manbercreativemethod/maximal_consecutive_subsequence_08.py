@@ -228,6 +228,7 @@ def maximum_subarray(nums):
         left_sum = max_subarray_recursive(nums, low, mid)
         right_sum = max_subarray_recursive(nums, mid + 1, high)
         cross_sum = max_cross_sum(nums, low, mid, high)
+        return max(left_sum, right_sum, cross_sum)
     
     if not nums:
         return 0
