@@ -193,13 +193,13 @@ def maximum_subarray(nums):
     if not nums:
         return 0
     n = len(nums)
-    global_max = local_max = float('-inf')
+    global_max = float('-inf')
 
     for i in range(n):
         local_sum = 0
         for j in range(i,n):
-            local_max = max(local_max, local_sum + nums[j])
-            global_max = max(global_max, local_max)
+            local_sum += nums[j]
+            global_max = max(global_max, local_sum)
     return global_max
 
 def maximum_subarray_divide_conquer(nums):
