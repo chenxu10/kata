@@ -75,6 +75,11 @@ Should only put ten rules into it, every time you add after 10, then you should 
 19. 坏工程师只会递推不能递归，坏工程师不会分治
 20. 对几何平均数人的直觉，两次增长25%大于一次增长50%，一次跌50%以后要涨100%才能回来，涨了50%又跌了50%比出发的时候早
 21. 不理解问题比做不出问题还可怕，说明不能利用环境和时间线索
+22. When you feel low and stressed, stress less test more error more stress
+- Run tests more frequently than you should
+- Use teensy-weensy steps to make the changes
+- Make small and changes to make the test pass
+- Test cover only a small increment of system
 
 ## Trading Lists
 1. Manber A Creative Approach(Reduce problem size and connect the dots between inductive reasoning, proof and algorithm design)
