@@ -32,7 +32,6 @@ def test_traverse_matrix():
     #assert traverse_matrix([['a','b'],['d','c']],'abc') == True
 
 def main():
-    #
     test_traverse_matrix()
 
 if __name__ == '__main__':
