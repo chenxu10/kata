@@ -190,9 +190,4 @@ def maximum_sum_subsequence(nums,query):
     return res
 
 
-# Problem6: Find the mode of multiset
-def modemultiset(x):
-    return 2
 
-assert modemultiset({1,2,3,2}) == 2
-assert modemultiset({1,1,2,2,2,3}) == 2
