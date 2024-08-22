@@ -15,7 +15,6 @@ class Trie:
             node = node.children[char]
             print(node.children)
         node.is_end_of_word = True
-        return node
     
     def search(self, word):
         node = self.root
