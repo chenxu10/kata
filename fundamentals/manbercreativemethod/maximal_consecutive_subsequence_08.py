@@ -193,7 +193,7 @@ def maximum_subarray(nums):
     if not nums:
         return 0
     n = len(nums)
-    global_max = float('-inf')
+    global_max = local_max = float('-inf')
 
     for i in range(n):
         local_sum = 0
