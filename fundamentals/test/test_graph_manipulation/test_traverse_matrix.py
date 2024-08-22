@@ -9,7 +9,7 @@ def traverse_matrix(matrix, word):
         if cur_index == len(word):
             return True
         # terminate backtrack logic
-        if i < 0 or i >= rows or j < 0 or j >= cols or matrix[i][j] == '#':
+        if i < 0 or i >= rows or j < 0 or j >= cols:
             return False
         if matrix[i][j] != word[cur_index]:
             return False
