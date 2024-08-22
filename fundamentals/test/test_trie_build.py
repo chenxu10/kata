@@ -3,7 +3,7 @@ class Trie:
         self.nodes = [None] * 26
         self.word = None
     
-    def build_word(self, word,cur):
+    def build_word(self, word, cur):
         for c in word:
             idx = ord(c) - ord('a')
             next_node = cur.nodes[idx]
