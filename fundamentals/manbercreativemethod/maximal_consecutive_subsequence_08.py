@@ -200,7 +200,6 @@ def maximum_subarray(nums):
     n = len(nums)
 
     for i in range(n):
-        print("expecti",i,0)
         local_sum = nums[i]
         print("localsum",local_sum,"expect -2")
         for j in range(i, n):
