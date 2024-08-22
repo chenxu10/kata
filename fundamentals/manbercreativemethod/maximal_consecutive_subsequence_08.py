@@ -201,7 +201,7 @@ def maximum_subarray(nums):
 
     for i in range(n):
         local_sum = nums[i]
-        print("localsum",local_sum)
+        print("localsum",local_sum,"expect -2")
         for j in range(i, n):
             local_sum = local_sum + nums[j]
             print("endlocal sum",local_sum)
