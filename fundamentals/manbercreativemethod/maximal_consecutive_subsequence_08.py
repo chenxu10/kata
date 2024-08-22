@@ -197,8 +197,9 @@ def maximum_subarray(nums):
     for i in range(n):
         for j in range(i, n):
             local_sum = local_sum + nums[j]
-            print(local_sum)
+            print("local_sum",local_sum)
             local_max  = max(local_max, local_sum)
+            print("local_max",local_max)
             global_max = max(global_max, local_max)
     return global_max
 
