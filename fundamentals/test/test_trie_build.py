@@ -16,7 +16,6 @@ class Trie:
 def test_trie():
     t = Trie()
     t.build_word('bc',t)
-    print(t.nodes[ord('b')-ord('a')])
 
 def main():
     test_trie()
