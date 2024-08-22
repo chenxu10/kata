@@ -210,13 +210,13 @@ def maximum_subarray(nums):
         local_sum = 0
         for i in range(mid, low - 1, -1):
             local_sum += nums[i]
-            left_sum = max(left_sum, sum)
+            left_sum = max(left_sum, local_sum)
 
         right_sum = float('-inf')
         local_sum = 0
         for i in range(mid + 1, high + 1):
             local_sum += nums[i]
-            right_sum = max(right_sum, sum)
+            right_sum = max(right_sum, local_sum)
 
         return left_sum + right_sum
     
