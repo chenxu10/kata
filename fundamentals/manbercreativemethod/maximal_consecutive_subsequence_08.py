@@ -18,6 +18,8 @@ def mcs(x):
     key techniques if xn is positive is it easier to extend to Sn
     What property sn have will make the extension easier
     decoupling finding new maximum and new maximum suffix
+
+    A stock zuida zengzhang youxiaoqi
     """
     n = len(x)
     global_max = 0
