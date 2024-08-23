@@ -200,7 +200,8 @@ def maximum_subarray(nums):
 
     return ans
 
-
+# O(n^3)
+# O(n^2)
 
 def maximum_subarray_improve(nums):
     if not nums:
