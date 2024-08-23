@@ -14,5 +14,4 @@ def main():
     test_largest_interval_series()
 
 if __name__ == '__main__':
-    print(23.2+3.2-1.4-12.2+34.2+5.4)
     main()
