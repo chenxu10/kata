@@ -198,7 +198,7 @@ def maximum_subarray(nums):
     ans = 0
     for i in range(len(nums)):
         for j in range(i, len(nums)):
-            ans = max(ans, sum(nums[i:j]))
+            ans = max(ans, sum(nums[i:j + 1]))
     return ans
 
 def maximum_subarray_improve(nums):
