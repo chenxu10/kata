@@ -195,6 +195,7 @@ def maximum_subarray(nums):
     ans = float('-inf')
     for i in range(len(nums)):
         for j in range(len(nums)):
+            print(j)
             ans = max(ans, sum(nums[i:j + 1]))
             print(ans)
 
