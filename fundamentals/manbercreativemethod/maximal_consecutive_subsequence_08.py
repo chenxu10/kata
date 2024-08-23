@@ -189,7 +189,19 @@ def maximum_sum_subsequence(nums,query):
 
     return res
 
+
+
+
+
+
 def maximum_subarray(nums):
+    ans = 0
+    for i in range(len(nums)):
+        for j in range(i, len(nums)):
+            ans = max(ans, sum(nums[i:j]))
+    return ans
+
+def maximum_subarray_improve(nums):
     if not nums:
         return 0
     n = len(nums)
