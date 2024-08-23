@@ -8,7 +8,7 @@ def test_largest_interval_series():
     assert maximum_subarray([-1,-2]) == -1
     assert maximum_subarray_divide_conquer([2,-1,5])==6
     assert maximum_subarray_divide_conquer([2,5,-5,10,15,20,-5])==47
-    print(maximum_subarray_divide_conquer([.5,-12.3,3.2,-5.5,23.2,4.2,-1.4,-12.2,34.2,5.4,-7.8,.1,4.9]))
+    print(maximum_subarray_divide_conquer([1.5,-12.3,3.2,-5.5,23.2,4.2,-1.4,-12.2,34.2,5.4,-7.8,.1,4.9]))
 
 def main():
     test_largest_interval_series()
