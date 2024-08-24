@@ -218,6 +218,35 @@ def maximum_subarray_improve(nums):
             global_max = max(global_max, local_sum)
     return global_max
 
+# [x x x x] [x x] [x x]
+
+def maximum_subarray_divide_conquer(nums):
+    def calculate_cross_sum(nums, low, mid, high):
+        left_sum = float('-inf')
+        local_sum = 0
+
+        for i in range(mid - 1, low, -1):
+            local_sum += nums[i]
+            left_sum = max(left_sum, local_sum)
+
+        right_sum = float('-inf')
+        local_sum = 0
+
+        for j in range(mid, high):
+            local_sum += nums[j]
+            right_sum = max(right_sum, local_sum)
+
+        return left_sum + right_sum
+    low = 0
+    high = len(nums) - 1
+    mid = (low + high) // 2
+    left_max_subarray = maximum_subarray_improve(nums[low:mid])
+    right_max_subarray = maximum_subarray_improve(nums[mid + 1:high])
+    cross_sum = calculate_cross_sum(nums, low, mid, high)
+    return max(left_max_subarray, right_max_subarray, cross_sum)
+
+
+
 def maximum_subarray_divide_conquer(nums):
     def max_cross_sum(nums, low, mid, high):
         left_sum = float('-inf')
