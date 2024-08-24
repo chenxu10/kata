@@ -249,7 +249,6 @@ def maximum_subarray_divide_conquer(nums):
     return max_subarray_recursive(nums, 0, len(nums) - 1)
 
 
-
 # def maximum_subarray_divide_conquer(nums):
 #     def max_cross_sum(nums, low, mid, high):
 #         left_sum = float('-inf')
