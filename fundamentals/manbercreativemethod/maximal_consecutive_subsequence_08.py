@@ -225,7 +225,7 @@ def maximum_subarray_divide_conquer(nums):
         left_sum = float('-inf')
         local_sum = 0
 
-        for i in range(mid - 1, low - 1, -1):
+        for i in range(mid, low - 1, -1):
             local_sum += nums[i]
             left_sum = max(left_sum, local_sum)
 
