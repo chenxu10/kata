@@ -247,36 +247,36 @@ def maximum_subarray_divide_conquer(nums):
 
 
 
-def maximum_subarray_divide_conquer(nums):
-    def max_cross_sum(nums, low, mid, high):
-        left_sum = float('-inf')
-        local_sum = 0
-        for i in range(mid, low - 1, -1):
-            local_sum += nums[i]
-            left_sum = max(left_sum, local_sum)
+# def maximum_subarray_divide_conquer(nums):
+#     def max_cross_sum(nums, low, mid, high):
+#         left_sum = float('-inf')
+#         local_sum = 0
+#         for i in range(mid, low - 1, -1):
+#             local_sum += nums[i]
+#             left_sum = max(left_sum, local_sum)
 
-        right_sum = float('-inf')
-        local_sum = 0
-        for i in range(mid + 1, high + 1):
-            local_sum += nums[i]
-            right_sum = max(right_sum, local_sum)
+#         right_sum = float('-inf')
+#         local_sum = 0
+#         for i in range(mid + 1, high + 1):
+#             local_sum += nums[i]
+#             right_sum = max(right_sum, local_sum)
 
-        return left_sum + right_sum
+#         return left_sum + right_sum
     
-    def max_subarray_recursive(nums, low, high):
-        if low == high:
-            return nums[low]
+#     def max_subarray_recursive(nums, low, high):
+#         if low == high:
+#             return nums[low]
         
-        mid = (low + high) // 2
-        left_sum = max_subarray_recursive(nums, low, mid)
-        right_sum = max_subarray_recursive(nums, mid + 1, high)
-        cross_sum = max_cross_sum(nums, low, mid, high)
-        return max(left_sum, right_sum, cross_sum)
+#         mid = (low + high) // 2
+#         left_sum = max_subarray_recursive(nums, low, mid)
+#         right_sum = max_subarray_recursive(nums, mid + 1, high)
+#         cross_sum = max_cross_sum(nums, low, mid, high)
+#         return max(left_sum, right_sum, cross_sum)
     
-    if not nums:
-        return 0
+#     if not nums:
+#         return 0
     
-    return max_subarray_recursive(nums, 0, len(nums) - 1)
+#     return max_subarray_recursive(nums, 0, len(nums) - 1)
 
 
 def maximum_subarray_dp(nums):
