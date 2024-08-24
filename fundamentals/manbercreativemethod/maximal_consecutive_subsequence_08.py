@@ -237,13 +237,16 @@ def maximum_subarray_divide_conquer(nums):
             right_sum = max(right_sum, local_sum)
 
         return left_sum + right_sum
-    low = 0
-    high = len(nums) - 1
-    mid = (low + high) // 2
-    left_max_subarray = maximum_subarray_improve(nums[low:mid])
-    right_max_subarray = maximum_subarray_improve(nums[mid + 1:high])
-    cross_sum = calculate_cross_sum(nums, low, mid, high)
-    return max(left_max_subarray, right_max_subarray, cross_sum)
+    
+    def max_subarray_recursive(nums, low, high):
+        if low == high: 
+            return nums[low]
+        mid = (low + high) // 2
+        left_max_subarray = max_subarray_recursive(nums,low,mid)
+        right_max_subarray = max_subarray_recursive(nums, mid + 1, high)
+        cross_sum = calculate_cross_sum(nums, low, mid, high)
+        return max(left_max_subarray, right_max_subarray, cross_sum)
+    return max_subarray_recursive(nums, 0, len(nums) - 1)
 
 
 
