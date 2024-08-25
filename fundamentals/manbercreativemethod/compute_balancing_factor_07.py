@@ -160,7 +160,7 @@ def merge_sort_memory_improve(arr, low, hi):
     """
     def merge_inplace(arr, low, hi, mid):
         # compare [low,mid] with [mid + 1, hi]
-        aux = copy.copy(arr)
+        aux = list(arr)
         i = low
         j = mid + 1
         k = low
