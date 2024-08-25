@@ -5,6 +5,7 @@ can be easier
 The genisus of this chapter is merge sort and we teach how to improve the merge
 sort with in-place, top down and bottom up
 """
+import copy
 from typing import List,Optional
 
 def compute_balance_factors(root):
@@ -152,7 +153,47 @@ def merge_sort(arr):
     mid = len(arr) // 2
     left = merge_sort(arr[:mid])
     right = merge_sort(arr[mid:])
-    return merge(left, right)    
+    return merge(left, right)
+
+def merge_sort_memory_improve(arr, low, hi):
+    """
+    """
+    def merge_inplace(arr, low, hi, mid):
+        # compare [low,mid] with [mid + 1, hi]
+        aux = copy.copy(arr)
+        i = low
+        j = mid + 1
+        k = low
+        while k <= hi:
+            if i > mid + 1:
+                arr[k] = aux[j]
+                j += 1
+            elif j > hi:
+                arr[k] = aux[i]
+                i += 1
+            elif aux[i] < aux[j]:
+                arr[k] = aux[i]
+                i += 1
+            else:
+                arr[k] = aux[j]
+                j += 1
+            k += 1
+    if low >= hi:
+        return
+    mid = (low + hi) // 2
+    merge_sort_memory_improve(arr, low, mid)
+    merge_sort_memory_improve(arr, mid + 1, hi)
+    merge_inplace(arr, low, hi, mid)
+    return arr
+
+
+
+
+
+
+
+
+
 
 
 def getSkyline(buildings: List[List[int]]) -> List[List[int]]:
