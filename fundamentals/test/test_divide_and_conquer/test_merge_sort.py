@@ -4,7 +4,6 @@ def test_merge_sort():
     """
     """
     arr = [2,3,4,1,-1]
-    #print(merge_sort_memory_improve(arr,0,len(arr)-1))
     assert(merge_sort_memory_improve(arr,0,len(arr)-1)==[-1,1,2,3,4])
 
 
