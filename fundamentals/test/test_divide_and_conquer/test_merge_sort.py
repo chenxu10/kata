@@ -1,6 +1,6 @@
 from fundamentals.manbercreativemethod.compute_balancing_factor_07 import merge_sort_memory_improve
 
-def test_merge_sort(arr):
+def test_merge_sort():
     """
     """
     arr = [2,3,4,1,-1]
@@ -8,3 +8,7 @@ def test_merge_sort(arr):
     #assert(merge_sort_memory_improve(arr,0,len(arr)-1)==[-1,1,2,3,4])
 
 
+def main():
+    test_merge_sort()
+if __name__ == '__main__':
+    main()
