@@ -161,8 +161,8 @@ def merge_sort_memory_improve(arr, low, hi):
     def merge_inplace(arr, low, mid, hi):
         # compare [low,mid] with [mid + 1, hi]
         aux = list(arr)
-        i = low
         j = mid + 1
+        i = low
         k = low
         while k <= hi:
             if i > mid + 1:
