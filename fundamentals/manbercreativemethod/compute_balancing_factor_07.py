@@ -186,16 +186,6 @@ def merge_sort_memory_improve(arr, low, hi):
     merge_inplace(arr, low, hi, mid)
     return arr
 
-
-
-
-
-
-
-
-
-
-
 def getSkyline(buildings: List[List[int]]) -> List[List[int]]:
     def merge_skylines(left, right):
         merged = []
