@@ -166,10 +166,12 @@ def merge_sort_memory_improve(arr, low, hi):
         k = low
         while k <= hi:
             if i > mid + 1:
+                print("left exhausted")
                 arr[k] = aux[j]
                 j += 1
             elif j > hi:
                 arr[k] = aux[i]
+                print("right exhaused")
                 i += 1
             elif aux[i] < aux[j]:
                 arr[k] = aux[i]
