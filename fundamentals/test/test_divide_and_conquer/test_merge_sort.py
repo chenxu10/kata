@@ -3,7 +3,7 @@ from fundamentals.manbercreativemethod.compute_balancing_factor_07 import merge_
 def test_merge_sort():
     """
     """
-    arr = [1,3,2,4]
+    arr = [1,3,2,4,100,99]
     merge_sort_memory_improve(arr, 0, len(arr) - 1)
     # assert(merge_sort_memory_improve(
     #     arr,0,len(arr)-1)==[-1,1,2,3,4])
