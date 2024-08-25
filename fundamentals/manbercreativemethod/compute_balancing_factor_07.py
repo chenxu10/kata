@@ -125,16 +125,6 @@ def backtrack_substring(s):
 
     return count if count != float('inf') else -1
 
-
-def merge_sort(arr):
-    if len(arr) <= 1:
-        return arr
-    
-    mid = len(arr) // 2
-    left = merge_sort(arr[:mid])
-    right = merge_sort(arr[mid:])
-    return merge(left, right)    
-
 def merge(left,right):
     result = []
     i, j = 0, 0
@@ -151,6 +141,16 @@ def merge(left,right):
     result.extend(right[j:])
     
     return result
+
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    
+    mid = len(arr) // 2
+    left = merge_sort(arr[:mid])
+    right = merge_sort(arr[mid:])
+    return merge(left, right)    
+
 
 def getSkyline(buildings: List[List[int]]) -> List[List[int]]:
     def merge_skylines(left, right):
