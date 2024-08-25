@@ -178,6 +178,7 @@ def merge_sort_memory_improve(arr, low, hi):
                 arr[k] = aux[i]
                 i += 1
             else:
+                print("right small")
                 arr[k] = aux[j]
                 j += 1
             k += 1
