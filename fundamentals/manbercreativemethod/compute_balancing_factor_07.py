@@ -1,6 +1,9 @@
 """
 Extend the induction hypothesis to stronger status, so that reasoning forward
 can be easier
+
+The genisus of this chapter is merge sort and we teach how to improve the merge
+sort with in-place, top down and bottom up
 """
 from typing import List,Optional
 
