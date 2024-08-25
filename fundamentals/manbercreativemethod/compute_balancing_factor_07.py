@@ -183,7 +183,7 @@ def merge_sort_memory_improve(arr, low, hi):
     mid = (low + hi) // 2
     merge_sort_memory_improve(arr, low, mid)
     merge_sort_memory_improve(arr, mid + 1, hi)
-    merge_inplace(arr, low, hi, mid)
+    merge_inplace(arr, low, mid, hi)
     return arr
 
 def getSkyline(buildings: List[List[int]]) -> List[List[int]]:
