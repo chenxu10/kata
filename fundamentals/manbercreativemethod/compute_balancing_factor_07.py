@@ -174,11 +174,11 @@ def merge_sort_memory_improve(arr, low, hi):
                 print("right exhaused")
                 i += 1
             elif aux[i] < aux[j]:
-                print("left small")
+                print("left is smaller copy left and move left pointer")
                 arr[k] = aux[i]
                 i += 1
             else:
-                print("right small")
+                print("right is smaller copy right and move right pointer")
                 arr[k] = aux[j]
                 j += 1
             k += 1
