@@ -30,35 +30,33 @@ def build_trie_on_words(words):
 
 def findWords(board: List[List[str]], words: List[str]) -> List[str]:
     root = build_trie_on_words(words)
+    result = []
+    m = len(board)
+    n = len(board[0])
     
-    n, m = len(board), len(board[0])
-    ans = []
-    
-    def walk(x, y, node):
-        # terminate at leaf across boundaries or visited
-        if x < 0 or x == m or y < 0 or y == n or board[y][x] == '#':
-            return
-        # terminate cannot reach the very end
-        cur = board[y][x]
+    def walk(row, col, node):
+        
+        if row < 0 or row >= m or col < 0 or col >=n or board[row][col] == '#':
+            return 
+        
+        cur = board[row][col]
         next_node = node.nodes[ord(cur) - ord('a')]
         if not next_node:
             return
-        # find word the same
-        if next_node.word:
-            ans.append(next_node.word)
-            next_node.word = None
         
-        board[y][x] = '#'
-        walk(x + 1, y, next_node)
-        walk(x - 1, y, next_node)
-        walk(x, y + 1, next_node)
-        walk(x, y - 1, next_node)
-        board[y][x] = cur
+        if next_node.word:
+            result.append(next_node.word)
+            next_node.word = None
 
-    walk_all_possible_paths(root, n, m, walk) 
-    return ans
+        board[row][col] = '#'
+        walk(row - 1, col, next_node)
+        walk(row + 1, col, next_node)
+        walk(row, col + 1, next_node)        
+        walk(row, col - 1, next_node)
+        board[row][col] = cur
 
-
+    walk_all_possible_paths(root, m, n, walk)
+    return result
 
 def test_word_search_two():
     board = [
