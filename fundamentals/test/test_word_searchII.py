@@ -55,8 +55,7 @@ def findWords(board: List[List[str]], words: List[str]) -> List[str]:
         walk(x, y - 1, next_node)
         board[y][x] = cur
 
-    walk_all_possible_paths(root, n, m, walk)
-    
+    walk_all_possible_paths(root, n, m, walk) 
     return ans
 
 
