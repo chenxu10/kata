@@ -8,14 +8,12 @@ def max_swap(num):
     # Find the rightmost occurrence of each digit
     last_occurrence = {d: i for i, d in enumerate(digits)}
     
-    for i in range(n):
-        for d in range(9, int(digits[i]), -1):
-            if str(d) in last_occurrence and last_occurrence[str(d)] > i:
-                # Swap digits
-                digits[i], digits[last_occurrence[str(d)]] = digits[last_occurrence[str(d)]], digits[i]
-                return int(''.join(digits))
-    
-    # No swap needed
+    for i in range(len(digits)):
+        for j in range(9, int(digits[i]),-1):
+            if str(j) in last_occurrence and last_occurrence[str(j)] > i:
+                digits[i], digits[last_occurrence[str(j)]] = digits[last_occurrence[str(j)]], digits[i]
+                num = int(''.join(digits))
+                return num# No swap needed
     return num
 
 # ... (keep the TestMaxSwap class and unittest.main() call)
