@@ -72,7 +72,7 @@ def test_word_search_two():
 def main():
     #test_word_search_two()
     curnode = build_each_word_node('aac', TrieNode())
-    print(curnode.nodes)
+    #print(curnode.nodes)
     nodes = build_trie_on_words(['aac'])#print(root
     print(nodes.nodes)
 
