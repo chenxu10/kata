@@ -70,7 +70,9 @@ def test_word_search_two():
     assert findWords(board,words) == ['oath','eat']
 
 def main():
-    test_word_search_two()
+    #test_word_search_two()
+    root = build_trie_on_words(['aac'])
+    print(root)
 
 if __name__ == '__main__':
     main()
