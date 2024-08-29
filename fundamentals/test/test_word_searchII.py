@@ -74,7 +74,7 @@ def main():
     curnode = build_each_word_node('aac', TrieNode())
     #print(curnode.nodes)
     nodes = build_trie_on_words(['aac','ab'])#print(root
-    print(nodes.nodes[0].nodes[0])
+    print(nodes.nodes[0])
 
 if __name__ == '__main__':
     main()
