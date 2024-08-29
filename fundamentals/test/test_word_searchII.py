@@ -72,7 +72,8 @@ def test_word_search_two():
 def main():
     #test_word_search_two()
     root = build_trie_on_words(['aac'])
-    print(root)
+    print(root.nodes)
+    #print(root.nodes[0].nodes[0].nodes[1].word)
 
 if __name__ == '__main__':
     main()
