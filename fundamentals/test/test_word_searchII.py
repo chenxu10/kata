@@ -8,10 +8,9 @@ class TrieNode:
 def build_each_word_node(word, cur):
     for c in word:
         idx = ord(c) - ord('a')
-        cur_node = cur.nodes[idx]
-        if not cur_node:
-            cur_node = TrieNode()
-        cur = cur_node
+        if not cur.nodes[idx]:
+            cur.nodes[idx] = TrieNode()
+        cur = cur.nodes[idx]
     return cur
 
 def walk_all_possible_paths(root, n, m, walk):
@@ -71,11 +70,8 @@ def test_word_search_two():
     assert findWords(board,words) == ['oath','eat']
 
 def main():
-    #test_word_search_two()
-    curnode = build_each_word_node('aac', TrieNode())
-    #print(curnode.nodes)
-    nodes = build_trie_on_words(['aac','ab'])#print(root
-    print(nodes.nodes[0])
+    test_word_search_two()
+
 
 if __name__ == '__main__':
     main()
