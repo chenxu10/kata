@@ -19,7 +19,6 @@ def walk_all_possible_paths(root, n, m, walk):
         for j in range(m):
             walk(j, i, root)
 
-
 def build_trie_on_words(words):
     root = TrieNode()
     
