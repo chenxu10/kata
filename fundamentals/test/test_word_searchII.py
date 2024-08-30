@@ -8,10 +8,10 @@ class TrieNode:
 def build_each_word_node(word, cur):
     for c in word:
         idx = ord(c) - ord('a')
-        next_node = cur.nodes[idx]
-        if not next_node:
-            next_node = TrieNode()
-        cur = next_node
+        cur_node = cur.nodes[idx]
+        if not cur_node:
+            cur_node = TrieNode()
+        cur = cur_node
     return cur
 
 def walk_all_possible_paths(root, n, m, walk):
