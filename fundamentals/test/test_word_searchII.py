@@ -5,13 +5,14 @@ class TrieNode:
         self.nodes = [None] * 26
         self.word = None   
 
-def build_each_word_node(word, cur):
+def build_each_word_node(word, root):
+    cur_node = root
     for c in word:
         idx = ord(c) - ord('a')
-        if not cur.nodes[idx]:
-            cur.nodes[idx] = TrieNode()
-        cur = cur.nodes[idx]
-    return cur
+        if not cur_node.nodes[idx]:
+            cur_node.nodes[idx] = TrieNode()
+        cur_node = cur_node.nodes[idx]
+    return cur_node
 
 def walk_all_possible_paths(root, n, m, walk):
     for i in range(n):
