@@ -7,6 +7,5 @@ def max_length_duplicate_contiguous(s):
     return result   
 
 
-
 assert max_length_duplicate_contiguous('aaaabbbbccc') == ['a','b']  # Should return ['a', 'b']
 assert max_length_duplicate_contiguous('abcd') == ['a','b','c','d']  # Should return ['a', 'b', 'c', 'd']
