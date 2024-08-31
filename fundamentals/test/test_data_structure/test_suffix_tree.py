@@ -35,7 +35,7 @@ class SuffixTree:
 def test_suffix_tree():
     tree = SuffixTree("banana$")
     root = tree._build_tree()
-    print(root.children['b'])
+    print(root.children['b'].is_end)
     assert tree.search("ana") == True
     assert tree.search("cdf") == False
     assert tree.search("banana$") == True
