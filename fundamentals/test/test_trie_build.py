@@ -14,7 +14,7 @@ class Trie:
 def test_trie():
     t = Trie()
     cur = t.build_word('bc',t)
-    print(cur.nodes[0])
+    print(cur.nodes[1])
 
 def main():
     test_trie()
