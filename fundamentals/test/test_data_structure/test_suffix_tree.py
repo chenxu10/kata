@@ -45,3 +45,6 @@ def test_suffix_tree():
 
 def main():
     test_suffix_tree()
+
+if __name__ == "__main__":
+    main()
