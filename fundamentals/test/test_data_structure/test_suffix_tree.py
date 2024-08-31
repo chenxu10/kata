@@ -1,6 +1,8 @@
 
 class SuffixTreeNode:
-    pass
+    def __init__(self):
+        self.children = {}
+        self.is_end = False
 
 class SuffixTree:
     def __init__(self, s):
@@ -8,11 +10,27 @@ class SuffixTree:
         self.root = self._build_tree()
 
     def _build_tree(self):
-        pass
-
-    def search(self, pattern):
+        root = SuffixTreeNode()
+        for i in range(len(self.s)):
+            self._insert_suffix(self.s[i:],root)
+        return root
+    
+    def _insert_suffix(self, suffix, root):
+        cur = root
+        for c in suffix:
+            if c not in cur.children:
+                cur.children[c] = SuffixTreeNode()
+            cur = cur.children[c]
+        cur.is_end = True
+        
+    
+    def search(self, suffix):
+        cur = self.root
+        for c in suffix:
+            if c not in self.root.children:
+                return False
+            cur = cur.children[c]            
         return True
-
 
 def test_suffix_tree():
     tree = SuffixTree("banana$")
