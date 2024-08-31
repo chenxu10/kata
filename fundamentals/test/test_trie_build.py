@@ -11,12 +11,12 @@ def build_word(word, root):
             cur.nodes[idx] = Trie()
         cur = cur.nodes[idx]
     cur.word = word
-    return root
+    return cur
 
 def test_trie():
     t = Trie()
     cur = build_word('abc',t)
-    print(cur.nodes[0].nodes[1])
+    print(cur.nodes)
 
 def main():
     test_trie()
