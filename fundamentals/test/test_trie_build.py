@@ -9,6 +9,7 @@ class Trie:
             if not cur.nodes[idx]:
                 cur.nodes[idx] = Trie()
             cur = cur.nodes[idx]
+        cur.word = word
         return cur
 
 def test_trie():
