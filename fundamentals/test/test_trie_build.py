@@ -4,6 +4,7 @@ class Trie:
         self.word = None
     
 def build_word(word, root):
+    "root is mutuable"
     cur = root
     for c in word:
         idx = ord(c) - ord('a')
@@ -11,7 +12,7 @@ def build_word(word, root):
             cur.nodes[idx] = Trie()
         cur = cur.nodes[idx]
     cur.word = word
-    return cur
+    return root
 
 def test_trie():
     t = Trie()
