@@ -27,7 +27,7 @@ class SuffixTree:
     def search(self, suffix):
         cur = self.root
         for c in suffix:
-            if c not in self.root.children:
+            if c not in cur.children:
                 return False
             cur = cur.children[c]            
         return True
