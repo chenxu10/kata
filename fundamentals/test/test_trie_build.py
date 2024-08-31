@@ -16,7 +16,7 @@ def build_word(word, root):
 def test_trie():
     t = Trie()
     cur = build_word('abc',t)
-    print(cur.nodes[0])
+    print(cur.nodes)
 
 def main():
     test_trie()
