@@ -6,11 +6,10 @@ class Trie:
     def build_word(self, word, cur):
         for c in word:
             idx = ord(c) - ord('a')
-            next_node = cur.nodes[idx]
-            if not next_node:
-                next_node = Trie()
-            cur = next_node
-        return cur
+            if not cur.nodes[idx]:
+                cur.nodes[idx] = Trie()
+            cur = cur.nodes[idx]
+            return cur
 
 def test_trie():
     t = Trie()
