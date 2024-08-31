@@ -11,7 +11,7 @@ def build_word(word, root):
             cur.nodes[idx] = Trie()
         cur = cur.nodes[idx]
     cur.word = word
-    return cur
+    return root
 
 def test_trie():
     t = Trie()
