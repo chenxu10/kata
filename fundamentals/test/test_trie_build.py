@@ -3,18 +3,19 @@ class Trie:
         self.nodes = [None] * 26
         self.word = None
     
-    def build_word(self, word, cur):
-        for c in word:
-            idx = ord(c) - ord('a')
-            if not cur.nodes[idx]:
-                cur.nodes[idx] = Trie()
-            cur = cur.nodes[idx]
-        cur.word = word
-        return cur
+def build_word(word, root):
+    cur = root
+    for c in word:
+        idx = ord(c) - ord('a')
+        if not cur.nodes[idx]:
+            cur.nodes[idx] = Trie()
+        cur = cur.nodes[idx]
+    cur.word = word
+    return cur
 
 def test_trie():
     t = Trie()
-    cur = t.build_word('abc',t)
+    cur = build_word('abc',t)
     print(cur.nodes[0])
 
 def main():
