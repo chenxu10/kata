@@ -37,6 +37,7 @@ def test_suffix_tree():
     assert tree.search("ana") == True
     assert tree.search("cdf") == False
     assert tree.search("banana$") == True
+    assert tree.search("Xana") == False
     # assert tree.search("na$") == True
     # assert tree.search("") == True
 
