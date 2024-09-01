@@ -34,8 +34,12 @@ class SuffixTree():
 
 def test_suffix_tree():
     s = "bananas"
-    root = SuffixTree(s)
-    print(root)
+    tree = SuffixTree(s)
+
+    # Test if _build_tree is implemented correctly
+    for i in range(len(s)):
+        assert tree.search(s[i:]), f"Failed to find suffix: {s[i:]}"
+
     # root._
     # assert root["b"].is_end == False
     # assert isinstance(root["b"].nodes, dict)
