@@ -38,7 +38,7 @@ def test_suffix_tree():
     print(tree.root)
 
     # Test if _build_tree is implemented correctly
-    assert tree.search(s[2:])
+    assert(tree.search(s[2:]))
 
     # root._
     # assert root["b"].is_end == False
