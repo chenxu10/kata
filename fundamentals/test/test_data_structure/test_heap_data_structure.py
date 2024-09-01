@@ -8,8 +8,8 @@ def build_heap_data_structure(A):
     if not A:
         return None
     root = HeapNode(min(A))
-    root.left = 3
-    root.right = 4
+    root.left = HeapNode(3)
+    root.right = HeapNode(4)
 
 def test_build_heap_data_structure():
     A = [4, 10, 3, 5, 1]
