@@ -19,7 +19,7 @@ class BinaryHeap:
         N = len(arr)
         
         # Step 1: Build the heap
-        for k in range(N // 2 - 1, -1, -1):
+        for k in range(N//2, -1, -1):
             cls.sink(arr, k, N - 1)
         
         # Step 2: Sort the array
