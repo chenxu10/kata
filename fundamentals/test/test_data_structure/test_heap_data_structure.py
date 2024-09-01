@@ -10,6 +10,7 @@ def build_heap_data_structure(A):
     root = HeapNode(min(A))
     root.left = HeapNode(3)
     root.right = HeapNode(4)
+    return root
 
 def test_build_heap_data_structure():
     A = [4, 10, 3, 5, 1]
