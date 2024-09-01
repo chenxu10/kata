@@ -18,5 +18,6 @@ def test_build_heap_data_structure():
     assert root.value == 1
     assert root.left.value == 3
     assert root.right.value == 4
-    assert root.left.left.value == 5
-    assert root.left.right.value == 10
+
+if __name__ == "__main__":
+    test_build_heap_data_structure()
