@@ -1,3 +1,10 @@
+"""
+Sliding Window Techniques are
+- Good at finding substring pattern matching problem
+- Optimize from multiple pass to one pass
+- Can be replaced by dynamic programming
+"""
+
 def maxUniqueSubarraySum(nums):
     left = 0 
     max_sum = 0
