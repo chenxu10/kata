@@ -1,5 +1,5 @@
 import pytest
-from fundamentals.blackjack_fun import (
+from fundamentals.blackjack_fun_learn import (
     card_value, dealer_final_hand, calculate_stand_value,
     optimal_strategy, play_hand, simulate_game
 )
@@ -48,4 +48,6 @@ def test_play_hand():
 
 def test_simulate_game():
     avg_profit = simulate_game(num_hands=1000)
-    assert -0.1 < avg_profit < 0.1  # Expected value should be close to 0
+    assert -0.1 < avg_profit < 0.1
+    
+      # Expected value should be close to 0
