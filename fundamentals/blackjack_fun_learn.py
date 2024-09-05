@@ -67,7 +67,6 @@ def optimal_strategy(deck):
     for i in range(n - 1, -1, -1):
         player_sum = 0
         dealer_card = deck[i]
-        dealer_card = deck[i]
         j = i
 
         # Stand immediately
