@@ -16,7 +16,6 @@
 # dealer strategy determinstics 17
 
 
-
 def calculate_stand_value(dealer_hand,player_sum):
     if dealer_hand > player_sum:
         return -1
