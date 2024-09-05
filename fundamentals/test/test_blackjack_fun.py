@@ -8,6 +8,12 @@ from fundamentals.blackjack_fun import (
     ('2', 2), ('10', 10), ('J', 10), ('Q', 10), ('K', 10), ('A', 11)
 ])
 def test_card_value(card, expected):
+    """
+    Test the card_value function with various input cards.
+    
+    This test ensures that the card_value function correctly calculates
+    the numerical value of different cards in a deck.
+    """
     assert card_value(card) == expected
 
 @pytest.mark.parametrize("initial_card, expected", [
