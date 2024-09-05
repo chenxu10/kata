@@ -1,35 +1,45 @@
-# Perfect Information Game
-# status
-# base case
-# transitive function
-# dp(max)
+import pytest
+from fundamentals.blackjack_fun import (
+    card_value, dealer_final_hand, calculate_stand_value,
+    optimal_strategy, play_hand, simulate_game
+)
 
-# deck is a sequence of cards(c1,c2,...cn-1)
-# 1 player vs dealer
-# 1 dollar bet per hand
+@pytest.mark.parametrize("card, expected", [
+    ('2', 2), ('10', 10), ('J', 10), ('Q', 10), ('K', 10), ('A', 11)
+])
+def test_card_value(card, expected):
+    assert card_value(card) == expected
 
+@pytest.mark.parametrize("initial_card, expected", [
+    ('6', 19), ('10', 20), ('A', 21)
+])
+def test_dealer_final_hand(initial_card, expected):
+    assert dealer_final_hand(initial_card) == expected
 
-# how many times should I hit to maximize?
-# subproblems suffix of ci
-# number of subprobelms (n suffix)
-# recurrence: BJ(i) = max(outcome(-1,0,1) + BJ(j) for all choices of j)
-# dealer strategy determinstics 17
+@pytest.mark.parametrize("dealer_hand, player_sum, expected", [
+    (20, 19, -1),
+    (22, 18, 1),
+    (18, 18, 0),
+    (17, 21, -1),
+    (19, 20, 1)
+])
+def test_calculate_stand_value(dealer_hand, player_sum, expected):
+    assert calculate_stand_value(dealer_hand, player_sum) == expected
 
+def test_optimal_strategy():
+    deck = ['A', '10', '5', '6']
+    assert optimal_strategy(deck) > 0
 
-def calculate_stand_value(dealer_hand,player_sum):
-    if dealer_hand > player_sum:
-        return -1
-    if player_sum > 21:
-        return -1
-    if player_sum > dealer_hand:
-        return 1
-    else:
-        return 0
-    
+    deck = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+    assert optimal_strategy(deck) > -1 and optimal_strategy(deck) < 1
 
-def test_calculate_stand_value():
-    assert calculate_stand_value(11,10) == -1
-    assert calculate_stand_value(11,22) == -1
-    assert calculate_stand_value(11,15) == 1
+def test_play_hand():
+    player_cards = ['A', '7']
+    dealer_upcard = '9'
+    deck = ['5', '6', '10', 'J', 'Q', 'K']
+    result = play_hand(player_cards, dealer_upcard, deck)
+    assert result in [-1, 0, 1]
 
-test_calculate_stand_value()
+def test_simulate_game():
+    avg_profit = simulate_game(num_hands=1000)
+    assert -0.1 < avg_profit < 0.1  # Expected value should be close to 0
