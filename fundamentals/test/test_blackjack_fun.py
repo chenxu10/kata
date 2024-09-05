@@ -26,3 +26,9 @@ def calculate_stand_value(dealer_hand,player_sum):
         return 1
     else:
         return 0
+    
+
+def test_calculate_stand_value():
+    assert calculate_stand_value(11,10) == -1
+    assert calculate_stand_value(11,20) == -1
+    assert calculate_stand_value(11,15) == 1
