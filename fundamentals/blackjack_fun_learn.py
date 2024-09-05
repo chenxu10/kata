@@ -103,9 +103,10 @@ def play_hand(player_cards, dealer_upcard, deck):
     """
     player_sum = sum(card_value(card) for card in player_cards)
     while player_sum < 21:
-        if optimal_strategy(deck) > 21:
-            deck.pop()
-            pl
+        if optimal_strategy(deck) > 0:
+            new_card = deck.pop()
+            
+            player_sum += card_value(new_card) 
         else:
             # Stand
             break
