@@ -101,7 +101,19 @@ def play_hand(player_cards, dealer_upcard, deck):
     Returns:
     int: The outcome of the hand (1 for win, -1 for loss, 0 for tie)
     """
-
+    player_sum = sum(card_value(card) for card in player_cards)
+    while player_sum < 21:
+        if optimal_strategy(deck) > 0:
+            # Hit
+            new_card = deck.pop(0)
+            player_cards.append(new_card)
+            player_sum += card_value(new_card)
+        else:
+            # Stand
+            break
+    
+    dealer_hand = dealer_final_hand(dealer_upcard)
+    return calculate_stand_value(dealer_hand, player_sum)
 
 def simulate_game(num_hands=1000):
     """
@@ -134,5 +146,5 @@ def test_play_hand():
     result = play_hand(player_cards, dealer_upcard, deck)
     assert result in [-1, 0, 1]
 
-
-test_play_hand()
+if __name__ == "__main__":
+    test_play_hand()
