@@ -59,8 +59,7 @@ def insert(intervals: List[List[int]], newInterval: List[int]) -> List[List[int]
 
 
 def insert_heap(intervals, newInterval):
-    # Convert intervals to a list of tuples for easier heap operations
-    heap = [(i[0], i[1], i) for i in intervals + [newInterval]]
+    heap = [(i[0],i[1],i) for i in intervals + [newInterval]]
     heapq.heapify(heap)
     
     result = []
