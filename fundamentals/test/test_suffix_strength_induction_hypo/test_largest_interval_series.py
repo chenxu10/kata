@@ -37,6 +37,7 @@ def test_calculate_cross_sum():
 
 def main():
     test_largest_interval_series()
+    test_calculate_cross_sum()
     
 
 if __name__ == '__main__':
