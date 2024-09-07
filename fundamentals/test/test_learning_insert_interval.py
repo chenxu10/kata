@@ -28,12 +28,11 @@ def sweep_line_algorithm(events: List[Tuple[int, int]]) -> List[List[int]]:
 def insert(intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
     events = []
     OPEN, CLOSE = 0, 1
-    
-    # Add events for existing intervals and new interval
+
     for interval in intervals + [newInterval]:
-        events.append((interval[0], OPEN))
-        events.append((interval[1], CLOSE))
-    
+        events.append((interval[0],OPEN))
+        events.append((interval[1],CLOSE))
+
     return sweep_line_algorithm(events)
 
 # Test case
