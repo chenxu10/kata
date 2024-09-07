@@ -10,7 +10,7 @@ def calculate_cross_sum(nums, low, high):
     for i in range(mid, low - 1, -1):
         current_sum += nums[i]
         left_sum = max(left_sum, current_sum)
-
+    
     current_sum = 0
 
     # Calculate right sum
