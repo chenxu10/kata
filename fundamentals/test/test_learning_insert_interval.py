@@ -6,21 +6,63 @@ def sweep_line_algorithm(events: List[Tuple[int, int]]) -> List[List[int]]:
     # Sort events
     events.sort(key=lambda x: (x[0], x[1]))
     
+    """
+    Visualization:
+    
+    Timeline:  |------------------------------------->
+                ^   ^     ^     ^   ^     ^
+    Events:    [1,O] [2,O] [3,C] [4,O] [5,C] [6,C]
+                |   |     |     |   |     |
+    Intervals:  |___|_____|     |___|_____|
+                |___________|   |_________|
+    
+    O: Open event
+    C: Close event
+    """
+    
     result = []
     open_count = 0
     start = 0
     
     for time, event_type in events:
+        """
+        Imagine a vertical line sweeping from left to right:
+        
+        |       |       |       |       |       |
+        |   |___|_______|   |___|_______|       |
+        |   |   |       |   |   |       |       |
+        |[1,O] [2,O]  [3,C] [4,O]     [5,C]   [6,C]
+        """
         if open_count == 0:
-            start = time
+            start = time  # Start of a new interval
         
         if event_type == OPEN:
-            open_count += 1
+            open_count += 1  # Entering an interval
+            """
+            |   ^   |       |       |       |       |
+            |   |___|_______|   |___|_______|       |
+            |   |   |       |   |   |       |       |
+            |[1,O] [2,O]  [3,C] [4,O]     [5,C]   [6,C]
+            """
         else:
-            open_count -= 1
+            open_count -= 1  # Exiting an interval
+            """
+            |       |       ^       |       |       |
+            |   |___|_______|   |___|_______|       |
+            |   |   |       |   |   |       |       |
+            |[1,O] [2,O]  [3,C] [4,O]     [5,C]   [6,C]
+            """
         
         if open_count == 0:
-            result.append([start, time])
+            result.append([start, time])  # Complete interval found
+            """
+            |       |       |       |       |       ^
+            |   |___|_______|   |___|_______|       |
+            |   |   |       |   |   |       |       |
+            |[1,O] [2,O]  [3,C] [4,O]     [5,C]   [6,C]
+            
+            Intervals: [1,3], [4,6]
+            """
     
     return result
 
