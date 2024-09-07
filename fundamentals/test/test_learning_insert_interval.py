@@ -34,36 +34,15 @@ def sweep_line_algorithm(events: List[Tuple[int, int]]) -> List[List[int]]:
         |[1,O] [2,O]  [3,C] [4,O]     [5,C]   [6,C]
         """
         if open_count == 0:
-            start = time  # Start of a new interval
-        
+            start = time
+
         if event_type == OPEN:
-            open_count += 1  # Entering an interval
-            """
-            |   ^   |       |       |       |       |
-            |   |___|_______|   |___|_______|       |
-            |   |   |       |   |   |       |       |
-            |[1,O] [2,O]  [3,C] [4,O]     [5,C]   [6,C]
-            """
-        else:
-            open_count -= 1  # Exiting an interval
-            """
-            |       |       ^       |       |       |
-            |   |___|_______|   |___|_______|       |
-            |   |   |       |   |   |       |       |
-            |[1,O] [2,O]  [3,C] [4,O]     [5,C]   [6,C]
-            """
-        
+            open_count += 1
+        if event_type == CLOSE:
+            open_count -= 1
         if open_count == 0:
-            result.append([start, time])  # Complete interval found
-            """
-            |       |       |       |       |       ^
-            |   |___|_______|   |___|_______|       |
-            |   |   |       |   |   |       |       |
-            |[1,O] [2,O]  [3,C] [4,O]     [5,C]   [6,C]
-            
-            Intervals: [1,3], [4,6]
-            """
-    
+            result.append([start, time])
+         
     return result
 
 # Example usage for insert interval problem
