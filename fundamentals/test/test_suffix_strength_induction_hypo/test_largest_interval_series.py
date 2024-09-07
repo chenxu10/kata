@@ -30,8 +30,6 @@ def test_largest_interval_series():
     assert maximum_subarray_divide_conquer([2,5,-5,10,15,20,-5])==47
     #print(maximum_subarray_divide_conquer([23.2,3.2,-1.4,-12.2,34.2,5.4]))
 
-
-
 def test_calculate_cross_sum():
     assert calculate_cross_sum([-1,2,3,-1], 0, 3) == 5
 
