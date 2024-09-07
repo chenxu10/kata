@@ -44,7 +44,7 @@ def sweep_line_algorithm(events: List[Tuple[int, int]]) -> List[List[int]]:
             result.append([start, time])
          
     return result
-
+ 
 # Example usage for insert interval problem
 def insert(intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
     events = []
