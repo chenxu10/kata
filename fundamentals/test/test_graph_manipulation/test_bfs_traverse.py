@@ -46,6 +46,7 @@ def test_bfs_traverse():
     print(G)
     bfs = BFS(G,'A')
     print(bfs.has_path_to('D'))
+    print(bfs.path_to('D'))
     #assert bfs.has_path_to('D') == True
     #assert bfs.path_to('D') == []
 
