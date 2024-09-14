@@ -1,8 +1,5 @@
 from collections import defaultdict
-
-
-
-
+from queue import deque
 
 
 class BFS:
@@ -10,13 +7,24 @@ class BFS:
         self.G = G
         self.s = s
         self.edge_to = []
+        self.visited = set()
+        self._bfs_traverse()
+
+    def _bfs_traverse(self):
+        q = deque([self.s])
+        while q:
+            node = q.popleft()
+            for nei in node:
+                if nei not in self.visited:
+                    q.append(node)
+                    self.visited.add(node)
+                    self.edge_to.append(node)            
 
     def has_path_to(self,v):
-        return True
+        return v in self.marked
     
     def path_to(self,v):
         return ['A','B','D']
-
 
 def test_bfs_traverse():
     """
