@@ -13,12 +13,12 @@ class BFS:
     def _bfs_traverse(self):
         q = deque([self.s])
         while q:
-            node = q.popleft()
-            for nei in self.G[node]:
-                if nei not in self.visited:
-                    q.append(node)
-                    self.visited.add(node)
-                    self.edge_to.append(node)            
+            v = q.popleft()
+            for w in self.G[v]:
+                if w not in self.visited:
+                    q.append(w)
+                    self.visited.add(w)
+                    self.edge_to.append(w)            
 
     def has_path_to(self,v):
         return v in self.visited
@@ -38,9 +38,11 @@ def test_bfs_traverse():
     G['A'] = ['B','C']
     G['B'] = ['D','A']
     G['C'] = ['E','A']
-    G['D'] = ['B']    
+    G['D'] = ['B']
+    G['E'] = []    
     print(G)
-    #bfs = BFS(G,'A')
+    bfs = BFS(G,'A')
+    print(bfs.has_path_to('D'))
     #assert bfs.has_path_to('D') == True
     #assert bfs.path_to('D') == []
 
