@@ -17,7 +17,7 @@ def test_bfs_traverse():
     G['E'] = ['C']    
     bfs = BFS(G,'A')
     print(bfs.has_path_to('C'))
-    print(bfs.path_to('C'))
+    print(bfs.path_to('D'))
     #assert bfs.has_path_to('D') == True
     #assert bfs.path_to('D') == []
 
