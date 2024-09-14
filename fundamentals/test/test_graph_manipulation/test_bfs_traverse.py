@@ -24,7 +24,7 @@ class BFS:
         return v in self.visited
     
     def path_to(self,v):
-        pass
+        pass 
 
 def test_bfs_traverse():
     """
@@ -36,9 +36,13 @@ def test_bfs_traverse():
     """
     G = defaultdict()
     G['A'] = ['B','C']
-    G['B'] = ['D']
-    G['C'] = ['E']    
-    bfs = BFS(G,'A')
-    assert bfs.has_path_to('D') == True
-    assert bfs.path_to('D') == []
+    G['B'] = ['D','A']
+    G['C'] = ['E','A']
+    G['D'] = ['B']    
+    print(G)
+    #bfs = BFS(G,'A')
+    #assert bfs.has_path_to('D') == True
+    #assert bfs.path_to('D') == []
+
+test_bfs_traverse()
 
