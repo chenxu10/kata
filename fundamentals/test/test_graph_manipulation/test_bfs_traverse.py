@@ -21,7 +21,7 @@ class BFS:
                     self.edge_to.append(node)            
 
     def has_path_to(self,v):
-        return v in self.marked
+        return v in self.visited
     
     def path_to(self,v):
         return ['A','B','D']
