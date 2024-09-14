@@ -6,7 +6,7 @@ class BFS:
     def __init__(self,G,s) -> None:
         self.G = G
         self.s = s
-        self.edge_to = deque()
+        self.edge_to = defaultdict()
         self.visited = set()
         self._bfs_traverse()
 
@@ -18,16 +18,20 @@ class BFS:
                 if w not in self.visited:
                     q.append(w)
                     self.visited.add(w)
-                    self.edge_to.appendleft(w)            
+                    self.edge_to[w] = v            
 
     def has_path_to(self,v):
         return v in self.visited
     
     def path_to(self,v):
         if v in self.visited:
-            return list(self.edge_to)
-        else:
-            print("Can Not Be Reached")
+            path = []
+            x = v
+            while x != self.s:
+                path.append(x)
+                x = self.edge_to[x]
+            path.append(x)
+            return path
 
 def test_bfs_traverse():
     """
