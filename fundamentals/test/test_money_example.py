@@ -5,9 +5,8 @@ class Dollar:
     def __init__(self, amount) -> None:
         self.amount = amount 
     
-    def times(self, multipler):
-        self.amount = self.amount * multipler
-        return self.amount
+    def times(self, multiplier):
+        return Dollar(self.amount * multiplier)
 
 def test_multiply():
     five = Dollar(5)
