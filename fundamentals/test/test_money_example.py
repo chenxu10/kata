@@ -12,7 +12,7 @@ class Dollar:
 def test_multipy():
     five = Dollar(5)
     amount = five.times(2)
-    print(amount)
+    print(five.amount)
     assert amount == 10
 
 def main():
