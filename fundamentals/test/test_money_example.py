@@ -12,4 +12,5 @@ class Dollar:
 
 def test_money_times():
     five = Dollar(5)
-    assert five.times(2) == 10
+    result = five.times(2)
+    assert result.value == 10
