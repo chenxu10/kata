@@ -15,8 +15,8 @@ def test_money_times():
     result = five.times(2)
     assert result == 10
 
-
 def main():
     test_money_times()
+
 if __name__ == '__main__':
     main()
