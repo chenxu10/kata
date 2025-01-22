@@ -1,6 +1,6 @@
 
 
-
+#TODO:edit in vim way DONOT leave the home row mouse is slow
 
 class Dollar:
     def __init__(self,amount):
