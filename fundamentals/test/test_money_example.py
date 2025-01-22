@@ -8,9 +8,15 @@ class Dollar:
 
     def times(self, amount):
         self.value *= amount
-        return self.value
+        return self.value        
 
 def test_money_times():
     five = Dollar(5)
     result = five.times(2)
-    assert result.value == 10
+    assert result == 10
+
+
+def main():
+    test_money_times()
+if __name__ == '__main__':
+    main()
