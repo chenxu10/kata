@@ -10,7 +10,7 @@ class Dollar:
         return Dollar(self.amount * multiplier)
 
 def test_money_times():
-    five = Dollar(5)
+    five = Dollar(5) 
     dollar = five.times(2)
     assert dollar.amount == 10
     dollar = five.times(3)
