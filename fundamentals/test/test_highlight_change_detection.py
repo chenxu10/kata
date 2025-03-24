@@ -1,41 +1,44 @@
 import pandas as pd
+from collections import Counter
 
 def change_detection(df):
     def clean_word(word):
-        """Remove punctuation from word ends for comparison"""
+        """Remove punctuation while preserving original word"""
         return word.strip(".,!?;:'\"()[]{}") if word else None
 
-    def compare_words(user_word, gpt_word):
-        """Compare cleaned words and return appropriate styles"""
-        clean_uw = clean_word(user_word)
-        clean_gw = clean_word(gpt_word)
+    def process_sentence_pair(user_sent, gpt_sent):
+        """Compare sentences and highlight matches across positions"""
+        # Split and clean both sentences
+        user_words = user_sent.split()
+        gpt_words = gpt_sent.split()
         
-        if clean_uw == clean_gw:
-            return (
-                f'<span style="color: #4CAF50">{user_word}</span>' if user_word else None,
-                f'<span style="color: #4CAF50">{gpt_word}</span>' if gpt_word else None
-            )
-        return (
-            f'<span style="color: #FF0000">{user_word}</span>' if user_word else None,
-            f'<span style="color: #FFD700">{gpt_word}</span>' if gpt_word else None
-        )
+        # Create counters for cleaned words
+        user_cleaned = [clean_word(w) for w in user_words]
+        gpt_cleaned = [clean_word(w) for w in gpt_words]
+        
+        # Track remaining matches using counters
+        user_counter = Counter(user_cleaned)
+        gpt_counter = Counter(gpt_cleaned)
 
-    def process_sentence_pair(user_sentence, gpt_sentence):
-        """Split and compare sentences word-by-word"""
-        user_words = user_sentence.split()
-        gpt_words = gpt_sentence.split()
-        max_length = max(len(user_words), len(gpt_words))
-        
-        user_line, gpt_line = [], []
-        for i in range(max_length):
-            uw = user_words[i] if i < len(user_words) else None
-            gw = gpt_words[i] if i < len(gpt_words) else None
-            
-            user_span, gpt_span = compare_words(uw, gw)
-            if user_span: user_line.append(user_span)
-            if gpt_span: gpt_line.append(gpt_span)
-            
-        return ' '.join(user_line), ' '.join(gpt_line)
+        # Process user's words
+        user_output = []
+        for word, cleaned in zip(user_words, user_cleaned):
+            if gpt_counter.get(cleaned, 0) > 0:
+                user_output.append(f'<span style="color: #4CAF50">{word}</span>')
+                gpt_counter[cleaned] -= 1
+            else:
+                user_output.append(f'<span style="color: #FF0000">{word}</span>')
+
+        # Process GPT's words
+        gpt_output = []
+        for word, cleaned in zip(gpt_words, gpt_cleaned):
+            if user_counter.get(cleaned, 0) > 0:
+                gpt_output.append(f'<span style="color: #4CAF50">{word}</span>')
+                user_counter[cleaned] -= 1
+            else:
+                gpt_output.append(f'<span style="color: #FFD700">{word}</span>')
+
+        return ' '.join(user_output), ' '.join(gpt_output)
 
     def create_output_row(user_processed, gpt_processed):
         """Create final pandas Series output row"""
@@ -46,11 +49,8 @@ def change_detection(df):
 
     def process_row(row):
         """Main row processing orchestrator"""
-        user_processed, gpt_processed = process_sentence_pair(
-            row['user_short'],
-            row['gpt_short']
-        )
-        return create_output_row(user_processed, gpt_processed)
+        user, gpt = process_sentence_pair(row['user_short'], row['gpt_short'])
+        return create_output_row(user, gpt)
 
     # Process rows and convert to styled HTML
     styled_df = df.apply(process_row, axis=1)
