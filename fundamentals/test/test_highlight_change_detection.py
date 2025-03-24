@@ -1,35 +1,41 @@
 import pandas as pd
 
 def change_detection(df):
+    def clean_word(word):
+        """Remove punctuation from word ends for comparison"""
+        return word.strip(".,!?;:'\"()[]{}") if word else None
+
     def compare_words(user_word, gpt_word):
-        """Compare individual word pair and return styled spans"""
-        if user_word == gpt_word:
+        """Compare cleaned words and return appropriate styles"""
+        clean_uw = clean_word(user_word)
+        clean_gw = clean_word(gpt_word)
+        
+        if clean_uw == clean_gw:
             return (
-                f'<span style="color: #4CAF50">{user_word}</span>',
-                f'<span style="color: #4CAF50">{gpt_word}</span>'
+                f'<span style="color: #4CAF50">{user_word}</span>' if user_word else None,
+                f'<span style="color: #4CAF50">{gpt_word}</span>' if gpt_word else None
             )
-        else:
-            user_style = f'<span style="color: #FF0000; text-decoration: underline">{user_word}</span>' if user_word else None
-            gpt_style = f'<span style="color: #FFA500; text-decoration: underline">{gpt_word}</span>' if gpt_word else None
-            return (user_style, gpt_style)
+        return (
+            f'<span style="color: #FF0000">{user_word}</span>' if user_word else None,
+            f'<span style="color: #FFD700">{gpt_word}</span>' if gpt_word else None
+        )
 
     def process_sentence_pair(user_sentence, gpt_sentence):
-        """Process a pair of sentences and return styled components"""
+        """Split and compare sentences word-by-word"""
         user_words = user_sentence.split()
         gpt_words = gpt_sentence.split()
-        max_len = max(len(user_words), len(gpt_words))
+        max_length = max(len(user_words), len(gpt_words))
         
-        user_output, gpt_output = [], []
-        
-        for i in range(max_len):
+        user_line, gpt_line = [], []
+        for i in range(max_length):
             uw = user_words[i] if i < len(user_words) else None
             gw = gpt_words[i] if i < len(gpt_words) else None
             
             user_span, gpt_span = compare_words(uw, gw)
-            if user_span: user_output.append(user_span)
-            if gpt_span: gpt_output.append(gpt_span)
+            if user_span: user_line.append(user_span)
+            if gpt_span: gpt_line.append(gpt_span)
             
-        return ' '.join(user_output), ' '.join(gpt_output)
+        return ' '.join(user_line), ' '.join(gpt_line)
 
     def create_output_row(user_processed, gpt_processed):
         """Create final pandas Series output row"""
@@ -52,8 +58,8 @@ def change_detection(df):
 
 def test_change_detection():
     input_df = pd.DataFrame({
-        "user_short": ["this is an apple", "legal billing is fun!"],
-        "gpt_short": ["this is an orange", "legal billing is serious."]
+        "user_short": ["this is an apple. that is an apple.", "legal billing is fun!"],
+        "gpt_short": ["this is an orange. that is an apple.", "legal billing is serious."]
     })
     
     result = change_detection(input_df)
