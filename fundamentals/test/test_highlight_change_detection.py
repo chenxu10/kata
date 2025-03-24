@@ -54,7 +54,15 @@ def change_detection(df):
 
     # Process rows and convert to styled HTML
     styled_df = df.apply(process_row, axis=1)
-    return styled_df.style.set_properties(**{'white-space': 'pre-wrap'}).format(escape=None)
+    return (
+        styled_df.style
+        .set_properties(**{'white-space': 'pre-wrap'})
+        .format(escape=None)
+        .set_table_styles([{
+            'selector': 'tr:not(:last-child)',
+            'props': [('border-bottom', '1px solid black'), ('padding', '5px 0')]
+        }])
+    )
 
 def test_change_detection():
     input_df = pd.DataFrame({
@@ -74,5 +82,5 @@ if __name__ == "__main__":
         "gpt_short": ["this is an orange. that is an apple.", "legal billing is serious."]
     })
     result = change_detection(input_df)
-    with open("example_cd.html", "w") as f:
+    with open("example_cd.html", "w", encoding="utf-8") as f:
         f.write(result.to_html())
