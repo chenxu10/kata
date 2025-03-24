@@ -70,8 +70,8 @@ def test_change_detection():
 
 if __name__ == "__main__":
     input_df = pd.DataFrame({
-        "user_short": ["this is an apple", "legal billing is fun!"],
-        "gpt_short": ["this is an orange", "legal billing is serious."]
+        "user_short": ["this is an apple. that is an apple.", "legal billing is fun!"],
+        "gpt_short": ["this is an orange. that is an apple.", "legal billing is serious."]
     })
     result = change_detection(input_df)
     with open("example_cd.html", "w") as f:
