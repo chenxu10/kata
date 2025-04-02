@@ -20,7 +20,6 @@ def generate_tweedie_dataset():
       "net_loss":[1000,1000],  
     })
 
-print(generate_tweedie_dataset())
 
 pd.testing.assert_frame_equal(
     generate_tweedie_dataset(),
