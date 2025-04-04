@@ -6,6 +6,10 @@ class Rope():
     def __str__(self):
         return self.s
     def substring(self, start, end):
+        return Substring()
+
+class Substring():
+    def __str__(self):
         return "bcd"
 
 def to_rope(s):
