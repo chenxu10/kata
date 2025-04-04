@@ -1,27 +1,16 @@
 import pandas as pd
 
+class Rope():
+    def __init__(self, s) -> None:
+        self.s = s
+    def __str__(self):
+        return self.s
 def to_rope(s):
     return Rope(s)
 
-
-class Rope:
-    def __init__(self, s):
-        self.s = s
-
-    def __str__(self) -> str:
-        return self.s
-
-assert str(to_rope("abc")) == 'abc'
+def test_rope():
+    assert str(to_rope("abc")) == "abc"
 
 
-
-def generate_tweedie_dataset():
-    return pd.DataFrame({
-      "net_loss":[1000,1000],  
-    })
-
-
-pd.testing.assert_frame_equal(
-    generate_tweedie_dataset(),
-    pd.DataFrame({"net_loss":[1000,1000]})
-)
+if __name__ == "__main__":
+    test_rope()
