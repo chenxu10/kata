@@ -14,7 +14,6 @@ def to_rope(s):
 
 
 def test_rope():
-    print(str(to_rope("abcde")))
     assert str(to_rope("abcde")) == "abcde"
 
 def main():
