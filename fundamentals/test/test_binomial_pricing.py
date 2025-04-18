@@ -13,7 +13,8 @@ def test_binomial_pricing():
         'annual_interest_rate':0.04,
         'n_period':3,
         'up_factor':1.1,
-        'down_factor':1/1.1
+        'down_factor':1/1.1,
+        'opt_type':'P'
     }
     price = binomial_pricing(params)
     assert price == 2.01
