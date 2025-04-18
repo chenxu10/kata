@@ -22,6 +22,7 @@ def binomial_pricing(params):
 
     risk_netural_prob = calcuate_risk_netural_probability(T,N,r,u,d)
     stock_tree = intialize_stock_price_with_tree_structure(N, S0, u, d)
+    print(stock_tree)
 
     return 2.01
 
