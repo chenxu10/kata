@@ -1,8 +1,6 @@
 
 
 
-
-
 def binomial_pricing(params):
     return 2.01
 
