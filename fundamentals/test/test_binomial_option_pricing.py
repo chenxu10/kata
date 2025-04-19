@@ -270,3 +270,111 @@ if __name__ == "__main__":
     # Dynamically option pricing
     #volatilities = [0.2, 0.25, 0.3]  # For N=3 periods
     #binomial_price, _, _ = dynamic_binomial_option_price(S0, K, r, N=3, volatilities=volatilities)
+
+def binomial_tree_with_dividend(S0, K, r, u, d, div_amount, div_time, option_type='c', is_american=True):
+    """
+    Construct a 2-step binomial tree for a stock with discrete dividend
+    
+    Parameters:
+    S0: Initial stock price
+    K: Strike price
+    r: Risk-free interest rate (annual)
+    u: Up factor
+    d: Down factor
+    div_amount: Amount of dividend
+    div_time: Time step when dividend is paid (0=start, 1=after first step, 2=end)
+    option_type: 'c' for call, 'p' for put
+    is_american: True for American option, False for European
+    
+    Returns:
+    option_price: Price of the option
+    stock_tree: Tree of stock prices (pre-dividend)
+    ex_div_tree: Tree of stock prices (post-dividend)
+    option_tree: Tree of option values
+    """
+    # Step 1: Calculate risk-neutral probability
+    dt = 1/2  # 2-step tree means each step is 0.5 years
+    p = calculate_risk_neutral_prob(r, dt, u, d)
+    
+    # Step 2: Initialize stock price tree (pre-dividend)
+    stock_tree = np.zeros((3, 3))
+    stock_tree[0, 0] = S0
+    
+    # Step 3: Build stock tree with dividend adjustment
+    ex_div_tree = np.zeros((3, 3))  # Post-dividend tree
+    
+    # First time step
+    stock_tree[0, 1] = S0 * u
+    stock_tree[1, 1] = S0 * d
+    
+    # Apply dividend at div_time if it's after the first step
+    if div_time == 1:
+        ex_div_tree[0, 1] = stock_tree[0, 1] - div_amount
+        ex_div_tree[1, 1] = stock_tree[1, 1] - div_amount
+        
+        # Second time step (from ex-dividend prices)
+        stock_tree[0, 2] = ex_div_tree[0, 1] * u
+        stock_tree[1, 2] = ex_div_tree[0, 1] * d
+        stock_tree[2, 2] = ex_div_tree[1, 1] * d
+    else:
+        # No dividend yet or it's at the final step
+        ex_div_tree[0, 1] = stock_tree[0, 1]
+        ex_div_tree[1, 1] = stock_tree[1, 1]
+        
+        # Second time step
+        stock_tree[0, 2] = stock_tree[0, 1] * u
+        stock_tree[1, 2] = stock_tree[0, 1] * d  # or stock_tree[1, 1] * u
+        stock_tree[2, 2] = stock_tree[1, 1] * d
+        
+        # Apply dividend at final step if applicable
+        if div_time == 2:
+            ex_div_tree[0, 2] = stock_tree[0, 2] - div_amount
+            ex_div_tree[1, 2] = stock_tree[1, 2] - div_amount
+            ex_div_tree[2, 2] = stock_tree[2, 2] - div_amount
+        else:
+            ex_div_tree[0, 2] = stock_tree[0, 2]
+            ex_div_tree[1, 2] = stock_tree[1, 2]
+            ex_div_tree[2, 2] = stock_tree[2, 2]
+    
+    # Step 4: Calculate option values at expiration
+    option_tree = np.zeros((3, 3))
+    
+    # Final payoffs based on ex-dividend prices
+    final_prices = ex_div_tree[:, 2] if div_time == 2 else stock_tree[:, 2]
+    
+    for j in range(3):
+        if option_type.lower() == 'c':  # Call option
+            option_tree[j, 2] = max(0, final_prices[j] - K)
+        else:  # Put option
+            option_tree[j, 2] = max(0, K - final_prices[j])
+    
+    # Step 5: Work backwards through the tree (backward induction)
+    # First backward step
+    for j in range(2):
+        # Expected value (risk-neutral)
+        expected_value = np.exp(-r * dt) * (p * option_tree[j, 2] + (1-p) * option_tree[j+1, 2])
+        
+        if is_american:
+            # For American options, consider early exercise
+            if option_type.lower() == 'c':
+                intrinsic = max(0, ex_div_tree[j, 1] - K)
+            else:
+                intrinsic = max(0, K - ex_div_tree[j, 1])
+            option_tree[j, 1] = max(expected_value, intrinsic)
+        else:
+            option_tree[j, 1] = expected_value
+    
+    # Final backward step to root
+    expected_value = np.exp(-r * dt) * (p * option_tree[0, 1] + (1-p) * option_tree[1, 1])
+    
+    if is_american:
+        # For American options, consider early exercise
+        if option_type.lower() == 'c':
+            intrinsic = max(0, stock_tree[0, 0] - K)
+        else:
+            intrinsic = max(0, K - stock_tree[0, 0])
+        option_tree[0, 0] = max(expected_value, intrinsic)
+    else:
+        option_tree[0, 0] = expected_value
+    
+    return option_tree[0, 0], stock_tree, ex_div_tree, option_tree
