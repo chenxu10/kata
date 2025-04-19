@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import networkx as nx
+from scipy.stats import norm
 
 def calculate_risk_neutral_prob(r, dt, u, d):
     """
@@ -75,6 +76,45 @@ def backward_induction(option_tree, r, dt, p, N):
         for j in range(i+1):
             option_tree[j, i] = np.exp(-r * dt) * (p * option_tree[j, i+1] + (1-p) * option_tree[j+1, i+1])
     return option_tree
+
+def calculate_implied_volatility(u, d, dt):
+    """
+    Calculate implied volatility from binomial model parameters
+    
+    Parameters:
+    u: Up factor
+    d: Down factor
+    dt: Time step
+    
+    Returns:
+    sigma: Implied volatility
+    """
+    return np.sqrt(np.log(u/d)**2 / (2*dt))
+
+def bsm_option_price(S0, K, r, T, sigma, option_type='c'):
+    """
+    Calculate option price using Black-Scholes-Merton formula
+    
+    Parameters:
+    S0: Initial stock price
+    K: Strike price
+    r: Risk-free interest rate (annual)
+    T: Time to expiration (years)
+    sigma: Volatility
+    option_type: 'c' for call, 'p' for put
+    
+    Returns:
+    option_price: Price of the option
+    """
+    d1 = (np.log(S0/K) + (r + 0.5 * sigma**2) * T) / (sigma * np.sqrt(T))
+    d2 = d1 - sigma * np.sqrt(T)
+    
+    if option_type.lower() == 'c':  # Call option
+        price = S0 * norm.cdf(d1) - K * np.exp(-r * T) * norm.cdf(d2)
+    else:  # Put option
+        price = K * np.exp(-r * T) * norm.cdf(-d2) - S0 * norm.cdf(-d1)
+    
+    return price
 
 def binomial_option_price(S0, K, r, N, u, d, option_type='c'):
     """
@@ -157,8 +197,16 @@ if __name__ == "__main__":
     d = 1/u           # Down factor
     option_type = 'p' # Put option
     
-    # Calculate option price
-    option_price, stock_tree, option_tree = binomial_option_price(S0, K, r, N, u, d, option_type)
+    # Calculate option price using binomial model
+    binomial_price, stock_tree, option_tree = binomial_option_price(S0, K, r, N, u, d, option_type)
+    
+    # Calculate implied volatility from binomial parameters
+    dt = 1/N
+    sigma = calculate_implied_volatility(u, d, dt)
+    
+    # Calculate option price using BSM model
+    T = 1.0  # Assuming 1 year total time
+    bsm_price = bsm_option_price(S0, K, r, T, sigma, option_type)
     
     # Display results
     print(f"Initial Stock Price: ${S0}")
@@ -167,8 +215,11 @@ if __name__ == "__main__":
     print(f"Number of Periods: {N}")
     print(f"Up Factor: {u}")
     print(f"Down Factor: {d:.4f}")
+    print(f"Implied Volatility: {sigma:.4f}")
     print(f"Option Type: {'Put' if option_type=='p' else 'Call'}")
-    print(f"Option Price: ${option_price:.4f}")
-    
+    print(f"Binomial Option Price: ${binomial_price:.4f}")
+    print(f"BSM Option Price: ${bsm_price:.4f}")
+    print(f"Difference: ${abs(binomial_price - bsm_price):.4f}")
+       
     # Visualize the tree
-    visualize_binomial_tree(stock_tree, option_tree, N) 
+    visualize_binomial_tree(stock_tree, option_tree, N)
