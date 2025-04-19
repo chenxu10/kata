@@ -229,48 +229,6 @@ def dynamic_binomial_option_price(S0, K, r, N, volatilities, dt=1/252, option_ty
                 stock_tree[j, i] = stock_tree[j-1, i-1] * d
  
     
-# Example usage with the given parameters
-if __name__ == "__main__":
-    # Parameters
-    S0 = 100          # Initial stock price
-    K = 100           # Strike price
-    r = 0.04          # Annual interest rate
-    N = 3             # Number of periods
-    u = 1.1           # Up factor
-    d = 1/u           # Down factor
-    option_type = 'p' # Put option
-    
-    # Calculate option price using binomial model
-    binomial_price, stock_tree, option_tree = binomial_option_price(S0, K, r, N, u, d, option_type)
-    
-    # Calculate implied volatility from binomial parameters
-    dt = 1/N
-    sigma = calculate_implied_volatility(u, d, dt)
-    
-    # Calculate option price using BSM model
-    T = 1.0  # Assuming 1 year total time
-    bsm_price = bsm_option_price(S0, K, r, T, sigma, option_type)
-    
-    # Display results
-    print(f"Initial Stock Price: ${S0}")
-    print(f"Strike Price: ${K}")
-    print(f"Risk-free Rate: {r*100}%")
-    print(f"Number of Periods: {N}")
-    print(f"Up Factor: {u}")
-    print(f"Down Factor: {d:.4f}")
-    print(f"Implied Volatility: {sigma:.4f}")
-    print(f"Option Type: {'Put' if option_type=='p' else 'Call'}")
-    print(f"Binomial Option Price: ${binomial_price:.4f}")
-    print(f"BSM Option Price: ${bsm_price:.4f}")
-    print(f"Difference: ${abs(binomial_price - bsm_price):.4f}")
-       
-    # Visualize the tree
-    visualize_binomial_tree(stock_tree, option_tree, N)
-
-    # Dynamically option pricing
-    #volatilities = [0.2, 0.25, 0.3]  # For N=3 periods
-    #binomial_price, _, _ = dynamic_binomial_option_price(S0, K, r, N=3, volatilities=volatilities)
-
 def binomial_tree_with_dividend(S0, K, r, u, d, div_amount, div_time, option_type='c', is_american=True):
     """
     Construct a 2-step binomial tree for a stock with discrete dividend
@@ -378,3 +336,44 @@ def binomial_tree_with_dividend(S0, K, r, u, d, div_amount, div_time, option_typ
         option_tree[0, 0] = expected_value
     
     return option_tree[0, 0], stock_tree, ex_div_tree, option_tree
+# Example usage with the given parameters
+if __name__ == "__main__":
+    # Parameters
+    S0 = 100          # Initial stock price
+    K = 100           # Strike price
+    r = 0.04          # Annual interest rate
+    N = 3             # Number of periods
+    u = 1.1           # Up factor
+    d = 1/u           # Down factor
+    option_type = 'p' # Put option
+    
+    # Calculate option price using binomial model
+    binomial_price, stock_tree, option_tree = binomial_option_price(S0, K, r, N, u, d, option_type)
+    
+    # Calculate implied volatility from binomial parameters
+    dt = 1/N
+    sigma = calculate_implied_volatility(u, d, dt)
+    
+    # Calculate option price using BSM model
+    T = 1.0  # Assuming 1 year total time
+    bsm_price = bsm_option_price(S0, K, r, T, sigma, option_type)
+    
+    # Display results
+    print(f"Initial Stock Price: ${S0}")
+    print(f"Strike Price: ${K}")
+    print(f"Risk-free Rate: {r*100}%")
+    print(f"Number of Periods: {N}")
+    print(f"Up Factor: {u}")
+    print(f"Down Factor: {d:.4f}")
+    print(f"Implied Volatility: {sigma:.4f}")
+    print(f"Option Type: {'Put' if option_type=='p' else 'Call'}")
+    print(f"Binomial Option Price: ${binomial_price:.4f}")
+    print(f"BSM Option Price: ${bsm_price:.4f}")
+    print(f"Difference: ${abs(binomial_price - bsm_price):.4f}")
+       
+    # Visualize the tree
+    visualize_binomial_tree(stock_tree, option_tree, N)
+
+    # Dynamically option pricing
+    #volatilities = [0.2, 0.25, 0.3]  # For N=3 periods
+    #binomial_price, _, _ = dynamic_binomial_option_price(S0, K, r, N=3, volatilities=volatilities)
