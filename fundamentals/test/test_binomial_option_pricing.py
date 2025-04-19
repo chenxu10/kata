@@ -108,7 +108,7 @@ def binomial_option_price(S0, K, r, N, u, d, option_type='c'):
     print("option tree at expiration looks like this:")
     print(option_tree)
     
-    # Work backwards through the tree
+    # Step 4: Work backwards through the tree
     option_tree = backward_induction(option_tree, r, dt, p, N)
     print("option tree looks like this:")
     print(option_tree)
