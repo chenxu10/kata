@@ -100,13 +100,18 @@ def binomial_option_price(S0, K, r, N, u, d, option_type='c'):
     
     # Initialize stock price tree
     stock_tree = initialize_stock_tree(S0, N, u, d)
+    print("stock tree looks like this:")
+    print(stock_tree)
     
     # Calculate option values at expiration
     option_tree = calculate_expiration_values(stock_tree, K, N, option_type)
+    print("option tree at expiration looks like this:")
     print(option_tree)
     
     # Work backwards through the tree
     option_tree = backward_induction(option_tree, r, dt, p, N)
+    print("option tree looks like this:")
+    print(option_tree)
     
     return option_tree[0, 0], stock_tree, option_tree
 
