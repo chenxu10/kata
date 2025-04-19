@@ -336,6 +336,34 @@ def binomial_tree_with_dividend(S0, K, r, u, d, div_amount, div_time, option_typ
         option_tree[0, 0] = expected_value
     
     return option_tree[0, 0], stock_tree, ex_div_tree, option_tree
+
+def bsm_with_discrete_dividend(S0, K, r, T, sigma, div_amount, div_time, option_type='c'):
+    """
+    Calculate European option price using Black-Scholes-Merton formula with discrete dividend adjustment
+    
+    Parameters:
+    S0: Initial stock price
+    K: Strike price
+    r: Risk-free interest rate (annual)
+    T: Time to expiration (years)
+    sigma: Volatility
+    div_amount: Amount of dividend
+    div_time: Time when dividend is paid (as fraction of T)
+    option_type: 'c' for call, 'p' for put
+    
+    Returns:
+    option_price: Price of the option
+    """
+    # Calculate present value of dividend
+    pv_dividend = div_amount * np.exp(-r * div_time * T)
+    
+    # Adjust stock price by subtracting present value of dividend
+    S_adjusted = S0 - pv_dividend
+    
+    # Use standard BSM formula with adjusted stock price
+    return bsm_option_price(S_adjusted, K, r, T, sigma, option_type)
+
+
 # Example usage with the given parameters
 if __name__ == "__main__":
     # Parameters
