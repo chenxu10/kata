@@ -94,16 +94,16 @@ def binomial_option_price(S0, K, r, N, u, d, option_type='c'):
     stock_tree: Tree of stock prices
     option_tree: Tree of option values
     """
-    # Calculate risk-neutral probability
+    # Step 1: Calculate risk-neutral probability
     dt = 1/N  # Time step (assuming 1 year total time)
     p = calculate_risk_neutral_prob(r, dt, u, d)
     
-    # Initialize stock price tree
+    # Step 2: Initialize stock price tree
     stock_tree = initialize_stock_tree(S0, N, u, d)
     print("stock tree looks like this:")
     print(stock_tree)
     
-    # Calculate option values at expiration
+    # Step 3: Calculate option values at expiration
     option_tree = calculate_expiration_values(stock_tree, K, N, option_type)
     print("option tree at expiration looks like this:")
     print(option_tree)
