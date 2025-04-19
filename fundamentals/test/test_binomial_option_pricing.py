@@ -185,6 +185,49 @@ def visualize_binomial_tree(stock_tree, option_tree, N):
     plt.tight_layout()
     plt.savefig('binomial_tree.png', dpi=300)
     plt.show()
+
+def dynamic_binomial_option_price(S0, K, r, N, volatilities, dt=1/252, option_type='c'):
+    """
+    Calculate option price with dynamic volatility
+    
+    Parameters:
+    S0: Initial stock price
+    K: Strike price
+    r: Risk-free interest rate (annual)
+    N: Number of periods
+    volatilities: List of annualized volatilities for each period
+    dt: Time step (default daily)
+    option_type: 'c' for call, 'p' for put
+    
+    Returns:
+    option_price: Price of the option
+    stock_tree: Tree of stock prices
+    option_tree: Tree of option values
+    """
+    # Validate volatility input
+    if len(volatilities) != N:
+        raise ValueError("Volatilities list must have length equal to N")
+    
+    # Initialize trees
+    stock_tree = np.zeros((N+1, N+1))
+    option_tree = np.zeros((N+1, N+1))
+    stock_tree[0, 0] = S0
+    
+    # Build stock tree with dynamic volatility
+    for i in range(1, N+1):
+        # Calculate current period parameters
+        sigma = volatilities[i-1]
+        u = np.exp(sigma * np.sqrt(dt))
+        d = 1/u
+        p = (np.exp(r * dt) - d) / (u - d)
+        
+        for j in range(i+1):
+            if j == 0:  # Highest node
+                stock_tree[j, i] = stock_tree[j, i-1] * u
+            else:
+                # Use average of possible previous paths
+                stock_tree[j, i] = stock_tree[j-1, i-1] * d
+ 
     
 # Example usage with the given parameters
 if __name__ == "__main__":
@@ -223,3 +266,7 @@ if __name__ == "__main__":
        
     # Visualize the tree
     visualize_binomial_tree(stock_tree, option_tree, N)
+
+    # Dynamically option pricing
+    #volatilities = [0.2, 0.25, 0.3]  # For N=3 periods
+    #binomial_price, _, _ = dynamic_binomial_option_price(S0, K, r, N=3, volatilities=volatilities)
