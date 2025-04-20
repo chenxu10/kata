@@ -317,7 +317,7 @@ def binomial_tree_with_dividend(S0, K, r, u, d, div_amount, div_time, option_typ
             if option_type.lower() == 'c':
                 intrinsic = max(0, ex_div_tree[j, 1] - K)
             else:
-                intrinsic = max(0, K - ex_div_tree[j, 1])
+                intrinsic = max(0, K - ex_div_tree[j, 1])  
             option_tree[j, 1] = max(expected_value, intrinsic)
         else:
             option_tree[j, 1] = expected_value
