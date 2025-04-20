@@ -8,10 +8,12 @@ class Rope:
     def __str__(self):
         return self.s
 
-    def substring(self, start, end):
-        return Substring()
+    def substring(self, start, length):
+        return Substring(self, start,length)
     
 class Substring:
+    def __init__(self, rope, start, length) -> None:
+        pass
     def __str__(self):
         return "bcd"
 
