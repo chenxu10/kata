@@ -370,7 +370,7 @@ if __name__ == "__main__":
     S0 = 100          # Initial stock price
     K = 100           # Strike price
     r = 0.04          # Annual interest rate
-    N = 3             # Number of periods
+    N = 6             # Number of periods
     u = 1.1           # Up factor
     d = 1/u           # Down factor
     option_type = 'p' # Put option
