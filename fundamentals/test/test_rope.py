@@ -13,10 +13,11 @@ class Rope:
     
 class Substring:
     def __init__(self, rope, start, length) -> None:
-        pass
+        self.rope = rope
+        self.start = start
+        self.length = length
     def __str__(self):
-        return "bcd"
-
+        return str(self.rope)[self.start:self.start+self.length]
 
 def to_rope(s):
     return Rope(s)
