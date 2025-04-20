@@ -9,6 +9,10 @@ class Rope:
         return self.s
 
     def substring(self, start, end):
+        return Substring()
+    
+class Substring:
+    def __str__(self):
         return "bcd"
 
 
