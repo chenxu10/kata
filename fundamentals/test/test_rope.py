@@ -1,17 +1,17 @@
 
+class Rope:
+    def substring(self, start, length):
+        return Substring(self, start, length)
 
 
-class String:
+class String(Rope):
     def __init__(self, s):
         self.s = s
     
     def __str__(self):
         return self.s
-
-    def substring(self, start, length):
-        return Substring(self, start, length)
-    
-class Substring:
+   
+class Substring(Rope):
     def __init__(self, rope, start, length) -> None:
         self.rope = rope
         self.start = start
