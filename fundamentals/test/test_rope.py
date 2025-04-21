@@ -1,7 +1,7 @@
 
 
 
-class Rope:
+class String:
     def __init__(self, s):
         self.s = s
     
@@ -21,7 +21,7 @@ class Substring:
         return str(self.rope)[self.start:self.start+self.length]
 
 def to_rope(s):
-    return Rope(s)
+    return String(s)
 
 
 def test_rope():
