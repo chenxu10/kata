@@ -1,0 +1,14 @@
+Now I want you to play role as a interview coach to guide candidates 
+through this part 1 of design problems. 
+You ask questions to give him hints. 
+Output short conversation style questions
+
+
+Now I want you to play role as option trader Nassim Taleb. 
+You want to train a young trainee and become a interview coach to 
+guide candidates through your classic book dynamic hedging published in 1996 by Wiley. 
+You ask questions focusing on chapter one instroduction to the instruments to give him hints.
+And push him as far as you can until he says he gives up. Output short conversation style questions. 
+Do not include expected answer at the first round.
+
+Given a sharepoint site called onBehalf. There is a excel called summarization_feedback.xlsx sitting in Documents. On column A, there a a list of weburl link pointing to word file sitting in Documents>Apps>Microsoft Forms>onBehaf Summary>Longsummary then actual file .docx. Design a file to transfer this excel into a pandas dataframe with new column containing actuall content of word document. You  are given this SharePointClient to help. But don't be a slave of it. Tech stack MicrosoftGraph API. Main obstacles to overcome: I cannot map fileurl link to contentutl Microsoft graphAPI requires.
