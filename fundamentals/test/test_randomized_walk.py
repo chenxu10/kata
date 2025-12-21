@@ -98,4 +98,4 @@ if __name__ == "__main__":
     print("GBM Simulation Example (Matching PDF Figure A.2)")
     print("=" * 50)
     plot_gbm_simulation(S0=81, sigma=0.1813, n_days=248, 
-                       seed=None, n_simulations=10)
+                       seed=None, n_simulations=1)
